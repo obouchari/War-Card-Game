@@ -20,12 +20,24 @@ The game ends when one player has won all the cards.
 
 ## Run the game locally
 
-`$ npm run dev`
+```bash
+$ npm run dev
+```
+
 or
-`$ yarn dev`
+
+```bash
+$ yarn dev
+```
 
 ## Build the game
 
-`$ npm run build`
+```bash
+$ npm run build
+```
+
 or
-`$ yarn build`
+
+```bash
+$ yarn build
+```
