@@ -90,6 +90,11 @@ source-map-js@^0.6.2:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
   integrity sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==
 
+svg-cards@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/svg-cards/-/svg-cards-4.0.0.tgz#ecd03aa4a406a72443ad4ffeecf8decf6a287669"
+  integrity sha512-vjEXa4ic493bshMrm9wfiE7vaO02rjwfOQuyVRBQRnNDhaM4DCqTbkxuGSt/X0fhGrsOLOBEoVcUfTL81UY10g==
+
 vite@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.4.4.tgz#8c402a07ad45f168f6eb5428bead38f3e4363e47"
