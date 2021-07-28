@@ -1,3 +1,4 @@
+import $ from "jquery";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./game.css";
-
-alert("game is starting...");

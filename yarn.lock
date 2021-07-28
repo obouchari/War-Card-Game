@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@popperjs/core@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
+
 bootstrap@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.2.tgz#aff23d5e0e03c31255ad437530ee6556e78e728e"
@@ -89,11 +94,6 @@ source-map-js@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
   integrity sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==
-
-svg-cards@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/svg-cards/-/svg-cards-4.0.0.tgz#ecd03aa4a406a72443ad4ffeecf8decf6a287669"
-  integrity sha512-vjEXa4ic493bshMrm9wfiE7vaO02rjwfOQuyVRBQRnNDhaM4DCqTbkxuGSt/X0fhGrsOLOBEoVcUfTL81UY10g==
 
 vite@^2.4.4:
   version "2.4.4"
