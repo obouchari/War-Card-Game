@@ -12,6 +12,10 @@ body {
   background-color: var(--dark-bg-color) !important;
 }
 
+.text-light {
+  color: #dde4f3 !important;
+}
+
 .ff-star-wars {
   font-family: "star-wars", Helvetica, Arial, sans-serif;
 }
