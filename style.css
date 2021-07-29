@@ -17,7 +17,7 @@ body {
 }
 
 .ff-star-wars {
-  font-family: 'star-wars', Helvetica, Arial, sans-serif;
+  font-family: "star-wars", Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -36,14 +36,35 @@ nav {
   font-size: 1.2rem;
 }
 
-#hero {
-  min-height: 400px;
-}
-
 .bg-cards {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+@media (min-width: 992px) {
+  #hero {
+    min-height: 400px;
+  }
+
+  .bg-cards {
+    display: block;
+  }
+
+  .story {
+    width: 50%;
+  }
+
+  section h2 {
+    text-align: center;
+  }
+
+  #team > div:first-of-type p {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 footer {
