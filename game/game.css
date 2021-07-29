@@ -3,6 +3,10 @@ body {
   overflow: hidden;
 }
 
+.ff-star-wars {
+  font-family: 'star-wars', Helvetica, Arial, sans-serif;
+}
+
 .navbar-brand {
   font-size: 2rem;
 }
