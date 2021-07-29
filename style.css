@@ -1,20 +1,19 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+:root {
+  --dark-bg-color: #1f2937;
+}
+
+body {
+  background-color: #111827;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
-.content {
-  margin-left: 25px;
-  padding: 50px;
+.bg-dark {
+  background-color: var(--dark-bg-color) !important;
 }
 
-.center {
-  text-align: center;
-  padding: 40px;
+.ff-star-wars {
+  font-family: "star-wars", Helvetica, Arial, sans-serif;
 }
 
 footer {
@@ -23,37 +22,23 @@ footer {
 }
 
 img {
-  border-radius: 50%;
+  border-radius: 9999px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 70%;
+  margin-bottom: 1.5rem;
 }
 
 /* Style all font awesome icons */
-.fa {
-  padding: 10px;
-  margin: 10px;
-  font-size: 20px;
-  width: 40px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
+.socials {
+  margin-bottom: -1.5rem;
 }
 
-/* Add a hover effect if you want */
-.fa:hover {
-  opacity: 0.7;
+.socials a .fab {
+  color: #9ca3af;
 }
 
-/* Set a specific color for each brand */
-
-/* LinkedIn */
-.fa-linkedin {
-  color: #007bb5;
-}
-
-/* Github */
-.fa-github-square {
-  color: #171515;
+.socials a:hover .fab {
+  color: #cfd6e2;
 }

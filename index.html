@@ -7,180 +7,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>War Card Game</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">[Our name]</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="#">Rules</a>
-          <a class="nav-item nav-link" href="#">About</a>
+  <body class="text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ff-star-wars">
+      <div class="container-fluid">
+        <a class="navbar-brand text-warning" href="#">CARDS WAR!</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+            <a class="nav-item nav-link" href="#">Rules</a>
+            <a class="nav-item nav-link" href="#">About</a>
+          </div>
         </div>
       </div>
     </nav>
 
-    <div id="app">
-      <h1>Not Stars War, It's Cards War!</h1>
-      <a href="/game/">Let's Play</a>
+    <div class="container-fluid">
+      <div class="container py-5">
+        <div id="hero">
+          <h1 class="ff-star-wars text-warning mb-4">
+            Not Stars War, It's Cards War!
+          </h1>
+          <a href="/game/" class="btn btn-warning btn-lg px-5">Let's Play</a>
+        </div>
+      </div>
     </div>
 
-    <div class="content">
-      <h2>Rules</h2>
-      <ol>
-        <li>
-          Each player will be dealt 26 cards each (half of the deck). Cards
-          facing down.
-        </li>
-        <li>
-          Both players flip one card at the same time, who has the higher value
-          wins. That person gets to take both cards, putting them aside.
-        </li>
-        <li>
-          Keep repeating step 2. If both players flip a card of equal value, the
-          WAR begins! Both players take another card and put it facing down on
-          top of the first card, then take a third card and flip it face up. The
-          player with the higher value card wins all six cards on the table.
-        </li>
-        <li>
-          If the two new cards are also the same rank, it's WAR again. Repeat
-          step 3 until one of the players has a card of higher value.
-        </li>
-        <li>First player who finishes all their cards will lose the game.</li>
-      </ol>
-      <h3>Notes:</h3>
-      <ul>
-        <li>
-          Cards are ranked with the ace as the highest and two as the lowest.
-        </li>
-        <li>There is no strategy for War since the game is based on chance.</li>
-        <li>
-          If a player finishes all their cards during a war, he/she loses
-          immediately.
-        </li>
-      </ul>
+    <div class="container py-5">
+      <div class="content">
+        <h2 class="ff-star-wars text-warning text-center mb-4">Rules</h2>
+        <ol class="text-white-50 fs-5">
+          <li>
+            Each player will be dealt 26 cards each (half of the deck). Cards
+            facing down.
+          </li>
+          <li>
+            Both players flip one card at the same time, who has the higher
+            value wins. That person gets to take both cards, putting them aside.
+          </li>
+          <li>
+            Keep repeating step 2. If both players flip a card of equal value,
+            the WAR begins! Both players take another card and put it facing
+            down on top of the first card, then take a third card and flip it
+            face up. The player with the higher value card wins all six cards on
+            the table.
+          </li>
+          <li>
+            If the two new cards are also the same rank, it's WAR again. Repeat
+            step 3 until one of the players has a card of higher value.
+          </li>
+          <li>First player who finishes all their cards will lose the game.</li>
+        </ol>
+        <h3 class="ff-star-wars text-warning text-center mt-5 mb-4">Notes:</h3>
+        <ul class="text-white-50 fs-5">
+          <li>
+            Cards are ranked with the ace as the highest and two as the lowest.
+          </li>
+          <li>
+            There is no strategy for War since the game is based on chance.
+          </li>
+          <li>
+            If a player finishes all their cards during a war, he/she loses
+            immediately.
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="content, center">
-      <h2>About</h2>
-      <p>[Phil's grandma story here.]</p>
-    </div>
-
-    <div class="content, center">
-      <h2>Meet the team:</h2>
-      <p>
-        <strong
-          >Met through a Software Engineer boot camp, three individuals with the
-          same passion found each other while working towards their
-          goals.</strong
-        >
+    <div class="container py-5 text-center">
+      <h2 class="ff-star-wars text-warning">About</h2>
+      <p class="w-80 m-auto pt-3 pb-5 text-white-50 fs-5">
+        [Phil's grandma story here.]
       </p>
+    </div>
 
-      <div class="container">
-        <div class="row gx-4">
-          <div class="col">
-            <div class="card p-4">
-              <img src="/images/Hau.jpg" alt="Hau's profile picture" />
-              <div class="card-body">
-                <h2>Hau Ngo</h2>
-                <p class="card-text">
-                  A detailed-oriented Web Developer with Marketing backgrounds,
-                  looking for opportunities to help people with their day-to-day
-                  problems using technology.
-                </p>
-                <!-- Add font awesome icons -->
-                <div class="socials mt-4 fs-1">
+    <div class="container py-5">
+      <div class="row text-center">
+        <h2 class="ff-star-wars text-warning">Meet the team</h2>
+        <p class="w-50 m-auto pt-3 pb-5 text-white-50 fs-5">
+          Met through a Software Engineer boot camp, three individuals with the
+          same passion found each other while working towards their goals.
+        </p>
+      </div>
+
+      <div class="row gx-5">
+        <div class="col">
+          <div class="card p-5 bg-dark">
+            <img src="/images/Hau.jpg" alt="Hau's profile picture" />
+            <div class="card-body text-center">
+              <h2 class="fs-4">Hau Ngo</h2>
+              <p class="card-text text-warning">Software Engineer</p>
+              <!-- Add font awesome icons -->
+              <ul class="socials mt-4 fs-3 list-inline">
+                <li class="list-inline-item">
                   <a
                     href="https://www.linkedin.com/in/hauqxngo/"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-linkedin"></i
                   ></a>
+                </li>
+                <li class="list-inline-item">
                   <a
                     href="https://github.com/hauqxngo"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-github-square"></i
                   ></a>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
 
-          <div class="col">
-            <div class="card p-4">
-              <img src="/images/Otman.png" alt="Otman's profile picture" />
-              <div class="card-body">
-                <h2>Otman Bouchari</h2>
-                <p class="card-text">
-                  An adept and driven Full-stack Developer passionate about web
-                  technologies, with advanced knowledge of Javascript, Python,
-                  React, and Flask.
-                </p>
-                <!-- Add font awesome icons -->
-                <div class="socials mt-4 fs-1">
+        <div class="col">
+          <div class="card p-5 bg-dark">
+            <img src="/images/Otman.png" alt="Otman's profile picture" />
+            <div class="card-body text-center">
+              <h2 class="fs-4">Otman Bouchari</h2>
+              <p class="card-text text-warning">Software Engineer</p>
+              <!-- Add font awesome icons -->
+              <ul class="socials mt-4 fs-3 list-inline">
+                <li class="list-inline-item">
                   <a
                     href="https://www.linkedin.com/in/obouchari/"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-linkedin"></i
                   ></a>
+                </li>
+                <li class="list-inline-item">
                   <a
                     href="https://github.com/obouchari"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-github-square"></i
                   ></a>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
 
-          <div class="col">
-            <div class="card p-4">
-              <img src="/images/Phil.jpeg" alt="Phil's profile picture" />
-              <div class="card-body">
-                <h2>Phil Browne</h2>
-                <p class="card-text">
-                  A Software Engineer passionate about making the world more
-                  accessible and inclusive for people of all backgrounds, and
-                  finding ways to efficiently solve problems.
-                </p>
-                <!-- Add font awesome icons -->
-                <div class="socials mt-4 fs-1">
+        <div class="col">
+          <div class="card p-5 bg-dark">
+            <img src="/images/Phil.jpeg" alt="Phil's profile picture" />
+            <div class="card-body text-center">
+              <h2 class="fs-4">Phil Browne</h2>
+              <p class="card-text text-warning">Software Engineer</p>
+              <!-- Add font awesome icons -->
+              <ul class="socials mt-4 fs-3 list-inline">
+                <li class="list-inline-item">
                   <a
                     href="https://www.linkedin.com/in/philbrownetech/"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-linkedin"></i
                   ></a>
+                </li>
+                <li class="list-inline-item">
                   <a
                     href="https://github.com/philipbrowne"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-github-square"></i
                   ></a>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="p-4">
+    <footer class="p-4 text-light bg-dark">
       <p>
         Built with <i class="fas fa-heart text-danger"></i> by Springboard
         Alumni. © 2021
