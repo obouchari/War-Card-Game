@@ -1,9 +1,8 @@
 body {
   background-color: #0d121d;
-}
-
-#computer {
-  border: 1px solid red;
+  width: 90vw;
+  height: 100vw;
+  overflow: hidden;
 }
 
 #computerlogo,
@@ -19,15 +18,126 @@ body {
   color: rgb(78, 78, 231);
 }
 
-#player1 {
-  border: 1px solid blue;
+.ptext {
+  color: white;
+  font-size: 1.2rem;
 }
 
-#center {
-  border: 1px solid green;
+#start {
+  font-size: 1.5rem;
 }
 
 #startbtn {
   width: 120px;
   font-family: inherit;
+  font-size: 1rem;
+}
+
+#deckmid1 {
+  display: inline-block;
+  position: relative;
+  transform: rotate(-25deg);
+}
+
+#deckmid2 {
+  display: inline-block;
+  position: relative;
+  transform: rotate(25deg);
+}
+
+svg {
+  transform: scale(85%);
+}
+
+@media (max-width: 1000px) {
+  body {
+    transform: scale(90%);
+  }
+  svg {
+    transform: scale(80%);
+  }
+
+  #deckmid1 {
+    transform: translateX(5%);
+    transform: rotate(-25deg);
+  }
+  #deckmid2 {
+    transform: translateX(-5%);
+    transform: rotate(25deg);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    transform: scale(80%);
+    overflow: auto;
+  }
+  svg {
+    transform: scale(70%);
+  }
+
+  #deckmid1 {
+    transform: translateX(10%);
+  }
+  #deckmid2 {
+    transform: translateX(-10%);
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    transform: scale(65%);
+    overflow: auto;
+  }
+  svg {
+    transform: scale(60%);
+  }
+  #deckmid1,
+  #deckmid2 {
+    transform: rotate(0deg);
+  }
+  #deckmid1 {
+    transform: translateX(15%);
+  }
+  #deckmid2 {
+    transform: translateX(-15%);
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    transform: scale(50%);
+    overflow: auto;
+  }
+  svg {
+    transform: scale(60%);
+  }
+  #deckmid1 {
+    transform: translateX(25%);
+  }
+  #deckmid2 {
+    transform: translateX(-25%);
+  }
+  #start {
+    transform: scale(80%);
+  }
+}
+
+@media (max-width: 275px) {
+  body {
+    transform: scale(45%);
+    overflow: auto;
+  }
+  svg {
+    transform: scale(50%);
+  }
+  #deckmid1 {
+    transform: translateX(30%);
+  }
+  #deckmid2 {
+    transform: translateX(-30%);
+  }
+  #start {
+    transform: scale(75%);
+  }
 }

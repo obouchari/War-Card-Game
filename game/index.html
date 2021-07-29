@@ -12,9 +12,11 @@
 
   <body>
     <div id="app">
-      <div class="container vh-100 pt-4 pb-5">
-        <div class="row h-25" id="computer">
-          <div class="d-flex text-light justify-content-center" id="computerlogo"><i class="fas fa-desktop mt-2"></i>
+      <div class="container pt-2 pb-5">
+        <div class="row vh-5 py-1 gameregion" id="computer">
+          <div class="d-flex flex-column align-items-center align-items-center" id="computerlogo">
+            <i class="fas fa-desktop mt-2 mb-2"></i>
+            <div class="ptext">Computer</div>
           </div>
           <div class="col d-flex justify-content-center">
             <div class="deck-card" style="display: inline-block; position: relative">
@@ -25,33 +27,25 @@
             </div>
           </div>
         </div>
-        <div class="row h-50 d-flex align-items-center" id="center">
+        <div class="row d-flex align-items-center py-1 midregion" id="center">
           <div class="col d-flex justify-content-center">
-            <div class="deck-card" style="
-                display: inline-block;
-                position: relative;
-                transform: rotate(-25deg);
-              ">
+            <div class="deck-card" id="deckmid1">
               <svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <use href="/svg-cards.svg#club_8" x="0" y="0" />
               </svg>
             </div>
-            <div class="deck-card" style="
-                display: inline-block;
-                position: relative;
-                transform: rotate(25deg);
-              ">
+            <div class="deck-card" id="deckmid2">
               <svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
+                xmlns:xlink="http://www.w3.org/1999/xlink" class="midreg">
                 <use href="/svg-cards.svg#spade_jack" x="0" y="0" />
               </svg>
             </div>
           </div>
-          <div class="text-light d-flex flex-column align-items-center" id="start">Press Start to Begin!<button
+          <div class="text-light d-flex flex-column align-items-center py-5" id="start">Press Start to Begin!<button
               id="startbtn">Start Game</button></div>
         </div>
-        <div class="row h-25" id="player1">
+        <div class="row py-1 gameregion" id="player1">
           <div class="col d-flex justify-content-center">
             <div class="deck-card" style="display: inline-block; position: relative">
               <svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +54,9 @@
               </svg>
             </div>
           </div>
-          <div class="d-flex text-light justify-content-center" id="player1logo"><i class="fas fa-gamepad mb-2"></i>
+          <div class="d-flex flex-column align-items-center align-items-center" id="player1logo"><i
+              class="fas fa-gamepad mb-2"></i>
+            <div class="ptext">Player 1</div>
           </div>
         </div>
       </div>
