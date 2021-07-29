@@ -1,8 +1,18 @@
 body {
   background-color: #0d121d;
-  width: 90vw;
-  height: 100vw;
   overflow: hidden;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 #computerlogo,
@@ -50,7 +60,7 @@ svg {
 }
 
 @media (max-width: 1000px) {
-  body {
+  #app {
     transform: scale(90%);
   }
   svg {
@@ -68,7 +78,7 @@ svg {
 }
 
 @media (max-width: 600px) {
-  body {
+  #app {
     transform: scale(80%);
     overflow: auto;
   }
@@ -85,7 +95,7 @@ svg {
 }
 
 @media (max-width: 450px) {
-  body {
+  #app {
     transform: scale(60%);
     overflow: auto;
   }
@@ -108,7 +118,7 @@ svg {
 }
 
 @media (max-width: 320px) {
-  body {
+  #app {
     transform: scale(50%);
     overflow: auto;
   }
@@ -127,7 +137,7 @@ svg {
 }
 
 @media (max-width: 275px) {
-  body {
+  #app {
     transform: scale(45%);
     overflow: auto;
   }
