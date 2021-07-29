@@ -84,9 +84,9 @@ svg {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   body {
-    transform: scale(65%);
+    transform: scale(60%);
     overflow: auto;
   }
   svg {
@@ -102,6 +102,9 @@ svg {
   #deckmid2 {
     transform: translateX(-15%);
   }
+  #start {
+    transform: scale(150%);
+  }
 }
 
 @media (max-width: 320px) {
@@ -110,7 +113,7 @@ svg {
     overflow: auto;
   }
   svg {
-    transform: scale(60%);
+    transform: scale(55%);
   }
   #deckmid1 {
     transform: translateX(25%);
@@ -119,7 +122,7 @@ svg {
     transform: translateX(-25%);
   }
   #start {
-    transform: scale(80%);
+    transform: scale(120%);
   }
 }
 
@@ -138,6 +141,6 @@ svg {
     transform: translateX(-30%);
   }
   #start {
-    transform: scale(75%);
+    transform: scale(65%);
   }
 }
