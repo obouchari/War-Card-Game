@@ -12,22 +12,30 @@
   padding: 50px;
 }
 
-#team {
+.center {
   text-align: center;
+  padding: 40px;
 }
 
 footer {
   text-align: center;
   padding-top: 50px;
+}
 
+img {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 /* Style all font awesome icons */
 .fa {
   padding: 10px;
   margin: 10px;
-  font-size: 30px;
-  width: 50px;
+  font-size: 20px;
+  width: 40px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
