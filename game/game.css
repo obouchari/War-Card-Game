@@ -1,0 +1,33 @@
+body {
+  background-color: #0d121d;
+}
+
+#computer {
+  border: 1px solid red;
+}
+
+#computerlogo,
+#player1logo {
+  font-size: 3rem;
+}
+
+#computerlogo i {
+  color: rgb(231, 78, 78);
+}
+
+#player1logo i {
+  color: rgb(78, 78, 231);
+}
+
+#player1 {
+  border: 1px solid blue;
+}
+
+#center {
+  border: 1px solid green;
+}
+
+#startbtn {
+  width: 120px;
+  font-family: inherit;
+}
