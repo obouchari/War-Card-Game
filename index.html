@@ -1,150 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>War Card Game</title>
+    <title>Card Wars</title>
   </head>
+
   <body class="text-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ff-star-wars">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div class="container-fluid">
-        <a class="navbar-brand text-warning" href="#">CARDS WAR!</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand text-warning ff-star-wars" href="#">Card Wars</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-            <a class="nav-item nav-link" href="#">Rules</a>
-            <a class="nav-item nav-link" href="#">About</a>
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#rules">Rules</a>
+            <a class="nav-item nav-link" href="#about">About</a>
           </div>
         </div>
       </div>
     </nav>
-
     <div class="container-fluid mt-5">
       <div class="container py-5 position-relative">
         <div id="hero">
-          <h1 class="ff-star-wars text-warning mb-4">
-            Not Stars War, It's Cards War!
-          </h1>
+          <h1 class="ff-star-wars text-warning mb-4"> Card Wars </h1>
           <p class="w-80 m-auto pt-3 pb-5 fs-5">[Phil's grandma story here.]</p>
           <a href="/game/" class="btn btn-warning btn-lg px-5">Let's Play</a>
           <div class="bg-cards">
-            <svg
-              width="600"
-              height="600"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <use
-                href="svg-cards.svg#club_jack"
-                x="-280"
-                y="340"
-                transform="rotate(-65)"
-              />
-              <use
-                href="svg-cards.svg#spade_10"
-                x="-100"
-                y="340"
-                transform="rotate(-50)"
-              />
-              <use
-                href="svg-cards.svg#joker_black"
-                x="50"
-                y="280"
-                transform="rotate(-35)"
-              />
-              <use
-                href="svg-cards.svg#heart_1"
-                x="200"
-                y="200"
-                transform="rotate(-20)"
-              />
+            <svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <use href="svg-cards.svg#club_jack" x="-280" y="340" transform="rotate(-65)" />
+              <use href="svg-cards.svg#spade_10" x="-100" y="340" transform="rotate(-50)" />
+              <use href="svg-cards.svg#joker_black" x="50" y="280" transform="rotate(-35)" />
+              <use href="svg-cards.svg#heart_1" x="200" y="200" transform="rotate(-20)" />
             </svg>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="container py-5">
+    <div id="rules" class="container py-5">
       <h2 class="ff-star-wars text-warning text-center mb-4">Rules</h2>
       <ol class="fs-5">
-        <li>
-          Each player will be dealt 26 cards each (half of the deck). Cards
-          facing down.
-        </li>
-        <li>
-          Both players flip one card at the same time, who has the higher value
-          wins. That person gets to take both cards, putting them aside.
-        </li>
-        <li>
-          Keep repeating step 2. If both players flip a card of equal value, the
-          WAR begins! Both players take another card and put it facing down on
-          top of the first card, then take a third card and flip it face up. The
-          player with the higher value card wins all six cards on the table.
-        </li>
-        <li>
-          If the two new cards are also the same rank, it's WAR again. Repeat
-          step 3 until one of the players has a card of higher value.
-        </li>
+        <li> Each player will be dealt 26 cards each (half of the deck). Cards facing down. </li>
+        <li> Both players flip one card at the same time, who has the higher value wins. That person gets to take both
+          cards, putting them aside. </li>
+        <li> Keep repeating step 2. If both players flip a card of equal value, the WAR begins! Both players take
+          another card and put it facing down on top of the first card, then take a third card and flip it face up. The
+          player with the higher value card wins all six cards on the table. </li>
+        <li> If the two new cards are also the same rank, it's WAR again. Repeat step 3 until one of the players has a
+          card of higher value. </li>
         <li>First player who finishes all their cards will lose the game.</li>
       </ol>
     </div>
-
     <div class="container py-5">
       <h2 class="ff-star-wars text-warning text-center mb-4">Notes:</h2>
       <div class="row gx-5">
         <div class="col">
           <div class="p-5 text-center">
             <img src="svg/poker.svg" alt="" />
-            <p>
-              Cards are ranked with the ace as the highest and two as the
-              lowest.
-            </p>
+            <p> Cards are ranked with the ace as the highest and two as the lowest. </p>
           </div>
         </div>
         <div class="col">
           <div class="p-5 text-center">
             <img src="svg/dices.svg" alt="" />
-            <p>
-              There is no strategy for War since the game is based on chance.
-            </p>
+            <p> There is no strategy for War since the game is based on chance. </p>
           </div>
         </div>
         <div class="col">
           <div class="p-5 text-center">
             <img src="svg/empty.svg" alt="" />
-            <p>
-              If a player finishes all their cards during a war, he/she loses
-              immediately.
-            </p>
+            <p> If a player finishes all their cards during a war, he/she loses immediately. </p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="container py-5">
+    <div id="about" class="container py-5">
       <div class="row text-center">
         <h2 class="ff-star-wars text-warning">Meet the team</h2>
-        <p class="w-50 m-auto pt-3 pb-5 fs-5">
-          Met through a Software Engineer boot camp, three individuals with the
-          same passion found each other while working towards their goals.
-        </p>
+        <p class="w-50 m-auto pt-3 pb-5 fs-5"> Met through a Software Engineer boot camp, three individuals with the
+          same passion found each other while working towards their goals. </p>
       </div>
-
       <div class="row gx-5">
         <div class="col">
           <div class="card p-5 bg-dark">
@@ -155,26 +96,17 @@
               <!-- Add font awesome icons -->
               <ul class="socials mt-4 fs-3 list-inline">
                 <li class="list-inline-item">
-                  <a
-                    href="https://www.linkedin.com/in/hauqxngo/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
+                  <a href="https://www.linkedin.com/in/hauqxngo/" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-linkedin"></i></a>
                 </li>
                 <li class="list-inline-item">
-                  <a
-                    href="https://github.com/hauqxngo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-github-square"></i
-                  ></a>
+                  <a href="https://github.com/hauqxngo" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-github-square"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
         <div class="col">
           <div class="card p-5 bg-dark">
             <img src="/images/Otman.png" alt="Otman's profile picture" />
@@ -184,26 +116,17 @@
               <!-- Add font awesome icons -->
               <ul class="socials mt-4 fs-3 list-inline">
                 <li class="list-inline-item">
-                  <a
-                    href="https://www.linkedin.com/in/obouchari/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
+                  <a href="https://www.linkedin.com/in/obouchari/" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-linkedin"></i></a>
                 </li>
                 <li class="list-inline-item">
-                  <a
-                    href="https://github.com/obouchari"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-github-square"></i
-                  ></a>
+                  <a href="https://github.com/obouchari" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-github-square"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
         <div class="col">
           <div class="card p-5 bg-dark">
             <img src="/images/Phil.jpeg" alt="Phil's profile picture" />
@@ -213,20 +136,12 @@
               <!-- Add font awesome icons -->
               <ul class="socials mt-4 fs-3 list-inline">
                 <li class="list-inline-item">
-                  <a
-                    href="https://www.linkedin.com/in/philbrownetech/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
+                  <a href="https://www.linkedin.com/in/philbrownetech/" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-linkedin"></i></a>
                 </li>
                 <li class="list-inline-item">
-                  <a
-                    href="https://github.com/philipbrowne"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><i class="fab fa-github-square"></i
-                  ></a>
+                  <a href="https://github.com/philipbrowne" target="_blank" rel="noopener noreferrer"><i
+                      class="fab fa-github-square"></i></a>
                 </li>
               </ul>
             </div>
@@ -234,14 +149,10 @@
         </div>
       </div>
     </div>
-
     <footer class="p-4 text-light bg-dark">
-      <p>
-        Built with <i class="fas fa-heart text-danger"></i> by Springboard
-        Alumni. © 2021
-      </p>
+      <p> Built with <i class="fas fa-heart text-danger"></i> by Springboard Alumni. © 2021 </p>
     </footer>
-
     <script type="module" src="/main.js"></script>
   </body>
+
 </html>
