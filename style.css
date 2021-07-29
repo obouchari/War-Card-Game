@@ -7,8 +7,19 @@
   margin-top: 60px;
 }
 
-div {
+.content {
   margin-left: 25px;
+  padding: 50px;
+}
+
+#team {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding-top: 50px;
+
 }
 
 /* Style all font awesome icons */
