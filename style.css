@@ -50,12 +50,10 @@ img {
 
 /* LinkedIn */
 .fa-linkedin {
-  background: #007bb5;
-  color: white;
+  color: #007bb5;
 }
 
 /* Github */
-.fa-github {
-  background: #171515;
-  color: white;
+.fa-github-square {
+  color: #171515;
 }
