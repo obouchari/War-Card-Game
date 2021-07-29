@@ -16,6 +16,16 @@ body {
   font-family: "star-wars", Helvetica, Arial, sans-serif;
 }
 
+#hero {
+  min-height: 400px;
+}
+
+.bg-cards {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 footer {
   text-align: center;
   padding-top: 50px;
