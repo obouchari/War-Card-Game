@@ -62,6 +62,8 @@ function startGame() {
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
+  changeTopCard(playerCard);
+  changeBottomCard(computerCard);
   if (!playerCard) {
     evalGameResults();
   } else if (!computerCard) {
@@ -74,15 +76,22 @@ function evaluateRoundWinner(playerCard, computerCard) {
   const playerCardNum = parseInt(playerCard);
   const computerCardNum = parseInt(computerCard);
   if (playerCardNum > computerCardNum) {
-    console.log(`Player wins round - ${playerCard} beats ${computerCard}`);
+    msg = `Player wins round - ${playerCard} beats ${computerCard}`;
+    changeCenterText(msg);
+    playerCardsText();
+    computerCardsText();
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
   } else if (computerCardNum > playerCardNum) {
-    console.log(`Computer wins round - ${computerCard} beats ${playerCard}`);
+    msg = `Computer wins round - ${computerCard} beats ${playerCard}`;
+    changeCenterText(msg);
+    playerCardsText();
+    computerCardsText();
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
   } else {
-    console.log('WAR!!!');
+    msg = 'WAR!!!';
+    changeCenterText(msg);
     war();
   }
 }
@@ -217,6 +226,18 @@ function war() {
   evalWar(playerCard3, computerCard3);
 }
 
+function playerCardsText() {
+  const numcards = playerCards.length + playerNewCards.length;
+  const playerText = `Player has ${numcards} cards`;
+  updatePlayerText(playerText);
+}
+
+function computerCardsText() {
+  const numcards = computerCards.length + computerNewCards.length;
+  const computerText = `Computer has ${numcards} cards`;
+  updateComputerText(computerText);
+}
+
 function evalWar(playerCard3, computerCard3) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
@@ -253,13 +274,9 @@ function addWarCardsToComputer() {
 function runTimer() {
   setInterval(() => {
     distance = distance - 1000;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    timeLeft = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+    timeLeft = `${minutes}:${seconds}`;
   }, 1000);
 }
 
