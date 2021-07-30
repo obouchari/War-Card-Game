@@ -1,6 +1,26 @@
 body {
   background-color: #0d121d;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+#top {
+  height: 30%;
+}
+
+#center {
+  height: 40%;
+}
+
+#bottom {
+  height: 30%;
 }
 
 .ff-star-wars {
@@ -64,11 +84,15 @@ svg {
 }
 
 @media (max-width: 1000px) {
-  #app {
-    transform: scale(90%);
+  #game {
+    transform: scale(90%) translateY(-5%);
   }
   svg {
     transform: scale(80%);
+  }
+
+  #bottom {
+    transform: translateY(-5%);
   }
 
   #deckmid1 {
@@ -82,12 +106,18 @@ svg {
 }
 
 @media (max-width: 600px) {
-  #app {
-    transform: scale(80%);
-    overflow: auto;
+  #game {
+    transform: scale(70%) translateY(-20%);
   }
   svg {
     transform: scale(70%);
+  }
+  #center {
+    transform: translateY(-8%);
+  }
+
+  #bottom {
+    transform: translateY(-12%);
   }
 
   #deckmid1 {
@@ -99,12 +129,26 @@ svg {
 }
 
 @media (max-width: 450px) {
-  #app {
-    transform: scale(60%);
-    overflow: auto;
+  #game {
+    transform: scale(55%), translateY(-40%);
   }
   svg {
     transform: scale(60%);
+  }
+
+  #topcard {
+    transform: translateY(-10%);
+  }
+  #bottomcard {
+    transform: translateY(10%);
+  }
+
+  #center {
+    transform: translateY(-28%);
+  }
+
+  #bottom {
+    transform: translateY(-85%);
   }
   #deckmid1,
   #deckmid2 {
@@ -117,14 +161,27 @@ svg {
     transform: translateX(-15%);
   }
   #start {
-    transform: scale(150%);
+    transform: scale(110%) translateY(-45%);
   }
 }
 
-@media (max-width: 320px) {
-  #app {
-    transform: scale(50%);
-    overflow: auto;
+@media (max-width: 350px) {
+  #game {
+    transform: scale(50%) translateY(-50%);
+  }
+  #topcard {
+    transform: translateY(-10%);
+  }
+  #bottomcard {
+    transform: translateY(10%);
+  }
+
+  #center {
+    transform: translateY(-28%);
+  }
+
+  #bottom {
+    transform: translateY(-85%);
   }
   svg {
     transform: scale(55%);
@@ -136,17 +193,19 @@ svg {
     transform: translateX(-25%);
   }
   #start {
-    transform: scale(120%);
+    transform: scale(110%) translateY(-50%);
   }
 }
 
 @media (max-width: 275px) {
-  #app {
-    transform: scale(45%);
-    overflow: auto;
+  #game {
+    transform: scale(45%) translateY(-60%);
   }
   svg {
     transform: scale(50%);
+  }
+  #bottom {
+    transform: translateY(-95%);
   }
   #deckmid1 {
     transform: translateX(30%);
@@ -155,6 +214,6 @@ svg {
     transform: translateX(-30%);
   }
   #start {
-    transform: scale(65%);
+    transform: scale(90%) translateY;
   }
 }
