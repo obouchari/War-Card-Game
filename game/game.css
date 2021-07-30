@@ -227,7 +227,7 @@ svg {
 
 @media (max-width: 350px) {
   #game {
-    transform: scale(50%) translateY(-50%);
+    transform: scale(50%) translateY(-45%);
   }
   #topcard {
     transform: translateY(-10%);
@@ -266,13 +266,13 @@ svg {
 
 @media (max-width: 275px) {
   #game {
-    transform: scale(45%) translateY(-60%);
+    transform: scale(45%) translateY(-55%);
   }
   svg {
     transform: scale(30%);
   }
   #bottom {
-    transform: translateY(-100%);
+    transform: translateY(-90%);
   }
   #deckmid1 {
     transform: translateX(30%);
