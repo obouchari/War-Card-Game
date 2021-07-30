@@ -54,7 +54,7 @@ function changeTopCard(computerCard) {
   console.log(cardnumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../public/png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function changeBottomCard(playerCard) {
@@ -79,7 +79,7 @@ function changeBottomCard(playerCard) {
   console.log(cardnumber);
   console.log(face);
 
-  bottomCard.innerHTML = `<img src="../public/png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function changeCenterText(msg) {
@@ -120,7 +120,7 @@ function warTopCards(computerCard3) {
   console.log(cardnumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../public/png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function warBottomCards(playerCard3) {
@@ -144,7 +144,7 @@ function warBottomCards(playerCard3) {
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardnumber);
   console.log(face);
-  bottomCard.innerHTML = `<img src="../public/png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 class Deck {
