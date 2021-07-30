@@ -54,7 +54,7 @@ nav {
 }
 
 .card {
-  max-width: 130px;
+  max-width: 110px;
 }
 
 .playericon {
@@ -116,19 +116,19 @@ svg {
 
 @media (max-width: 1600px) {
   .card {
-    max-width: 110px;
+    max-width: 95px;
   }
 }
 
 @media (max-width: 1200px) {
   .card {
-    max-width: 100px;
+    max-width: 90px;
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    max-width: 80px;
+    max-width: 70px;
   }
   .playericon {
     font-size: 2.5rem;
