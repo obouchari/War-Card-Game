@@ -1,25 +1,13 @@
-import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './game.css';
-import '../public/font/font.css';
+import $ from "jquery";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./game.css";
+import "../public/font/font.css";
 
-const suits = ['♠', '♣', '♦', '♥'];
-const values = [
-  'A',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'J',
-  'Q',
-  'K',
-];
+import { range } from "../utils";
+
+const suits = ["club", "diamond", "heart", "spade"];
+const values = [...range(1, 9), "king", "queen", "jack"];
 let playerCards, computerCards;
 
 class Deck {
