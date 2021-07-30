@@ -77,6 +77,7 @@ function changeBottomCard(playerCard) {
         break;
     }
   }
+
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardnumber);
   console.log(face);
@@ -400,11 +401,11 @@ function evalWar(playerCard3, computerCard3) {
     gameBtn.disabled = false;
   } else {
     changeCenterText(
-      `ANOTHER WAR! Player drew ${playerCard3} and Computer drew ${computerCard3}...<div class="loadingwheel"></div>`
+      `ANOTHER WAR?!? Player drew ${playerCard3} and Computer drew ${computerCard3}...<div class="loadingwheel"></div>`
     );
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
-    setTimeout(war, 2000);
+    setTimeout(war, 2500);
   }
 }
 
