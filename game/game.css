@@ -57,14 +57,15 @@ nav {
   font-size: 1.2rem;
 }
 
-#start {
+#centertext {
   font-size: 1.5rem;
 }
 
-#startbtn {
-  width: 120px;
+#dealtbtn {
+  width: 110px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
 #deckmid1 {
@@ -144,11 +145,11 @@ svg {
   }
 
   #center {
-    transform: translateY(-28%);
+    transform: translateY(-25%);
   }
 
   #bottom {
-    transform: translateY(-85%);
+    transform: translateY(-90%);
   }
   #deckmid1,
   #deckmid2 {
@@ -160,7 +161,7 @@ svg {
   #deckmid2 {
     transform: translateX(-15%);
   }
-  #start {
+  #centertext {
     transform: scale(110%) translateY(-45%);
   }
 }
@@ -181,7 +182,7 @@ svg {
   }
 
   #bottom {
-    transform: translateY(-85%);
+    transform: translateY(-95%);
   }
   svg {
     transform: scale(55%);
@@ -192,7 +193,7 @@ svg {
   #deckmid2 {
     transform: translateX(-25%);
   }
-  #start {
+  #centertext {
     transform: scale(110%) translateY(-50%);
   }
 }
@@ -213,7 +214,7 @@ svg {
   #deckmid2 {
     transform: translateX(-30%);
   }
-  #start {
+  #centertext {
     transform: scale(90%) translateY;
   }
 }
