@@ -76,7 +76,7 @@ nav {
   width: 100vw;
 }
 
-#dealtbtn {
+#gamebtn {
   font-family: inherit;
   font-size: 0.9rem;
   margin-top: 2rem;
@@ -216,7 +216,7 @@ svg {
     font-size: 1rem;
     transform: scale(100%) translateY(-45%);
   }
-  #dealbtn {
+  #gamebtn {
     transform: scale(100%);
     padding: 1rem;
   }
@@ -256,7 +256,7 @@ svg {
     transform: scale(95%) translateY(-50%);
     font-size: 1rem;
   }
-  #startbtn {
+  #gamebtn {
     transform: scale(110%);
   }
   .playericon {
