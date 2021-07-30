@@ -8,12 +8,6 @@ body {
 
 #app {
   width: 100%;
-  height: 100vh;
-  transform: translateY(4%);
-}
-
-#top {
-  height: 30%;
 }
 
 #toptext {
@@ -38,11 +32,12 @@ body {
 
 #center {
   height: 40%;
+  transform: translateY(10%);
 }
 
 #bottom {
   height: 30%;
-  transform: translateY(-4%);
+  transform: translateY(-2%);
 }
 
 .ff-star-wars {
@@ -56,9 +51,10 @@ body {
 nav {
   width: 100%;
   font-size: 1.2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
+}
+
+.card {
+  max-width: 120px;
 }
 
 .playericon {
@@ -118,172 +114,47 @@ svg {
   animation: spin 0.6s linear infinite;
 }
 
-@media (max-width: 1600px) {
-  #game {
-    transform: scale(95%) translateY(-3%);
-  }
-  .playericon {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  #game {
-    transform: scale(90%) translateY(-5%);
-  }
-  svg {
-    transform: scale(80%);
-  }
-
-  #bottom {
-    transform: translateY(-7%);
-  }
-
-  #deckmid1 {
-    transform: translateX(5%);
-    transform: rotate(-25deg);
-  }
-  #deckmid2 {
-    transform: translateX(-5%);
-    transform: rotate(25deg);
+@media (max-width: 600px) {
+  .card {
+    max-width: 80px;
   }
   .playericon {
     font-size: 2.5rem;
   }
-}
-
-@media (max-width: 600px) {
-  #game {
-    transform: scale(70%) translateY(-20%);
-  }
-  svg {
-    transform: scale(70%);
-  }
-  #center {
-    transform: translateY(-8%);
-  }
-
-  #bottom {
-    transform: translateY(-12%);
-  }
-
-  #deckmid1 {
-    transform: translateX(10%);
-  }
-  #deckmid2 {
-    transform: translateX(-10%);
-  }
-  .playericon {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 450px) {
-  #game {
-    transform: scale(55%), translateY(-40%);
-  }
-  svg {
-    transform: scale(60%);
-  }
-
-  #topcard {
-    transform: translateY(-12%);
-  }
-  #bottomcard {
-    transform: translateY(12%);
-  }
-
-  #center {
-    transform: translateY(-25%);
-  }
-  #centerspan {
-    font-size: 1rem;
-  }
-  #bottom {
-    transform: translateY(-70%);
-  }
-  #deckmid1,
-  #deckmid2 {
-    transform: rotate(0deg);
-  }
-  #deckmid1 {
-    transform: translateX(15%);
-  }
-  #deckmid2 {
-    transform: translateX(-15%);
-  }
   #centertext {
     font-size: 1rem;
-    transform: scale(100%) translateY(-45%);
   }
-  #gamebtn {
-    transform: scale(100%);
-    padding: 1rem;
+  .ptext {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    max-width: 60px;
   }
   .playericon {
     font-size: 1.5rem;
   }
+  #centertext {
+    font-size: 0.9rem;
+  }
+  .ptext {
+    font-size: 0.9rem;
+  }
 }
 
-@media (max-width: 350px) {
-  #game {
-    transform: scale(50%) translateY(-45%);
-  }
-  #topcard {
-    transform: translateY(-10%);
-  }
-  #bottomcard {
-    transform: translateY(10%);
-  }
-
-  #center {
-    transform: translateY(-28%);
-  }
-
-  #bottom {
-    transform: translateY(-95%);
-  }
-  svg {
-    transform: scale(40%);
-  }
-  #deckmid1 {
-    transform: translateX(25%);
-  }
-  #deckmid2 {
-    transform: translateX(-25%);
-  }
-  #centertext {
-    transform: scale(95%) translateY(-50%);
-    font-size: 1rem;
-  }
-  #gamebtn {
-    transform: scale(110%);
+@media (max-width: 325px) {
+  .card {
+    max-width: 50px;
   }
   .playericon {
     display: none;
   }
-}
-
-@media (max-width: 275px) {
-  #game {
-    transform: scale(45%) translateY(-55%);
-  }
-  svg {
-    transform: scale(30%);
-  }
-  #bottom {
-    transform: translateY(-90%);
-  }
-  #deckmid1 {
-    transform: translateX(30%);
-  }
-  #deckmid2 {
-    transform: translateX(-30%);
-  }
   #centertext {
     font-size: 0.8rem;
   }
-  #centertext {
+  .ptext {
     font-size: 0.8rem;
   }
 }

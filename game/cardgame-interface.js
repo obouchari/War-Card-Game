@@ -33,10 +33,7 @@ function changeTopCard(computerCard) {
   console.log(cardnumber);
   console.log(face);
 
-  bottomCard.innerHTML = `<svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <use href="/svg-cards.svg#${face}_${cardnumber}" x="0" y="0" fill="red" />
-              </svg>`;
+  topCard.innerHTML = `<img src="./png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function changeBottomCard(playerCard) {
@@ -61,10 +58,7 @@ function changeBottomCard(playerCard) {
   console.log(cardnumber);
   console.log(face);
 
-  topCard.innerHTML = `<svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <use href="/svg-cards.svg#${face}_${cardnumber}" x="0" y="0" fill="red" />
-              </svg>`;
+  bottomCard.innerHTML = `<img src="./png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function changeCenterText(msg) {
@@ -107,9 +101,7 @@ function warTopCards(computerCard3) {
   console.log(cardnumber);
   console.log(face);
 
-  topCard.innerHTML = `<svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <use href="/svg-cards.svg#${face}_${cardnumber}" x="0" y="0" fill="red" />`;
+  topCard.innerHTML = `<img src="./png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }
 
 function warBottomCards(playerCard3) {
@@ -133,7 +125,5 @@ function warBottomCards(playerCard3) {
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardnumber);
   console.log(face);
-  bottomCard.innerHTML = `<svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <use href="/svg-cards.svg#${face}_${cardnumber}" x="0" y="0" fill="red" />`;
+  bottomCard.innerHTML = `<img src="./png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
 }

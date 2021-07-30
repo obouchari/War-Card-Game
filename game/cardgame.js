@@ -62,8 +62,8 @@ function startGame() {
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
-  changeTopCard(playerCard);
-  changeBottomCard(computerCard);
+  changeTopCard(computerCard);
+  changeBottomCard(playerCard);
   if (!playerCard) {
     evalGameResults();
   } else if (!computerCard) {
