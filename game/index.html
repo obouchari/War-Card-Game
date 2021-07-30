@@ -21,10 +21,11 @@
         <div class="row py-1 gameregion" id="top">
           <div class="d-flex flex-column align-items-center align-items-center" id="computer">
             <i class="fas fa-desktop mt-2 mb-2 playericon"></i>
-            <div class="ptext" id="toptext">Computer</div>
+            <div class="ptext"><span id="toptext">Computer</span></div>
           </div>
           <div class="col d-flex justify-content-center">
-            <div id="topcard" class="deck-card" style="display: inline-block; position: relative">
+            <div id="topcard" class="deck-card d-flex flex-wrap justify-content-center"
+              style="display: inline-block; position: relative">
               <svg width="170" height="245" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <use href="/svg-cards.svg#back" x="0" y="0" fill="red" />
@@ -48,7 +49,7 @@
             </div>
           </div>
           <div class="text-light d-flex flex-column align-items-center py-5" id="centertext"><span id="centerspan">Press
-              Deal to Begin!</span><button class="btn btn-outline-warning mt-1" id="gamebtn"
+              Deal to Begin! </span><button class="btn btn-outline-warning mt-1" id="gamebtn"
               style="cursor: pointer">Deal</button>
           </div>
         </div>
@@ -63,10 +64,12 @@
           </div>
           <div class="d-flex flex-column align-items-center align-items-center" id="player1"><i
               class="fas fa-gamepad mb-2 playericon"></i>
-            <div class="ptext" id="bottomtext">Player 1</div>
+            <div class="ptext"><span id="bottomtext">Player 1</span>
+              <div id="timer" class="d-flex flex-column align-items-center align-items-center text-light mt-2">10:00
+              </div>
+            </div>
           </div>
         </div>
-        <div id="timer" class="d-flex flex-column align-items-center align-items-center text-light">10:00</div>
       </div>
     </div>
     <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -90,9 +90,11 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
   } else {
-    msg = 'WAR!!!';
+    msg = `WAR - ${playerCard} vs ${computerCard} (please wait for result...)<div class="loadingwheel"></div>`;
+    gameBtn.style.display = 'none';
+    gameBtn.disabled = true;
     changeCenterText(msg);
-    war();
+    setTimeout(war, 2000);
   }
 }
 
@@ -241,21 +243,33 @@ function computerCardsText() {
 function evalWar(playerCard3, computerCard3) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
+  warTopCards(computerCard3);
+  warBottomCards(playerCard3);
   if (playerCardNum > computerCardNum) {
-    console.log(
-      `Player Wins This War -- ${playerCard3} beats ${computerCard3}`
-    );
+    msg = `PLAYER WINS THE WAR!!! ${playerCard3} beats ${computerCard3}`;
+    changeCenterText(msg);
+    playerCardsText();
+    computerCardsText();
     addWarCardsToPlayer();
     warCards.length = 0;
+    gamebtn.style.display = 'block';
+    gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    console.log(
-      `Player Wins This War -- ${computerCard3} beats ${playerCard3}`
-    );
+    msg = `COMPUTER WINS THE WAR!!! ${computerCard3} beats ${playerCard3}`;
+    changeCenterText(msg);
+    playerCardsText();
+    computerCardsText();
     addWarCardsToComputer();
     warCards.length = 0;
+    gamebtn.style.display = 'block';
+    gameBtn.disabled = false;
   } else {
-    console.log('ANOTHER WAR!');
-    war();
+    updateCenterText(
+      `ANOTHER WAR! Player drew ${playerCard} and Computer drew ${computerCard}...<div class="loadingwheel"></div>`
+    );
+    gameBtn.style.display = 'none';
+    gameBtn.disabled = true;
+    setTimeout(war, 2000);
   }
 }
 
