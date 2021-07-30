@@ -94,10 +94,6 @@ function updatePlayerText(playerText) {
   bottomText.innerText = playerText;
 }
 
-setInterval(() => {
-  timer.innerText = timeLeft;
-}, 1000);
-
 function warTopCards(computerCard3) {
   let cardnumber = parseInt(computerCard3);
   if (cardnumber > 10) {
@@ -425,8 +421,11 @@ function runTimer() {
   setInterval(() => {
     distance = distance - 1000;
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    timeLeft = `${minutes}:${seconds}`;
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    timeLeft = `${minutes}m ${seconds}s`;
+    setTimeout(() => {
+      timer.innerText = timeLeft;
+    }, 200);
   }, 1000);
 }
 
