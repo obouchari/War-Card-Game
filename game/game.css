@@ -15,6 +15,22 @@ body {
   height: 30%;
 }
 
+#toptext {
+  color: rgb(231, 78, 78);
+}
+
+#bottomtext {
+  color: rgb(78, 78, 231);
+}
+
+#computer i {
+  color: rgb(231, 78, 78);
+}
+
+#player1 i {
+  color: rgb(78, 78, 231);
+}
+
 #center {
   height: 40%;
 }
@@ -39,17 +55,8 @@ nav {
   left: 0;
 }
 
-#computerlogo,
-#player1logo {
-  font-size: 3rem;
-}
-
-#computerlogo i {
-  color: rgb(231, 78, 78);
-}
-
-#player1logo i {
-  color: rgb(78, 78, 231);
+.playericon {
+  font-size: 4rem;
 }
 
 .ptext {
@@ -84,6 +91,15 @@ svg {
   transform: scale(85%);
 }
 
+@media (max-width: 1600px) {
+  #game {
+    transform: scale(95%) translateY(-3%);
+  }
+  .playericon {
+    font-size: 3rem;
+  }
+}
+
 @media (max-width: 1000px) {
   #game {
     transform: scale(90%) translateY(-5%);
@@ -103,6 +119,9 @@ svg {
   #deckmid2 {
     transform: translateX(-5%);
     transform: rotate(25deg);
+  }
+  .playericon {
+    font-size: 2.5rem;
   }
 }
 
@@ -127,6 +146,9 @@ svg {
   #deckmid2 {
     transform: translateX(-10%);
   }
+  .playericon {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 450px) {
@@ -138,10 +160,10 @@ svg {
   }
 
   #topcard {
-    transform: translateY(-10%);
+    transform: translateY(-12%);
   }
   #bottomcard {
-    transform: translateY(10%);
+    transform: translateY(12%);
   }
 
   #center {
@@ -149,7 +171,7 @@ svg {
   }
 
   #bottom {
-    transform: translateY(-90%);
+    transform: translateY(-95%);
   }
   #deckmid1,
   #deckmid2 {
@@ -162,7 +184,11 @@ svg {
     transform: translateX(-15%);
   }
   #centertext {
-    transform: scale(110%) translateY(-45%);
+    transform: scale(100%) translateY(-45%);
+  }
+
+  .playericon {
+    font-size: 1.5rem;
   }
 }
 
@@ -182,7 +208,7 @@ svg {
   }
 
   #bottom {
-    transform: translateY(-95%);
+    transform: translateY(-105%);
   }
   svg {
     transform: scale(55%);
@@ -194,7 +220,10 @@ svg {
     transform: translateX(-25%);
   }
   #centertext {
-    transform: scale(110%) translateY(-50%);
+    transform: scale(95%) translateY(-50%);
+  }
+  .playericon {
+    display: none;
   }
 }
 
@@ -206,7 +235,7 @@ svg {
     transform: scale(50%);
   }
   #bottom {
-    transform: translateY(-95%);
+    transform: translateY(-110%);
   }
   #deckmid1 {
     transform: translateX(30%);
