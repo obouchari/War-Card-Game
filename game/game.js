@@ -220,7 +220,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
   } else {
-    const msg = `WAR - ${playerCard} vs ${computerCard} (please wait for result...)<div class="loadingwheel"></div>`;
+    const msg = `WAR - ${playerCard} vs ${computerCard}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     changeCenterText(msg);
