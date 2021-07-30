@@ -137,10 +137,10 @@ svg {
 
 @media (max-width: 400px) {
   .card {
-    max-width: 52px;
+    max-width: 50px;
   }
   .playericon {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   #centertext {
     font-size: 0.9rem;
@@ -152,7 +152,7 @@ svg {
 
 @media (max-width: 325px) {
   .card {
-    max-width: 45px;
+    max-width: 40px;
   }
   .playericon {
     display: none;
