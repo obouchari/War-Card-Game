@@ -17,7 +17,7 @@ let playerCards, computerCards;
 const playerNewCards = [];
 const computerNewCards = [];
 const warCards = [];
-let distance = 300000;
+let distance = 240000;
 let timeLeft;
 
 const topCard = document.getElementById('topcard');
@@ -317,55 +317,47 @@ newDeck.shuffle();
 console.log(newDeck.deck);
 startGame();
 
-function playerWins() {
-  console.log('Player Wins Game!');
-}
-
-function computerWins() {
-  console.log('Computer Wins Game!');
-}
-
 function war() {
   const computerCard1 = drawComputerCard();
   if (computerCard1) {
     warCards.unshift(computerCard1);
   } else {
-    playerWins();
+    evalGameResults();
     return;
   }
   const computerCard2 = drawComputerCard();
   if (computerCard2) {
     warCards.unshift(computerCard2);
   } else {
-    playerWins();
+    evalGameResults();
     return;
   }
   const computerCard3 = drawComputerCard();
   if (computerCard3) {
     warCards.unshift(computerCard3);
   } else {
-    playerWins();
+    evalGameResults();
     return;
   }
   const playerCard1 = drawPlayerCard();
   if (playerCard1) {
     warCards.unshift(playerCard1);
   } else {
-    computerWins();
+    evalGameResults();
     return;
   }
   const playerCard2 = drawPlayerCard();
   if (playerCard2) {
     warCards.unshift(playerCard2);
   } else {
-    computerWins();
+    evalGameResults();
     return;
   }
   const playerCard3 = drawPlayerCard();
   if (playerCard3) {
     warCards.unshift(playerCard3);
   } else {
-    computerWins();
+    evalGameResults();
     return;
   }
   evalWar(playerCard3, computerCard3);
@@ -457,7 +449,7 @@ function runTimer() {
 }
 
 function resetTime() {
-  distance = 60000;
+  distance = 240000;
 }
 
 if (distance == 0) {
