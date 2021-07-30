@@ -36,6 +36,14 @@ nav {
   font-size: 1.2rem;
 }
 
+.offcanvas .btn-close {
+  background-color: rgba(207, 214, 226, 0.5);
+}
+
+.offcanvas .nav-link {
+  color: #cfd6e2;
+}
+
 .bg-cards {
   display: none;
   position: absolute;

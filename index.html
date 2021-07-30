@@ -9,25 +9,31 @@
   </head>
 
   <body class="dark-theme">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand text-warning ff-star-wars mb-0 h1" href="#">Card Wars</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="d-flex">
+          <button
+            class="navbar-toggler me-2"
+            type="button"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand text-warning ff-star-wars mb-0 h1" href="#"
+            >Card Wars</a
+          >
+        </div>
+
         <div class="collapse navbar-collapse" id="navbar">
           <div class="navbar-nav me-auto mb-2 mb-lg-0">
             <a class="nav-item nav-link text-uppercase" href="#rules">Rules</a>
             <a class="nav-item nav-link text-uppercase" href="#notes">Notes</a>
-            <a class="nav-item nav-link text-uppercase" href="#team">Our Team</a>
+            <a class="nav-item nav-link text-uppercase" href="#team"
+              >Our Team</a
+            >
           </div>
           <div class="d-flex">
             <a href="/game/"
@@ -39,10 +45,50 @@
         </div>
       </div>
     </nav>
+    <!-- Navbar End -->
+
+    <!-- Off Canvas -->
+    <div
+      class="offcanvas offcanvas-start bg-dark"
+      tabindex="-1"
+      id="offcanvasWithBackdrop"
+      aria-labelledby="offcanvasWithBackdropLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title text-warning ff-star-wars mb-0 h1"
+          id="offcanvasWithBackdropLabel"
+        >
+          Card Wars
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark">
+            <a class="nav-link text-uppercase" href="#rules">Rules</a>
+          </li>
+          <li class="list-group-item bg-dark">
+            <a class="nav-link text-uppercase" href="#notes">Notes</a>
+          </li>
+          <li class="list-group-item bg-dark">
+            <a class="nav-link text-uppercase" href="#team">Our Team</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Off Canvas End -->
+
     <div class="container-fluid mt-lg-5">
+      <!-- Here section -->
       <div class="container py-5 position-relative">
         <section id="hero">
-          <h1 class="ff-star-wars text-warning mb-lg-5">Card Wars</h1>
+          <h1 class="ff-star-wars text-warning mb-lg-3">Card Wars</h1>
           <p class="story mb-lg-5 mb-4 fs-5">
             War was the very first card game I learned as a child -- taught to
             me by my grandmother. We used to play every time I visited for
@@ -88,6 +134,9 @@
           </div>
         </section>
       </div>
+      <!-- Hero section End -->
+
+      <!-- Rules section -->
       <section id="rules" class="container py-lg-5">
         <h2 class="ff-star-wars text-warning mb-lg-5 mb-3">Rules</h2>
         <ol class="fs-5">
@@ -115,6 +164,9 @@
           </li>
         </ol>
       </section>
+      <!-- Rules section End -->
+
+      <!-- Notes section -->
       <section id="notes" class="container py-lg-5 py-4">
         <h2 class="ff-star-wars text-warning mb-lg-4 mb-3">Notes</h2>
         <div class="row gx-lg-5">
@@ -146,6 +198,9 @@
           </div>
         </div>
       </section>
+      <!-- Notes section End -->
+
+      <!-- Team section -->
       <section id="team" class="container py-lg-5 pb-5">
         <div class="row">
           <h2 class="ff-star-wars text-warning">Meet the team</h2>
@@ -155,6 +210,7 @@
           </p>
         </div>
         <div class="row gx-lg-5 gy-md-0 gy-3">
+          <!-- Hau Ngo's Card -->
           <div class="col-12 col-md-4">
             <div class="card p-lg-5 p-3 bg-dark">
               <img src="/images/Hau.jpg" alt="Hau's profile picture" />
@@ -183,6 +239,9 @@
               </div>
             </div>
           </div>
+          <!-- Card End -->
+
+          <!-- Otman Bouchari's Card -->
           <div class="col-12 col-md-4">
             <div class="card p-lg-5 p-3 bg-dark">
               <img src="/images/Otman.png" alt="Otman's profile picture" />
@@ -211,6 +270,9 @@
               </div>
             </div>
           </div>
+          <!-- Card End -->
+
+          <!-- Phil Browne's Card -->
           <div class="col-12 col-md-4">
             <div class="card p-lg-5 p-3 bg-dark">
               <img src="/images/Phil.jpeg" alt="Phil's profile picture" />
@@ -239,8 +301,10 @@
               </div>
             </div>
           </div>
+          <!-- Card End -->
         </div>
       </section>
+      <!-- Team section End -->
     </div>
 
     <footer class="p-4 bg-dark">
