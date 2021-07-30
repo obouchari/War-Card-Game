@@ -37,6 +37,7 @@ body {
 
 #bottom {
   height: 30%;
+  transform: translateY(-5%);
 }
 
 .ff-star-wars {
@@ -69,7 +70,6 @@ nav {
 }
 
 #dealtbtn {
-  width: 110px;
   font-family: inherit;
   font-size: 0.9rem;
   margin-top: 2rem;
@@ -109,7 +109,7 @@ svg {
   }
 
   #bottom {
-    transform: translateY(-5%);
+    transform: translateY(-7%);
   }
 
   #deckmid1 {
@@ -169,9 +169,8 @@ svg {
   #center {
     transform: translateY(-25%);
   }
-
   #bottom {
-    transform: translateY(-95%);
+    transform: translateY(-80%);
   }
   #deckmid1,
   #deckmid2 {
@@ -186,7 +185,10 @@ svg {
   #centertext {
     transform: scale(100%) translateY(-45%);
   }
-
+  #dealbtn {
+    transform: scale(100%);
+    padding: 1rem;
+  }
   .playericon {
     font-size: 1.5rem;
   }
@@ -208,7 +210,7 @@ svg {
   }
 
   #bottom {
-    transform: translateY(-105%);
+    transform: translateY(-95%);
   }
   svg {
     transform: scale(55%);
@@ -221,6 +223,10 @@ svg {
   }
   #centertext {
     transform: scale(95%) translateY(-50%);
+    font-size: 1rem;
+  }
+  #startbtn {
+    transform: scale(110%);
   }
   .playericon {
     display: none;
@@ -235,7 +241,7 @@ svg {
     transform: scale(50%);
   }
   #bottom {
-    transform: translateY(-110%);
+    transform: translateY(-100%);
   }
   #deckmid1 {
     transform: translateX(30%);
@@ -244,6 +250,9 @@ svg {
     transform: translateX(-30%);
   }
   #centertext {
-    transform: scale(90%) translateY;
+    font-size: 0.8rem;
+  }
+  #centertext {
+    font-size: 0.8rem;
   }
 }
