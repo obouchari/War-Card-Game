@@ -73,8 +73,6 @@ function updatePlayerText(playerText) {
   bottomText.innerText = playerText;
 }
 
-gameBtn.addEventListener('click', playRound);
-
 setInterval(() => {
   timer.innerText = timeLeft;
 }, 1000);

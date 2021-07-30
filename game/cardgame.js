@@ -12,6 +12,7 @@ const computerNewCards = [];
 const warCards = [];
 let distance = 600000;
 let timeLeft;
+const gameBtn = document.getElementById('gamebtn');
 
 class Deck {
   constructor() {
@@ -284,6 +285,8 @@ function addWarCardsToComputer() {
     computerNewCards.push(card);
   });
 }
+
+gameBtn.addEventListener('click', playRound);
 
 function runTimer() {
   setInterval(() => {
