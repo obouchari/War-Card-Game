@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './game.css';
+
 import '../public/font/font.css';
 
+import './game.css';
 function range(start, stop, step = 1) {
   return Array(Math.ceil((stop - start) / step))
     .fill(start)
@@ -16,7 +17,7 @@ let playerCards, computerCards;
 const playerNewCards = [];
 const computerNewCards = [];
 const warCards = [];
-let distance = 600000;
+let distance = 300000;
 let timeLeft;
 
 const topCard = document.getElementById('topcard');
@@ -31,6 +32,7 @@ const gameBtn = document.getElementById('gamebtn');
 const timer = document.getElementById('timer');
 const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
+let isGameOver = false;
 
 function changeTopCard(computerCard) {
   let cardnumber = parseInt(computerCard);
@@ -226,7 +228,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     changeCenterText(msg);
-    setTimeout(war, 2500);
+    setTimeout(war, 1000);
   }
 }
 
@@ -275,14 +277,23 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length >
     computerNewCards.length + computerCards.length
   ) {
-    alert('Player Has More Cards - Player Wins!');
+    const msg = 'Player Has More Cards - Player Wins!';
+    centerText.innerText = msg;
+    isGameOver = true;
+    gameBtn.disabled = true;
+    clearInterval();
   } else if (
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
   ) {
-    alert('Computer Has More Cards - Computer Wins!');
+    const msg = 'Computer Has More Cards - Player Wins!';
+    centerText.innerText = msg;
+    isGameOver = true;
+    gameBtn.disabled = true;
+    clearInterval();
   } else {
     alert('OVERTIME!');
+    centerText.innerText = 'OVERTIME';
     playerNewCards.forEach((card) => {
       playerCards.unshift(card);
     });
@@ -291,7 +302,7 @@ function evalGameResults() {
       computerCards.unshift(card);
     });
     computerNewCards.length = 0;
-    distance = 300000;
+    distance = 100000;
     runTimer();
   }
 }
@@ -396,8 +407,8 @@ function evalWar(playerCard3, computerCard3) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else {
-    updateCenterText(
-      `ANOTHER WAR! Player drew ${playerCard} and Computer drew ${computerCard}...<div class="loadingwheel"></div>`
+    changeCenterText(
+      `ANOTHER WAR! Player drew ${playerCard3} and Computer drew ${computerCard3}...<div class="loadingwheel"></div>`
     );
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
@@ -424,10 +435,24 @@ function runTimer() {
     distance = distance - 1000;
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    timeLeft = `${minutes}m ${seconds}s`;
+    if (distance > 0) {
+      timeLeft = `${minutes}m ${seconds}s`;
+    } else {
+      timeLeft = 'GAME OVER!';
+    }
     setTimeout(() => {
       timer.innerText = timeLeft;
-    }, 200);
+    }, 50);
+    if (distance <= 0) {
+      evalGameResults();
+      clearInterval();
+      return;
+    }
+    if (isGameOver === true) {
+      clearInterval();
+      timer.innerText = 'GAME OVER!';
+      return;
+    }
   }, 1000);
 }
 
