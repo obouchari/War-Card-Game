@@ -116,7 +116,7 @@ function warTopCards(computerCard3) {
   console.log(cardnumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
 }
 
 function warBottomCards(playerCard3) {
@@ -140,7 +140,7 @@ function warBottomCards(playerCard3) {
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardnumber);
   console.log(face);
-  bottomCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
 }
 
 class Deck {
@@ -223,8 +223,10 @@ function evaluateRoundWinner(playerCard, computerCard) {
     const msg = `WAR - ${playerCard} vs ${computerCard}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
+    topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+    bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     changeCenterText(msg);
-    setTimeout(war, 2000);
+    setTimeout(war, 2500);
   }
 }
 
