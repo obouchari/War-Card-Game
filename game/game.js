@@ -315,6 +315,12 @@ function startGame() {
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
+  if (
+    playerNewCards.length + playerCards.length <= 0 ||
+    computerNewCards.length + computerCards.length <= 0
+  ) {
+    evalGameResults();
+  }
   changeTopCard(computerCard);
   changeBottomCard(playerCard);
   if (!playerCard) {
