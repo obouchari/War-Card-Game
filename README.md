@@ -44,7 +44,7 @@ $ yarn build
 
 ## Link to deployed site
 
-Our app is live [here](https://card-wars.netlify.app/)
+Our app is live [here](https://card-wars.netlify.app/).
 
 ## Our team
 
