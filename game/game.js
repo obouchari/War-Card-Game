@@ -58,6 +58,7 @@ function changeTopCard(computerCard) {
   console.log(face);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  quickFade(topCard);
 }
 
 // UI: Updates Player Card during Round
@@ -85,6 +86,7 @@ function changeBottomCard(playerCard) {
   console.log(face);
 
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  quickFade(bottomCard);
 }
 
 // UI: Updates Top Cards at Start of War
@@ -173,6 +175,7 @@ function warTopCards(computerCard3) {
   console.log(face);
 
   topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  slowFade(topCard);
 }
 
 // UI: Updates Bottom Cards at End of War Round
@@ -198,6 +201,7 @@ function warBottomCards(playerCard3) {
   console.log(cardNumber);
   console.log(face);
   bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  slowFade(bottomCard);
 }
 
 // UI: Updates display of Computer's Current Number of Cards
@@ -213,6 +217,34 @@ function updatePlayerCardsNum() {
   const numcards = playerCards.length + playerNewCards.length;
   const playerText = `Player has ${numcards} cards`;
   bottomText.innerText = playerText;
+}
+
+// UI: Adds Slower Fade-In using Opacity on Element
+function slowFade(element) {
+  let opacity = 0.1; // initial opacity
+  element.style.display = 'block';
+  const timer = setInterval(function () {
+    if (opacity >= 1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = opacity;
+    element.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+    opacity += opacity * 0.1;
+  }, 45);
+}
+
+// UI: Adds Quicker Fade-In using Opacity on Element
+function quickFade(element) {
+  let opacity = 0.1; // initial opacity
+  element.style.display = 'block';
+  const timer = setInterval(function () {
+    if (opacity >= 1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = opacity;
+    element.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+    opacity += opacity * 0.1;
+  }, 10);
 }
 
 // Game: Creates Deck of Cards
