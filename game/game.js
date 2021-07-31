@@ -115,7 +115,8 @@ function preWarTopCards(computerCard) {
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-  }, 1000);
+    quickFade(topCard);
+  }, 1500);
 }
 
 // UI: Updates Bottom Cards at Start of War
@@ -143,7 +144,8 @@ function preWarBottomCards(playerCard) {
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-  }, 1000);
+    quickFade(bottomCard);
+  }, 1500);
 }
 
 // UI: Updates Text in Center of Game Board
