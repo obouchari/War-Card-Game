@@ -35,54 +35,103 @@ const deckmid2 = document.getElementById('deckmid2');
 let isGameOver = false;
 
 function changeTopCard(computerCard) {
-  let cardnumber = parseInt(computerCard);
-  if (cardnumber > 10) {
-    switch (cardnumber) {
+  let cardNumber = parseInt(computerCard);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
       case 11:
-        cardnumber = 'jack';
+        cardNumber = 'jack';
         break;
       case 12:
-        cardnumber = 'queen';
+        cardNumber = 'queen';
         break;
       case 13:
-        cardnumber = 'king';
+        cardNumber = 'king';
         break;
       case 14:
-        cardnumber = '1';
+        cardNumber = '1';
         break;
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardnumber);
+  console.log(cardNumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
 function changeBottomCard(playerCard) {
-  let cardnumber = parseInt(playerCard);
-  if (cardnumber > 10) {
-    switch (cardnumber) {
+  let cardNumber = parseInt(playerCard);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
       case 11:
-        cardnumber = 'jack';
+        cardNumber = 'jack';
         break;
       case 12:
-        cardnumber = 'queen';
+        cardNumber = 'queen';
         break;
       case 13:
-        cardnumber = 'king';
+        cardNumber = 'king';
         break;
       case 14:
-        cardnumber = '1';
+        cardNumber = '1';
         break;
     }
   }
 
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardnumber);
+  console.log(cardNumber);
   console.log(face);
 
-  bottomCard.innerHTML = `<img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+}
+
+function preWarTopCards(computerCard) {
+  let cardNumber = parseInt(computerCard);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
+      case 11:
+        cardNumber = 'jack';
+        break;
+      case 12:
+        cardNumber = 'queen';
+        break;
+      case 13:
+        cardNumber = 'king';
+        break;
+      case 14:
+        cardNumber = '1';
+        break;
+    }
+  }
+  const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
+  console.log(cardNumber);
+  console.log(face);
+
+  topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+}
+
+function preWarBottomCards(playerCard) {
+  let cardNumber = parseInt(playerCard);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
+      case 11:
+        cardNumber = 'jack';
+        break;
+      case 12:
+        cardNumber = 'queen';
+        break;
+      case 13:
+        cardNumber = 'king';
+        break;
+      case 14:
+        cardNumber = '1';
+        break;
+    }
+  }
+  const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
+  console.log(cardNumber);
+  console.log(face);
+  bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
 }
 
 function changeCenterText(msg) {
@@ -97,53 +146,90 @@ function updatePlayerText(playerText) {
   bottomText.innerText = playerText;
 }
 
-function warTopCards(computerCard3) {
-  let cardnumber = parseInt(computerCard3);
-  if (cardnumber > 10) {
-    switch (cardnumber) {
+function warTopCards(computerCard3, oldComputerCard) {
+  let oldCardNumber = parseInt(oldComputerCard);
+  if (oldCardNumber > 10) {
+    switch (oldCardNumber) {
       case 11:
-        cardnumber = 'jack';
+        oldCardNumber = 'jack';
         break;
       case 12:
-        cardnumber = 'queen';
+        oldCardNumber = 'queen';
         break;
       case 13:
-        cardnumber = 'king';
+        oldCardNumber = 'king';
         break;
       case 14:
-        cardnumber = '1';
+        oldCardNumber = '1';
+        break;
+    }
+  }
+  const oldFace = oldComputerCard.split('of ')[1].toLowerCase().slice(0, -1);
+  let cardNumber = parseInt(computerCard3);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
+      case 11:
+        cardNumber = 'jack';
+        break;
+      case 12:
+        cardNumber = 'queen';
+        break;
+      case 13:
+        cardNumber = 'king';
+        break;
+      case 14:
+        cardNumber = '1';
         break;
     }
   }
   const face = computerCard3.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardnumber);
+  console.log(cardNumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/${oldFace}_${oldCardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
-function warBottomCards(playerCard3) {
-  let cardnumber = parseInt(playerCard3);
-  if (cardnumber > 10) {
-    switch (cardnumber) {
+function warBottomCards(playerCard3, oldPlayerCard) {
+  let oldCardNumber = parseInt(oldPlayerCard);
+  if (oldCardNumber > 10) {
+    switch (oldCardNumber) {
       case 11:
-        cardnumber = 'jack';
+        oldCardNumber = 'jack';
         break;
       case 12:
-        cardnumber = 'queen';
+        oldCardNumber = 'queen';
         break;
       case 13:
-        cardnumber = 'king';
+        oldCardNumber = 'king';
         break;
       case 14:
-        cardnumber = '1';
+        oldCardNumber = '1';
+        break;
+    }
+  }
+  const oldFace = oldPlayerCard.split('of ')[1].toLowerCase().slice(0, -1);
+
+  let cardNumber = parseInt(playerCard3);
+  if (cardNumber > 10) {
+    switch (cardNumber) {
+      case 11:
+        cardNumber = 'jack';
+        break;
+      case 12:
+        cardNumber = 'queen';
+        break;
+      case 13:
+        cardNumber = 'king';
+        break;
+      case 14:
+        cardNumber = '1';
         break;
     }
   }
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardnumber);
+  console.log(cardNumber);
   console.log(face);
-  bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardnumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/${oldFace}_${oldCardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
 class Deck {
@@ -208,28 +294,38 @@ function playRound() {
 function evaluateRoundWinner(playerCard, computerCard) {
   const playerCardNum = parseInt(playerCard);
   const computerCardNum = parseInt(computerCard);
+  let playerCardText = playerCard;
+  let computerCardText = computerCard;
+  if (playerCardNum > 10) {
+    playerCardText = playerCard.substr(3);
+  }
+  if (computerCardNum > 10) {
+    computerCardText = computerCard.substr(3);
+  }
   if (playerCardNum > computerCardNum) {
-    const msg = `Player wins - ${playerCard} beats ${computerCard}`;
+    const msg = `Player wins - ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
-    playerCardsText();
-    computerCardsText();
+    updatePlayerCardsText();
+    updateComputerCardsText();
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer wins - ${computerCard} beats ${playerCard}`;
+    const msg = `Computer wins - ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
-    playerCardsText();
-    computerCardsText();
+    updatePlayerCardsText();
+    updateComputerCardsText();
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
   } else {
-    const msg = `WAR! - ${playerCard} vs ${computerCard}...<div class="loadingwheel"></div>`;
+    const msg = `WAR! - ${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
-    topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-    bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+    preWarTopCards(computerCard);
+    preWarBottomCards(playerCard);
     changeCenterText(msg);
-    setTimeout(war, 3000);
+    setTimeout(() => {
+      war(computerCard, playerCard);
+    }, 3000);
   }
 }
 
@@ -318,7 +414,7 @@ newDeck.shuffle();
 console.log(newDeck.deck);
 startGame();
 
-function war() {
+function war(oldComputerCard, oldPlayerCard) {
   const computerCard1 = drawComputerCard();
   if (computerCard1) {
     warCards.unshift(computerCard1);
@@ -361,51 +457,63 @@ function war() {
     evalGameResults();
     return;
   }
-  evalWar(playerCard3, computerCard3);
+  evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard);
 }
 
-function playerCardsText() {
+function updatePlayerCardsText() {
   const numcards = playerCards.length + playerNewCards.length;
   const playerText = `Player has ${numcards} cards`;
   updatePlayerText(playerText);
 }
 
-function computerCardsText() {
+function updateComputerCardsText() {
   const numcards = computerCards.length + computerNewCards.length;
   const computerText = `Computer has ${numcards} cards`;
   updateComputerText(computerText);
 }
 
-function evalWar(playerCard3, computerCard3) {
+function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
-  warTopCards(computerCard3);
-  warBottomCards(playerCard3);
+  let playerCardText = playerCard3;
+  let computerCardText = computerCard3;
+  if (playerCardNum > 10) {
+    playerCardText = playerCard3.substr(3);
+  }
+  if (computerCardNum > 10) {
+    computerCardText = computerCard3.substr(3);
+  }
+  warTopCards(computerCard3, oldComputerCard);
+  warBottomCards(playerCard3, oldPlayerCard);
   if (playerCardNum > computerCardNum) {
-    const msg = `PLAYER WINS THE WAR!!! ${playerCard3} beats ${computerCard3}`;
+    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
-    playerCardsText();
-    computerCardsText();
+    updatePlayerCardsText();
+    updateComputerCardsText();
     addWarCardsToPlayer();
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    const msg = `COMPUTER WINS THE WAR!!! ${computerCard3} beats ${playerCard3}`;
+    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
-    playerCardsText();
-    computerCardsText();
+    updatePlayerCardsText();
+    updateComputerCardsText();
     addWarCardsToComputer();
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else {
     changeCenterText(
-      `ANOTHER WAR?!? Player drew ${playerCard3} and Computer drew ${computerCard3}...<div class="loadingwheel"></div>`
+      `ANOTHER WAR?!? Player drew ${playerCardText} and Computer drew ${computerCardText}...<div class="loadingwheel"></div>`
     );
+    preWarTopCards(computerCard3);
+    preWarBottomCards(playerCard3);
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
-    setTimeout(war, 2500);
+    setTimeout(() => {
+      war(computerCard3, playerCard3);
+    }, 2500);
   }
 }
 

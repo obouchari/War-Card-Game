@@ -1,6 +1,5 @@
 body {
   background-color: #0d121d;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -8,7 +7,7 @@ body {
 
 #app {
   width: 100%;
-  padding: 50px 0;
+  padding: 25px 0;
 }
 
 #toptext {
@@ -33,12 +32,12 @@ body {
 
 #center {
   height: 40%;
-  transform: translateY(10%);
+  transform: translateY(9%);
 }
 
 #bottom {
   height: 30%;
-  transform: translateY(-2%);
+  transform: translateY(-10%);
 }
 
 .ff-star-wars {
@@ -55,11 +54,11 @@ nav {
 }
 
 .card {
-  max-width: 90px;
+  max-width: 160px;
 }
 
 .playericon {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .ptext {
@@ -67,10 +66,15 @@ nav {
   font-size: 1.2rem;
 }
 
+#timer {
+  font-size: 1rem;
+}
+
 #centertext {
   font-size: 1.2rem;
   text-align: center;
   width: 100vw;
+  transform: translateY(-5%);
 }
 
 #gamebtn {
@@ -115,24 +119,93 @@ svg {
   animation: spin 0.6s linear infinite;
 }
 
+@media (max-height: 1000px) {
+  .card {
+    max-width: 100px;
+  }
+}
+
+@media (max-height: 750px) {
+  .card {
+    max-width: 55px;
+  }
+  .playericon {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 1600px) {
   .card {
+    max-width: 130px;
+  }
+  .playericon {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .card {
+    max-width: 120px;
+  }
+  .playericon {
+    font-size: 2.5rem;
+  }
+  #centertext {
+    font-size: 1.1rem;
+  }
+  .ptext {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-height: 650px) {
+  .card {
     max-width: 50px;
+  }
+  .playericon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .card {
+    max-width: 48px;
+  }
+  .playericon {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-height: 550px) {
+  .card {
+    max-width: 45px;
+  }
+  .playericon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .playericon {
+    font-size: 2.2rem;
+  }
+  #timer {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 1200px) {
-  .card {
-    max-width: 45px;
+  .playericon {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    max-width: 70px;
+    max-width: 45px;
   }
   .playericon {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   #centertext {
     font-size: 1rem;
@@ -144,7 +217,7 @@ svg {
 
 @media (max-width: 400px) {
   .card {
-    max-width: 50px;
+    max-width: 45px;
   }
   .playericon {
     font-size: 1rem;
