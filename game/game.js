@@ -138,14 +138,6 @@ function changeCenterText(msg) {
   centerText.innerHTML = msg;
 }
 
-function updateComputerText(computerText) {
-  topText.innerText = computerText;
-}
-
-function updatePlayerText(playerText) {
-  bottomText.innerText = playerText;
-}
-
 function warTopCards(computerCard3, oldComputerCard) {
   let oldCardNumber = parseInt(oldComputerCard);
   if (oldCardNumber > 10) {
@@ -305,21 +297,23 @@ function evaluateRoundWinner(playerCard, computerCard) {
   if (playerCardNum > computerCardNum) {
     const msg = `Player wins - ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
-    updatePlayerCardsText();
-    updateComputerCardsText();
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
     const msg = `Computer wins - ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
-    updatePlayerCardsText();
-    updateComputerCardsText();
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
   } else {
     const msg = `WAR! - ${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     preWarTopCards(computerCard);
     preWarBottomCards(playerCard);
     changeCenterText(msg);
@@ -389,17 +383,9 @@ function evalGameResults() {
     gameBtn.disabled = true;
     clearInterval();
   } else {
-    alert("TIME'S UP!");
-    centerText.innerText = "TIME'S UP";
-    playerNewCards.forEach((card) => {
-      playerCards.unshift(card);
-    });
-    playerNewCards.length = 0;
-    computerNewCards.forEach((card) => {
-      computerCards.unshift(card);
-    });
-    computerNewCards.length = 0;
-    distance = 100000;
+    const msg = 'OVERTIME - 2 MINUTES REMAINING';
+    alert(msg);
+    distance = 120000;
     runTimer();
   }
 }
@@ -460,16 +446,24 @@ function war(oldComputerCard, oldPlayerCard) {
   evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard);
 }
 
-function updatePlayerCardsText() {
+function updatePlayerCardsNum() {
   const numcards = playerCards.length + playerNewCards.length;
   const playerText = `Player has ${numcards} cards`;
-  updatePlayerText(playerText);
+  updatePlayerCardsDisplay(playerText);
 }
 
-function updateComputerCardsText() {
+function updateComputerCardsNum() {
   const numcards = computerCards.length + computerNewCards.length;
   const computerText = `Computer has ${numcards} cards`;
-  updateComputerText(computerText);
+  updateComputerCardsDisplay(computerText);
+}
+
+function updateComputerCardsDisplay(computerText) {
+  topText.innerText = computerText;
+}
+
+function updatePlayerCardsDisplay(playerText) {
+  bottomText.innerText = playerText;
 }
 
 function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
@@ -488,18 +482,18 @@ function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
   if (playerCardNum > computerCardNum) {
     const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
-    updatePlayerCardsText();
-    updateComputerCardsText();
     addWarCardsToPlayer();
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
     const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
-    updatePlayerCardsText();
-    updateComputerCardsText();
     addWarCardsToComputer();
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
