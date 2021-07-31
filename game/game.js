@@ -34,6 +34,7 @@ const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
 let isGameOver = false;
 
+// UI: Updates Computer Card during Round
 function changeTopCard(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -59,6 +60,7 @@ function changeTopCard(computerCard) {
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
+// UI: Updates Player Card during Round
 function changeBottomCard(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -85,6 +87,7 @@ function changeBottomCard(playerCard) {
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
+// UI: Updates Top Cards at Start of War
 function preWarTopCards(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -107,9 +110,13 @@ function preWarTopCards(computerCard) {
   console.log(cardNumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  setTimeout(() => {
+    topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  }, 1000);
 }
 
+// UI: Updates Bottom Cards at Start of War
 function preWarBottomCards(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -131,32 +138,19 @@ function preWarBottomCards(playerCard) {
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardNumber);
   console.log(face);
-  bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  setTimeout(() => {
+    bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
+  }, 1000);
 }
 
+// UI: Updates Text in Center of Game Board
 function changeCenterText(msg) {
   centerText.innerHTML = msg;
 }
 
-function warTopCards(computerCard3, oldComputerCard) {
-  let oldCardNumber = parseInt(oldComputerCard);
-  if (oldCardNumber > 10) {
-    switch (oldCardNumber) {
-      case 11:
-        oldCardNumber = 'jack';
-        break;
-      case 12:
-        oldCardNumber = 'queen';
-        break;
-      case 13:
-        oldCardNumber = 'king';
-        break;
-      case 14:
-        oldCardNumber = '1';
-        break;
-    }
-  }
-  const oldFace = oldComputerCard.split('of ')[1].toLowerCase().slice(0, -1);
+// UI: Updates Top Cards at End of War Round
+function warTopCards(computerCard3) {
   let cardNumber = parseInt(computerCard3);
   if (cardNumber > 10) {
     switch (cardNumber) {
@@ -178,29 +172,11 @@ function warTopCards(computerCard3, oldComputerCard) {
   console.log(cardNumber);
   console.log(face);
 
-  topCard.innerHTML = `<img src="../png/${oldFace}_${oldCardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
-function warBottomCards(playerCard3, oldPlayerCard) {
-  let oldCardNumber = parseInt(oldPlayerCard);
-  if (oldCardNumber > 10) {
-    switch (oldCardNumber) {
-      case 11:
-        oldCardNumber = 'jack';
-        break;
-      case 12:
-        oldCardNumber = 'queen';
-        break;
-      case 13:
-        oldCardNumber = 'king';
-        break;
-      case 14:
-        oldCardNumber = '1';
-        break;
-    }
-  }
-  const oldFace = oldPlayerCard.split('of ')[1].toLowerCase().slice(0, -1);
-
+// UI: Updates Bottom Cards at End of War Round
+function warBottomCards(playerCard3) {
   let cardNumber = parseInt(playerCard3);
   if (cardNumber > 10) {
     switch (cardNumber) {
@@ -221,9 +197,25 @@ function warBottomCards(playerCard3, oldPlayerCard) {
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
   console.log(cardNumber);
   console.log(face);
-  bottomCard.innerHTML = `<img src="../png/${oldFace}_${oldCardNumber}.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
 }
 
+// UI: Updates display of Computer's Current Number of Cards
+
+function updateComputerCardsNum() {
+  const numcards = computerCards.length + computerNewCards.length;
+  const computerText = `Computer has ${numcards} cards`;
+  topText.innerText = computerText;
+}
+
+// UI: Updates display of Player's Current Number of Cards
+function updatePlayerCardsNum() {
+  const numcards = playerCards.length + playerNewCards.length;
+  const playerText = `Player has ${numcards} cards`;
+  bottomText.innerText = playerText;
+}
+
+// Game: Creates Deck of Cards
 class Deck {
   constructor() {
     this.deck = [];
@@ -253,7 +245,7 @@ class Deck {
   }
 }
 
-// startGame()
+// startGame() - Initializes Game and Deals Half of Deck to Player and Computer
 function startGame() {
   const newDeck = new Deck();
   newDeck.shuffle();
@@ -270,6 +262,7 @@ function startGame() {
   runTimer();
 }
 
+// Game: Starts Round
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
@@ -283,6 +276,7 @@ function playRound() {
   evaluateRoundWinner(playerCard, computerCard);
 }
 
+// Game: Evaluates Player and Computer Card and Sends Result to UI
 function evaluateRoundWinner(playerCard, computerCard) {
   const playerCardNum = parseInt(playerCard);
   const computerCardNum = parseInt(computerCard);
@@ -318,51 +312,30 @@ function evaluateRoundWinner(playerCard, computerCard) {
     preWarBottomCards(playerCard);
     changeCenterText(msg);
     setTimeout(() => {
-      war(computerCard, playerCard);
+      war();
     }, 3000);
   }
 }
 
+// Game: Draws Card for Player from Player Card Deck
 function drawPlayerCard() {
   if (playerCards.length > 0) {
     return playerCards.shift();
-  } else {
-    console.log('Shifting New Cards to Player Deck');
-    addNewCardsToPlayer();
-    return playerCards.shift();
-  }
+  } else if (playerNewCards.length > 0) {
+    return playerNewCards.shift();
+  } else return;
 }
 
+// Game: Draws Card for Computer from Computer Card Deck
 function drawComputerCard() {
   if (computerCards.length > 0) {
     return computerCards.shift();
-  } else {
-    console.log('Shifting New Cards to Computer Deck');
-    addNewCardsToComputer();
-    return playerCards.shift();
-  }
+  } else if (computerNewCards.length > 0) {
+    return computerNewCards.shift();
+  } else return;
 }
 
-function addNewCardsToPlayer() {
-  if (playerNewCards.length > 0) {
-    playerNewCards.forEach((card) => {
-      playerCards.push(card);
-    });
-    playerNewCards.length = 0;
-  } else {
-    evalGameResults();
-  }
-}
-
-function addNewCardsToComputer() {
-  if (computerNewCards.length > 0) {
-    computerNewCards.forEach((card) => {
-      computerCards.push(card);
-    });
-    computerNewCards.length = 0;
-  } else evalGameResults();
-}
-
+// Evaluates Results based on who has the most cards - if game is tied; begins 2 minute overtime
 function evalGameResults() {
   if (
     playerNewCards.length + playerCards.length >
@@ -383,24 +356,14 @@ function evalGameResults() {
     gameBtn.disabled = true;
     clearInterval();
   } else {
-    const msg = 'OVERTIME - 2 MINUTES REMAINING';
+    const msg = 'Score is Tied - Two Minute Overtime!';
     alert(msg);
     distance = 120000;
-    runTimer();
   }
 }
 
-function showCards() {
-  console.log(playerCards, playerNewCards);
-  console.log(computerCards, computerNewCards);
-}
-
-const newDeck = new Deck();
-newDeck.shuffle();
-console.log(newDeck.deck);
-startGame();
-
-function war(oldComputerCard, oldPlayerCard) {
+// Game: Begins War Sequence if Round is Tied
+function war() {
   const computerCard1 = drawComputerCard();
   if (computerCard1) {
     warCards.unshift(computerCard1);
@@ -446,26 +409,6 @@ function war(oldComputerCard, oldPlayerCard) {
   evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard);
 }
 
-function updatePlayerCardsNum() {
-  const numcards = playerCards.length + playerNewCards.length;
-  const playerText = `Player has ${numcards} cards`;
-  updatePlayerCardsDisplay(playerText);
-}
-
-function updateComputerCardsNum() {
-  const numcards = computerCards.length + computerNewCards.length;
-  const computerText = `Computer has ${numcards} cards`;
-  updateComputerCardsDisplay(computerText);
-}
-
-function updateComputerCardsDisplay(computerText) {
-  topText.innerText = computerText;
-}
-
-function updatePlayerCardsDisplay(playerText) {
-  bottomText.innerText = playerText;
-}
-
 function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
@@ -480,7 +423,7 @@ function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
   warTopCards(computerCard3, oldComputerCard);
   warBottomCards(playerCard3, oldPlayerCard);
   if (playerCardNum > computerCardNum) {
-    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText}`;
+    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText} - Player wins war cards`;
     changeCenterText(msg);
     addWarCardsToPlayer();
     updatePlayerCardsNum();
@@ -489,7 +432,7 @@ function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText}`;
+    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText} - Computer wins war cards`;
     changeCenterText(msg);
     addWarCardsToComputer();
     updatePlayerCardsNum();
@@ -506,25 +449,26 @@ function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     setTimeout(() => {
-      war(computerCard3, playerCard3);
-    }, 2500);
+      war();
+    }, 3000);
   }
 }
 
+// Game: Adds cards from War to Player if Player wins War
 function addWarCardsToPlayer() {
   warCards.forEach((card) => {
     playerNewCards.push(card);
   });
 }
 
+// Game Adds cards from War to Computer if Computer wins War
 function addWarCardsToComputer() {
   warCards.forEach((card) => {
     computerNewCards.push(card);
   });
 }
 
-gameBtn.addEventListener('click', playRound);
-
+// Game and UI: Starts Timer based on Distance (in milliseconds)
 function runTimer() {
   setInterval(() => {
     distance = distance - 1000;
@@ -533,7 +477,7 @@ function runTimer() {
     if (distance > 0) {
       timeLeft = `${minutes}m ${seconds}s`;
     } else {
-      timeLeft = 'GAME OVER';
+      timeLeft = '0m 0s';
     }
     setTimeout(() => {
       timer.innerText = timeLeft;
@@ -551,10 +495,17 @@ function runTimer() {
   }, 1000);
 }
 
+// Game: Rests Timer to 4 Minutes - Possible UI Implementation of Reset Button?
 function resetTime() {
   distance = 240000;
 }
 
+// Game: Initalizes Game on Page Load
+const newDeck = new Deck();
+newDeck.shuffle();
+console.log(newDeck.deck);
+startGame();
+gameBtn.addEventListener('click', playRound);
 if (distance == 0) {
   evalGameResults();
 }
