@@ -58,6 +58,10 @@ nav {
   max-width: 160px;
 }
 
+.deck-card {
+  min-height: 70px;
+}
+
 .playericon {
   font-size: 3rem;
 }
