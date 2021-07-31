@@ -41,3 +41,14 @@ or
 ```bash
 $ yarn build
 ```
+
+## Link to deployed site
+
+Our app is live [here].(https://card-wars.netlify.app/)
+
+## Our team
+
+* [Hau Ngo](https://www.linkedin.com/in/hauqxngo/)
+* [Otman Bouchari](https://www.linkedin.com/in/obouchari/)
+* [Phil Browne](https://www.linkedin.com/in/philbrownetech/)
+
