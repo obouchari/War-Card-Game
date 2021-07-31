@@ -406,10 +406,10 @@ function war() {
     evalGameResults();
     return;
   }
-  evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard);
+  evalWar(computerCard3, playerCard3);
 }
 
-function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
+function evalWar(computerCard3, playerCard3) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
   let playerCardText = playerCard3;
@@ -420,8 +420,8 @@ function evalWar(computerCard3, oldComputerCard, playerCard3, oldPlayerCard) {
   if (computerCardNum > 10) {
     computerCardText = computerCard3.substr(3);
   }
-  warTopCards(computerCard3, oldComputerCard);
-  warBottomCards(playerCard3, oldPlayerCard);
+  warTopCards(computerCard3);
+  warBottomCards(playerCard3);
   if (playerCardNum > computerCardNum) {
     const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText} - Player wins war cards`;
     changeCenterText(msg);
