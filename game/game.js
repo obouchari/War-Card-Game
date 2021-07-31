@@ -209,27 +209,27 @@ function evaluateRoundWinner(playerCard, computerCard) {
   const playerCardNum = parseInt(playerCard);
   const computerCardNum = parseInt(computerCard);
   if (playerCardNum > computerCardNum) {
-    const msg = `Player wins round - ${playerCard} beats ${computerCard}`;
+    const msg = `Player wins - ${playerCard} beats ${computerCard}`;
     changeCenterText(msg);
     playerCardsText();
     computerCardsText();
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer wins round - ${computerCard} beats ${playerCard}`;
+    const msg = `Computer wins - ${computerCard} beats ${playerCard}`;
     changeCenterText(msg);
     playerCardsText();
     computerCardsText();
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
   } else {
-    const msg = `WAR - ${playerCard} vs ${computerCard}...<div class="loadingwheel"></div>`;
+    const msg = `WAR! - ${playerCard} vs ${computerCard}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     changeCenterText(msg);
-    setTimeout(war, 1000);
+    setTimeout(war, 3000);
   }
 }
 
@@ -278,7 +278,7 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length >
     computerNewCards.length + computerCards.length
   ) {
-    const msg = 'Player Has More Cards - Player Wins!';
+    const msg = 'Player has more cards - Player wins!';
     centerText.innerText = msg;
     isGameOver = true;
     gameBtn.disabled = true;
@@ -287,14 +287,14 @@ function evalGameResults() {
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
   ) {
-    const msg = 'Computer Has More Cards - Player Wins!';
+    const msg = 'Computer has more cards - Computer wins!';
     centerText.innerText = msg;
     isGameOver = true;
     gameBtn.disabled = true;
     clearInterval();
   } else {
-    alert('OVERTIME!');
-    centerText.innerText = 'OVERTIME';
+    alert("TIME'S UP!");
+    centerText.innerText = "TIME'S UP";
     playerNewCards.forEach((card) => {
       playerCards.unshift(card);
     });
@@ -431,7 +431,7 @@ function runTimer() {
     if (distance > 0) {
       timeLeft = `${minutes}m ${seconds}s`;
     } else {
-      timeLeft = 'GAME OVER!';
+      timeLeft = 'GAME OVER';
     }
     setTimeout(() => {
       timer.innerText = timeLeft;
@@ -443,7 +443,7 @@ function runTimer() {
     }
     if (isGameOver === true) {
       clearInterval();
-      timer.innerText = 'GAME OVER!';
+      timer.innerText = 'GAME OVER';
       return;
     }
   }, 1000);
@@ -456,3 +456,8 @@ function resetTime() {
 if (distance == 0) {
   evalGameResults();
 }
+
+// function endGame(msg) {
+//   // Pop up alert message
+//   alert(msg);
+// }

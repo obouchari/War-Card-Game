@@ -8,6 +8,7 @@ body {
 
 #app {
   width: 100%;
+  padding: 50px 0;
 }
 
 #toptext {
@@ -116,13 +117,13 @@ svg {
 
 @media (max-width: 1600px) {
   .card {
-    max-width: 80px;
+    max-width: 50px;
   }
 }
 
 @media (max-width: 1200px) {
   .card {
-    max-width: 75px;
+    max-width: 45px;
   }
 }
 
