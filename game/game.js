@@ -344,14 +344,14 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerCardText = computerCard.substr(3);
   }
   if (playerCardNum > computerCardNum) {
-    const msg = `Player wins:<br>${playerCardText} beats ${computerCardText}`;
+    const msg = `Player Wins Round!<br>${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer wins:<br>${computerCardText} beats ${playerCardText}`;
+    const msg = `Computer Wins Round!<br>${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
