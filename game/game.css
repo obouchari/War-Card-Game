@@ -7,7 +7,8 @@ body {
 
 #app {
   width: 100%;
-  padding: 25px 0;
+  /* Center the dive vertically */
+  padding: 60px 0;
 }
 
 #toptext {
