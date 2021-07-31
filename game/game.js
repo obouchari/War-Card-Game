@@ -321,21 +321,21 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerCardText = computerCard.substr(3);
   }
   if (playerCardNum > computerCardNum) {
-    const msg = `Player wins - ${playerCardText} beats ${computerCardText}`;
+    const msg = `Player wins: ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer wins - ${computerCardText} beats ${playerCardText}`;
+    const msg = `Computer wins: ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else {
-    const msg = `WAR! - ${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
+    const msg = `WAR! ${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     updatePlayerCardsNum();
@@ -455,7 +455,7 @@ function evalWar(computerCard3, playerCard3) {
   warTopCards(computerCard3);
   warBottomCards(playerCard3);
   if (playerCardNum > computerCardNum) {
-    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText} - Player wins war cards`;
+    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
     addWarCardsToPlayer();
     updatePlayerCardsNum();
@@ -464,7 +464,7 @@ function evalWar(computerCard3, playerCard3) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText} - Computer wins war cards`;
+    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
     addWarCardsToComputer();
     updatePlayerCardsNum();

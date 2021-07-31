@@ -51,7 +51,7 @@ body {
 
 nav {
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .card {
@@ -119,22 +119,6 @@ svg {
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
-
-@media (max-height: 1000px) {
-  .card {
-    max-width: 100px;
-  }
-}
-
-@media (max-height: 750px) {
-  .card {
-    max-width: 55px;
-  }
-  .playericon {
-    font-size: 2rem;
-  }
-}
-
 @media (max-width: 1600px) {
   .card {
     max-width: 130px;
@@ -156,33 +140,6 @@ svg {
   }
   .ptext {
     font-size: 1.1rem;
-  }
-}
-
-@media (max-height: 650px) {
-  .card {
-    max-width: 50px;
-  }
-  .playericon {
-    font-size: 2rem;
-  }
-}
-
-@media (max-height: 600px) {
-  .card {
-    max-width: 48px;
-  }
-  .playericon {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-height: 550px) {
-  .card {
-    max-width: 45px;
-  }
-  .playericon {
-    font-size: 1rem;
   }
 }
 
@@ -216,6 +173,93 @@ svg {
   }
 }
 
+@media (max-height: 1000px) {
+  .card {
+    max-width: 90px;
+  }
+  .playericon{
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-height: 800px) {
+  .card {
+    max-width: 55px;
+  }
+  .playericon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-height: 650px) {
+  .card {
+    max-width: 50px;
+  }
+  .playericon {
+    font-size: 1.3rem;
+  }
+  #app{
+    transform: translateY(-5%);
+  }
+}
+
+@media (max-height: 600px) {
+  .card {
+    max-width: 45px;
+  }
+  .playericon {
+    font-size: 1rem;
+  }
+  #app{
+    transform: translateY(-7%);
+  }
+  #center{
+    transform: translateY(-8%);
+  }
+  #bottom{
+    transform: translateY(-25%);
+  }
+}
+
+@media (max-height: 550px){
+  .card {
+    max-width: 40px;
+  }
+  .playericon {
+    font-size: 0.8rem;
+  }
+  #app{
+    transform: translateY(-9%);
+  }
+  #center{
+    transform: translateY(-10%);
+  }
+  #bottom{
+    transform: translateY(-30%);
+  }
+}
+
+@media (max-height: 500px){
+  .card {
+    max-width: 40px;
+  }
+  .playericon {
+    display: none;
+  }
+  #app{
+    transform: translateY(-10%);
+  }
+  #center{
+    transform: translateY(-12%);
+  }
+  #bottom{
+    transform: translateY(-33%);
+  }
+}
+
+
+
+
 @media (max-width: 400px) {
   .card {
     max-width: 45px;
@@ -230,6 +274,7 @@ svg {
     font-size: 0.9rem;
   }
 }
+
 
 @media (max-width: 325px) {
   .card {
