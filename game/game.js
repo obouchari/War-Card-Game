@@ -34,6 +34,7 @@ const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
 let isGameOver = false;
 
+// Card Source: https://code.google.com/archive/p/vector-playing-cards/
 // UI: Updates Computer Card during Round
 function changeTopCard(computerCard) {
   let cardNumber = parseInt(computerCard);
@@ -58,7 +59,7 @@ function changeTopCard(computerCard) {
   console.log(face);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(topCard);
+  // moveTopCard();
 }
 
 // UI: Updates Player Card during Round
@@ -86,7 +87,7 @@ function changeBottomCard(playerCard) {
   console.log(face);
 
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(bottomCard);
+  // moveBottomCard();
 }
 
 // UI: Updates Top Cards at Start of War
@@ -118,6 +119,20 @@ function preWarTopCards(computerCard) {
     quickFade(topCard);
   }, 1500);
 }
+
+// function moveBottomCard(){
+//   bottomCard.style.marginRight = '80%';
+//   move('#bottomcard')
+//   .set('margin-left', '160%')
+//   .end();
+// }
+
+// function moveTopCard(){
+//   topCard.style.marginLeft = '80%';
+//   move('#topcard')
+//   .set('margin-right', '160%')
+//   .end();
+// }
 
 // UI: Updates Bottom Cards at Start of War
 function preWarBottomCards(playerCard) {
@@ -323,21 +338,21 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerCardText = computerCard.substr(3);
   }
   if (playerCardNum > computerCardNum) {
-    const msg = `Player wins: ${playerCardText} beats ${computerCardText}`;
+    const msg = `Player wins:<br>${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer wins: ${computerCardText} beats ${playerCardText}`;
+    const msg = `Computer wins:<br>${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else {
-    const msg = `WAR! ${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
+    const msg = `WAR!<br>${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     updatePlayerCardsNum();
@@ -375,8 +390,8 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length >
     computerNewCards.length + computerCards.length
   ) {
-    const msg = 'Player has more cards - Player wins!';
-    centerText.innerText = msg;
+    const msg = 'Player has more cards<br>Player wins!';
+    centerText.innerHTML = msg;
     isGameOver = true;
     gameBtn.disabled = true;
     clearInterval();
@@ -384,8 +399,8 @@ function evalGameResults() {
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
   ) {
-    const msg = 'Computer has more cards - Computer wins!';
-    centerText.innerText = msg;
+    const msg = 'Computer has more cards<br>Computer wins!';
+    centerText.innerHTML = msg;
     isGameOver = true;
     gameBtn.disabled = true;
     clearInterval();
@@ -457,7 +472,7 @@ function evalWar(computerCard3, playerCard3) {
   warTopCards(computerCard3);
   warBottomCards(playerCard3);
   if (playerCardNum > computerCardNum) {
-    const msg = `PLAYER WINS THE WAR!!! ${playerCardText} beats ${computerCardText}`;
+    const msg = `PLAYER WINS THE WAR!!!<br>${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
     addWarCardsToPlayer();
     updatePlayerCardsNum();
@@ -466,7 +481,7 @@ function evalWar(computerCard3, playerCard3) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    const msg = `COMPUTER WINS THE WAR!!! ${computerCardText} beats ${playerCardText}`;
+    const msg = `COMPUTER WINS THE WAR!!!<br>${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
     addWarCardsToComputer();
     updatePlayerCardsNum();
@@ -476,7 +491,7 @@ function evalWar(computerCard3, playerCard3) {
     gameBtn.disabled = false;
   } else {
     changeCenterText(
-      `ANOTHER WAR?!? Player drew ${playerCardText} and Computer drew ${computerCardText}...<div class="loadingwheel"></div>`
+      `ANOTHER WAR?!?<br>Player drew ${playerCardText} and Computer drew ${computerCardText}...<div class="loadingwheel"></div>`
     );
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
