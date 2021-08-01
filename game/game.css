@@ -131,7 +131,7 @@ svg {
 
 .loadingwheel {
   margin: 0 auto;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   width: 40px;
   height: 40px;
   border: 12px solid black;
