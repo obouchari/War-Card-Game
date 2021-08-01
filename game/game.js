@@ -12,23 +12,40 @@ function range(start, stop, step = 1) {
 }
 
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-const values = [...range(2, 11), '11 Jack', '12 Queen', '13 King', '14 Ace'];
+const values = [
+  '2 Two',
+  '3 Three',
+  '4 Four',
+  '5 Five',
+  '6 Six',
+  '7 Seven',
+  '8 Eight',
+  '9 Nine',
+  '10 Ten',
+  '11 Jack',
+  '12 Queen',
+  '13 King',
+  '14 Ace',
+];
+
 let playerCards, computerCards;
 const playerNewCards = [];
 const computerNewCards = [];
 const warCards = [];
 let distance = 240000;
 let timeLeft;
+let time;
 
 const topCard = document.getElementById('topcard');
 const bottomCard = document.getElementById('bottomcard');
 const topText = document.getElementById('toptext');
-const centerText = document.getElementById('centerspan');
+const centerSpan = document.getElementById('centerspan');
 const bottomText = document.getElementById('bottomtext');
 const topArea = document.getElementById('top');
 const centerArea = document.getElementById('center');
 const bottomArea = document.getElementById('bottom');
 const gameBtn = document.getElementById('gamebtn');
+const resetBtn = document.getElementById('resetbtn');
 const timer = document.getElementById('timer');
 const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
@@ -55,8 +72,6 @@ function changeTopCard(computerCard) {
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   // moveTopCard();
@@ -83,11 +98,8 @@ function changeBottomCard(playerCard) {
   }
 
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
 
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  // moveBottomCard();
 }
 
 // UI: Updates Top Cards at Start of War
@@ -110,8 +122,6 @@ function preWarTopCards(computerCard) {
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
@@ -140,8 +150,6 @@ function preWarBottomCards(playerCard) {
     }
   }
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
@@ -150,8 +158,8 @@ function preWarBottomCards(playerCard) {
 }
 
 // UI: Updates Text in Center of Game Board
-function changeCenterText(msg) {
-  centerText.innerHTML = msg;
+function updateCenterSpan(msg) {
+  centerSpan.innerHTML = msg;
 }
 
 // UI: Updates Top Cards at End of War Round
@@ -174,8 +182,6 @@ function warTopCards(computerCard3) {
     }
   }
   const face = computerCard3.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
 
   topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   quickFade(topCard);
@@ -201,8 +207,6 @@ function warBottomCards(playerCard3) {
     }
   }
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
-  console.log(cardNumber);
-  console.log(face);
   bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   quickFade(bottomCard);
 }
@@ -222,7 +226,7 @@ function updatePlayerCardsNum() {
   bottomText.innerText = playerText;
 }
 
-// UI: Adds Slower Fade-In using Opacity on Element
+// UI: Adds Slower Fade-In Using Opacity on DOM Element
 function slowFade(element) {
   let opacity = 0.1; // initial opacity
   element.style.display = 'block';
@@ -236,7 +240,7 @@ function slowFade(element) {
   }, 60);
 }
 
-// UI: Adds Quicker Fade-In using Opacity on Element
+// UI: Adds Quicker Fade-In Using Opacity on DOM Element
 function quickFade(element) {
   let opacity = 0.1; // initial opacity
   element.style.display = 'block';
@@ -249,6 +253,8 @@ function quickFade(element) {
     opacity += opacity * 0.1;
   }, 20);
 }
+
+function getCardNumber(card) {}
 
 // Game: Creates Deck of Cards
 class Deck {
@@ -292,8 +298,6 @@ function startGame() {
   // Half of deck for Computer
   computerCards = newDeck.deck.slice(halfDeck, newDeck.numOfCards);
 
-  console.log(playerCards);
-  console.log(computerCards);
   runTimer();
 }
 
@@ -301,6 +305,9 @@ function startGame() {
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
+  if (distance <= 0) {
+    return;
+  }
   if (
     playerNewCards.length + playerCards.length <= 0 ||
     computerNewCards.length + computerCards.length <= 0
@@ -323,24 +330,26 @@ function evaluateRoundWinner(playerCard, computerCard) {
   const computerCardNum = parseInt(computerCard);
   let playerCardText = playerCard;
   let computerCardText = computerCard;
-  if (playerCardNum > 10) {
+  if (playerCardNum > 9) {
     playerCardText = playerCard.substr(3);
+  } else {
+    playerCardText = playerCard.substr(2);
   }
-  if (computerCardNum > 10) {
+  if (computerCardNum > 9) {
     computerCardText = computerCard.substr(3);
+  } else {
+    computerCardText = computerCard.substr(2);
   }
   if (playerCardNum > computerCardNum) {
-    const msg = `Player Wins Round!<br>${playerCardText} beats ${computerCardText}`;
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(133, 133, 240)';
+    const msg = `<span style="color: #28a745">PLAYER WINS ROUND!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
+    updateCenterSpan(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
-    const msg = `Computer Wins Round!<br>${computerCardText} beats ${playerCardText}`;
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(240, 133, 133)';
+    const msg = `<span style="color: #dc3545">COMPUTER WINS ROUND!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
+    updateCenterSpan(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
@@ -352,9 +361,8 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateComputerCardsNum();
     preWarTopCards(computerCard);
     preWarBottomCards(playerCard);
-    const msg = `WAR!<br>${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
-    changeCenterText(msg);
-    centerText.style.color = '#ffc107';
+    const msg = `<span style="color: #ffc107">WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> ties with </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white">...</span><div class="loadingwheel"></div>`;
+    updateCenterSpan(msg);
     // Warning Color
     setTimeout(() => {
       war();
@@ -382,32 +390,51 @@ function drawComputerCard() {
 
 // Evaluates Results based on who has the most cards - if game is tied; begins 2 minute overtime
 function evalGameResults() {
+  let msg;
   if (
     playerNewCards.length + playerCards.length >
     computerNewCards.length + computerCards.length
   ) {
-    const msg = 'Player has more cards<br>Player wins!';
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(133, 133, 240)';
+    centerSpan.style.color = 'white';
+    if (distance <= 0) {
+      msg =
+        'TIMES UP..... <span style="color: #28a745">PLAYER WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+    } else {
+      msg =
+        '<span style="color: #28a745">PLAYER WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+    }
+    updateCenterSpan(msg);
     isGameOver = true;
-    gameBtn.disabled = true;
-    clearInterval();
+    clearInterval(time);
+    timer.innerText = 'GAME OVER';
+    gameBtn.style.display = 'none';
+    resetBtn.style.display = 'inline-block';
   } else if (
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
   ) {
-    const msg = 'Computer has more cards<br>Computer wins!';
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(240, 133, 133)';
+    if (distance <= 0) {
+      msg =
+        'TIMES UP..... <span style="color: #dc3545">COMPUTER WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+    } else {
+      msg =
+        '<span style="color: #dc3545">COMPUTER WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+    }
+    updateCenterSpan(msg);
     isGameOver = true;
-    gameBtn.disabled = true;
-    clearInterval();
+    clearInterval(time);
+    timer.innerText = 'GAME OVER';
+    gameBtn.style.display = 'none';
+    resetBtn.style.display = 'inline-block';
   } else {
-    const msg = 'Score is Tied - Two Minute Overtime!';
-    alert(msg);
-    changeCenterText(msg);
-    centerText.style.color = '#ffc107';
+    msg =
+      'TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>';
+    clearInterval(time);
+    updateCenterSpan(msg);
+    timer.innerText = '2m 0s';
     distance = 120000;
+    runTimer();
+    centerSpan.style.color = '#ffc107';
   }
 }
 
@@ -465,16 +492,25 @@ function evalWar(computerCard3, playerCard3) {
   let computerCardText = computerCard3;
   if (playerCardNum > 10) {
     playerCardText = playerCard3.substr(3);
+  } else {
+    playerCardText = playerCard3.substr(2);
   }
   if (computerCardNum > 10) {
     computerCardText = computerCard3.substr(3);
+  } else {
+    computerCardText = computerCard3.substr(2);
+  }
+  if (distance <= 0) {
+    return;
   }
   warTopCards(computerCard3);
   warBottomCards(playerCard3);
   if (playerCardNum > computerCardNum) {
-    const msg = `PLAYER WINS THE WAR!!!<br>${playerCardText} beats ${computerCardText}`;
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(133, 133, 240)';
+    if (distance <= 0) {
+      return;
+    }
+    const msg = `<span style="color: #28a745">PLAYER WINS THE WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
+    updateCenterSpan(msg);
     addWarCardsToPlayer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
@@ -482,9 +518,11 @@ function evalWar(computerCard3, playerCard3) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else if (computerCardNum > playerCardNum) {
-    const msg = `COMPUTER WINS THE WAR!!!<br>${computerCardText} beats ${playerCardText}`;
-    changeCenterText(msg);
-    centerText.style.color = 'rgb(240, 133, 133)';
+    if (distance <= 0) {
+      return;
+    }
+    const msg = `<span style="color: #dc3545">COMPUTER WINS THE WAR!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
+    updateCenterSpan(msg);
     addWarCardsToComputer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
@@ -492,14 +530,15 @@ function evalWar(computerCard3, playerCard3) {
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
   } else {
-    changeCenterText(
-      `ANOTHER WAR?!?<br>Player drew ${playerCardText} and Computer drew ${computerCardText}...<div class="loadingwheel"></div>`
+    if (distance <= 0) {
+      return;
+    }
+    updateCenterSpan(
+      `<span style="color:#ffc107">ANOTHER WAR!</span><br><span style="color: rgb(133, 133, 240)">Player drew ${playerCardText}</span><span style="color: white"> and </span><span style="color: rgb(240, 133, 133)">Computer drew ${computerCardText}...</span><div class="loadingwheel"></div>`
     );
-    centerText.style.color = '#ffc107';
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
     gameBtn.style.display = 'none';
-    gameBtn.disabled = true;
     setTimeout(() => {
       war();
     }, 3000);
@@ -522,47 +561,50 @@ function addWarCardsToComputer() {
 
 // Game and UI: Starts Timer based on Distance (in milliseconds)
 function runTimer() {
-  setInterval(() => {
+  time = setInterval(() => {
     distance = distance - 1000;
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
     if (distance > 0) {
       timeLeft = `${minutes}m ${seconds}s`;
-    } else {
-      timeLeft = '0m 0s';
-    }
-    setTimeout(() => {
       timer.innerText = timeLeft;
-    }, 50);
+    } else {
+      clearInterval(time);
+    }
     if (distance <= 0) {
+      clearInterval(time);
       evalGameResults();
-      clearInterval();
       return;
     }
     if (isGameOver === true) {
-      clearInterval();
+      clearInterval(time);
       timer.innerText = 'GAME OVER';
       return;
     }
   }, 1000);
 }
 
-// Game: Rests Timer to 4 Minutes - Possible UI Implementation of Reset Button?
+function resetGame() {
+  playerCards = undefined;
+  playerNewCards.length = 0;
+  computerCards = undefined;
+  computerNewCards.length = 0;
+  resetTime();
+  isGameOver = false;
+  startGame();
+  updatePlayerCardsNum();
+  updateComputerCardsNum();
+  playRound();
+  gameBtn.style.display = 'inline-block';
+  resetBtn.style.display = 'none';
+}
+
 function resetTime() {
   distance = 240000;
+  timer.innerText = '4m 0s';
 }
 
 // Game: Initalizes Game on Page Load
-const newDeck = new Deck();
-newDeck.shuffle();
-console.log(newDeck.deck);
 startGame();
 gameBtn.addEventListener('click', playRound);
-if (distance == 0) {
-  evalGameResults();
-}
-
-// function endGame(msg) {
-//   // Pop up alert message
-//   alert(msg);
-// }
+resetBtn.addEventListener('click', resetGame);

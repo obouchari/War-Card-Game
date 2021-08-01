@@ -90,6 +90,10 @@ nav {
   height: 40px;
 }
 
+#resetbtn {
+  display: none;
+}
+
 #deckmid1 {
   display: inline-block;
   position: relative;
@@ -216,6 +220,27 @@ svg {
   }
 }
 
+@media (max-height: 700px) {
+  .card {
+    max-width: 52px;
+  }
+  .deck-card {
+    min-height: 67px;
+  }
+  .playericon {
+    font-size: 1.4rem;
+  }
+  #app {
+    transform: translateY(-3%);
+  }
+  #center {
+    transform: translateY(-4%);
+  }
+  #bottom {
+    transform: translateY(-20%);
+  }
+}
+
 @media (max-height: 650px) {
   .card {
     max-width: 50px;
@@ -228,6 +253,12 @@ svg {
   }
   #app {
     transform: translateY(-5%);
+  }
+  #center {
+    transform: translateY(-5%);
+  }
+  #bottom {
+    transform: translateY(-25%);
   }
 }
 
@@ -248,7 +279,7 @@ svg {
     transform: translateY(-8%);
   }
   #bottom {
-    transform: translateY(-25%);
+    transform: translateY(-27%);
   }
 }
 
@@ -269,7 +300,7 @@ svg {
     transform: translateY(-10%);
   }
   #bottom {
-    transform: translateY(-30%);
+    transform: translateY(-32%);
   }
 }
 
@@ -290,7 +321,25 @@ svg {
     transform: translateY(-12%);
   }
   #bottom {
-    transform: translateY(-33%);
+    transform: translateY(-37%);
+  }
+}
+
+@media (max-height: 450px) {
+  .card {
+    max-width: 37px;
+  }
+  .deck-card {
+    min-height: 40px;
+  }
+  #app {
+    transform: translateY(-10%);
+  }
+  #center {
+    transform: translateY(-12%);
+  }
+  #bottom {
+    transform: translateY(-54%);
   }
 }
 
@@ -310,6 +359,9 @@ svg {
   .ptext {
     font-size: 0.9rem;
   }
+  #app {
+    transform: translateY(-5%);
+  }
 }
 
 @media (max-width: 325px) {
@@ -327,5 +379,14 @@ svg {
   }
   .ptext {
     font-size: 0.8rem;
+  }
+  #app {
+    transform: translateY(-7%);
+  }
+  #center {
+    transform: translateY(-10%);
+  }
+  #bottom {
+    transform: translateY(-25%);
   }
 }
