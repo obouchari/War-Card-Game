@@ -357,7 +357,8 @@ function quickFade(element) {
 
 function slideRight(card) {
   card.style.position = 'absolute';
-  card.style.left = '-900px';
+  card.style.left = '-800px';
+  document.body.style.overflow = 'hidden';
   let interval = setInterval(() => slideRightMvt(card, interval), 12);
 }
 
@@ -369,13 +370,15 @@ function slideRightMvt(card, interval) {
     card.style.position = 'relative';
     card.style.top = 'unset';
     card.style.left = 'unset';
+    document.body.style.overflow = 'auto';
     clearInterval(interval);
   }
 }
 
 function slideLeft(card) {
   card.style.position = 'absolute';
-  card.style.left = '900px';
+  card.style.left = '800px';
+  document.body.style.overflow = 'hidden';
   let interval = setInterval(() => slideLeftMvt(card, interval), 12);
 }
 
@@ -387,6 +390,7 @@ function slideLeftMvt(card, interval) {
     card.style.position = 'relative';
     card.style.top = 'unset';
     card.style.left = 'unset';
+    document.body.style.overflowY = 'auto';
     clearInterval(interval);
   }
 }
