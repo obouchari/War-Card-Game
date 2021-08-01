@@ -36,6 +36,8 @@ const CHARACTERS = [
   'Chewbacca',
   'BB-8',
   'Obi-Wan Kenobi',
+  'C3PO',
+  'Mace Windu',
 ];
 const COMPUTERCHARACTERS = [
   'Darth Vader',
@@ -43,6 +45,8 @@ const COMPUTERCHARACTERS = [
   'Emperor Palpatine',
   'Kylo Ren',
   'Jabba the Hutt',
+  'Darth Maul',
+  'Boba Fett',
 ];
 
 let playerCards, computerCards;
@@ -75,7 +79,7 @@ let isGameOver = false;
 // UI: Changes Player Icon to Random Star Wars Character
 // Icon Source: http://starwarsglyphicons.com/
 function changePlayerIcon() {
-  const randNum = Math.floor(Math.random() * 8);
+  const randNum = Math.floor(Math.random() * CHARACTERS.length);
   playerChar = CHARACTERS[randNum];
   switch (playerChar) {
     case 'Yoda':
@@ -102,12 +106,17 @@ function changePlayerIcon() {
     case 'Obi-Wan Kenobi':
       userIcon.innerHTML = '<i class="swg swg-obiwankenobi"></i>';
       break;
+    case 'C3PO':
+      userIcon.innerHTML = '<i class="swg swg-c3po"></i>';
+      break;
+    case 'Mace Windu':
+      userIcon.innerHTML = '<i class="swg swg-macewindu"></i>';
   }
 }
 
 // UI: Changes Computer Icon to Random Star Wars Character
 function changeComputerIcon() {
-  const randNum = Math.floor(Math.random() * 5);
+  const randNum = Math.floor(Math.random() * COMPUTERCHARACTERS.length);
   computerChar = COMPUTERCHARACTERS[randNum];
   switch (computerChar) {
     case 'Darth Vader':
@@ -124,6 +133,12 @@ function changeComputerIcon() {
       break;
     case 'Jabba the Hutt':
       computerIcon.innerHTML = '<i class="swg swg-jabba"></i>';
+      break;
+    case 'Darth Maul':
+      computerIcon.innerHTML = '<i class="swg swg-darthmaul"></i>';
+      break;
+    case 'Boba Fett':
+      computerIcon.innerHTML = '<i class="swg swg-bobafett-2"></i>';
       break;
   }
 }
