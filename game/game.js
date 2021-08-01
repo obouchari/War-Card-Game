@@ -178,7 +178,7 @@ function warTopCards(computerCard3) {
   console.log(face);
 
   topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  slowFade(topCard);
+  quickFade(topCard);
 }
 
 // UI: Updates Bottom Cards at End of War Round
@@ -204,7 +204,7 @@ function warBottomCards(playerCard3) {
   console.log(cardNumber);
   console.log(face);
   bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  slowFade(bottomCard);
+  quickFade(bottomCard);
 }
 
 // UI: Updates display of Computer's Current Number of Cards
@@ -233,7 +233,7 @@ function slowFade(element) {
     element.style.opacity = opacity;
     element.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
     opacity += opacity * 0.1;
-  }, 45);
+  }, 60);
 }
 
 // UI: Adds Quicker Fade-In using Opacity on Element
@@ -247,7 +247,7 @@ function quickFade(element) {
     element.style.opacity = opacity;
     element.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
     opacity += opacity * 0.1;
-  }, 10);
+  }, 20);
 }
 
 // Game: Creates Deck of Cards

@@ -12,11 +12,11 @@ body {
 }
 
 #toptext {
-  color: rgb(231, 78, 78);
+  color: rgb(240, 133, 133);
 }
 
 #bottomtext {
-  color: rgb(78, 78, 231);
+  color: rgb(133, 133, 240);
 }
 
 #topcard {
@@ -24,11 +24,11 @@ body {
 }
 
 #computer i {
-  color: rgb(231, 78, 78);
+  color: rgb(240, 133, 133);
 }
 
 #player1 i {
-  color: rgb(78, 78, 231);
+  color: rgb(133, 133, 240);
 }
 
 #center {
