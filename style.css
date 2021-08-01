@@ -17,8 +17,10 @@ body {
 }
 
 .ff-star-wars {
-  font-family: "star-wars", Helvetica, Arial, sans-serif;
+  font-family: 'star-wars', Helvetica, Arial, sans-serif;
 }
+
+/* 'star-wars' Font is ShyFonts Distant Galaxy - source: https://www.dafont.com/sf-distant-galaxy.font */
 
 h1 {
   font-size: 5rem;

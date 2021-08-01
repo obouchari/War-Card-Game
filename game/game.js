@@ -76,8 +76,10 @@ const userIcon = document.getElementById('usericon');
 const computerIcon = document.getElementById('computericon');
 let isGameOver = false;
 
-// UI: Changes Player Icon to Random Star Wars Character
-// Icon Source: http://starwarsglyphicons.com/
+// UI: Changes Player Icon to Random Star Wars Character - Based on Font Awesome
+// Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
+// Star Wars, movie titles and etc.is a registered trademark of Lucasfilm Ltd.
+
 function changePlayerIcon() {
   const randNum = Math.floor(Math.random() * CHARACTERS.length);
   playerChar = CHARACTERS[randNum];
@@ -115,6 +117,9 @@ function changePlayerIcon() {
 }
 
 // UI: Changes Computer Icon to Random Star Wars Character
+// Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
+// Star Wars, movie titles and etc. is a registered trademark of Lucasfilm Ltd.
+
 function changeComputerIcon() {
   const randNum = Math.floor(Math.random() * COMPUTERCHARACTERS.length);
   computerChar = COMPUTERCHARACTERS[randNum];
