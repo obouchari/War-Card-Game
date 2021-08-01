@@ -20,6 +20,12 @@ body {
   margin-top: 1%;
 }
 
+#card-preload {
+  visibility: hidden;
+  position: absolute;
+  left: -999em;
+}
+
 #toptext {
   color: rgb(240, 133, 133);
 }

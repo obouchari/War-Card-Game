@@ -554,6 +554,8 @@ function war() {
   if (computerCard1) {
     warCards.unshift(computerCard1);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
@@ -561,6 +563,8 @@ function war() {
   if (computerCard2) {
     warCards.unshift(computerCard2);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
@@ -568,6 +572,8 @@ function war() {
   if (computerCard3) {
     warCards.unshift(computerCard3);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
@@ -575,6 +581,8 @@ function war() {
   if (playerCard1) {
     warCards.unshift(playerCard1);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
@@ -582,6 +590,8 @@ function war() {
   if (playerCard2) {
     warCards.unshift(playerCard2);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
@@ -589,6 +599,8 @@ function war() {
   if (playerCard3) {
     warCards.unshift(playerCard3);
   } else {
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     evalGameResults();
     return;
   }
