@@ -5,13 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../public/starwars-glyphicons/css/starwars-glyphicons.css';
 import '../public/font/font.css';
 import './game.css';
-function range(start, stop, step = 1) {
-  return Array(Math.ceil((stop - start) / step))
-    .fill(start)
-    .map((x, y) => x + y * step);
-}
 
+// Game: Faces/Suits for Cards
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+
+// Game: Values for Cards
 const values = [
   '2 Two',
   '3 Three',
@@ -27,6 +25,8 @@ const values = [
   '13 King',
   '14 Ace',
 ];
+
+// Array of Star Wars Characters
 const CHARACTERS = [
   'Yoda',
   'Luke Skywalker',
@@ -39,6 +39,8 @@ const CHARACTERS = [
   'C3PO',
   'Mace Windu',
 ];
+
+// Array of Star Wars Villains
 const COMPUTERCHARACTERS = [
   'Darth Vader',
   'Storm Trooper',
@@ -49,6 +51,7 @@ const COMPUTERCHARACTERS = [
   'Boba Fett',
 ];
 
+// Game Variables
 let playerCards, computerCards;
 const playerNewCards = [];
 const computerNewCards = [];
@@ -58,7 +61,9 @@ let timeLeft;
 let time;
 let playerChar;
 let computerChar;
+let isGameOver = false;
 
+// UI Variables
 const topCard = document.getElementById('topcard');
 const bottomCard = document.getElementById('bottomcard');
 const topText = document.getElementById('toptext');
@@ -74,12 +79,10 @@ const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
 const userIcon = document.getElementById('usericon');
 const computerIcon = document.getElementById('computericon');
-let isGameOver = false;
 
-// UI: Changes Player Icon to Random Star Wars Character - Based on Font Awesome
+// Game and UI: Changes playerChar and Player Icon to Random Star Wars Character - Based on Font Awesome
 // Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
 // Star Wars, movie titles and etc.is a registered trademark of Lucasfilm Ltd.
-
 function changePlayerIcon() {
   const randNum = Math.floor(Math.random() * CHARACTERS.length);
   playerChar = CHARACTERS[randNum];
@@ -116,10 +119,9 @@ function changePlayerIcon() {
   }
 }
 
-// UI: Changes Computer Icon to Random Star Wars Character
+// Game and UI: Changes computerChar and Computer Icon to Random Star Wars Villain - Based on Font Awesome
 // Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
 // Star Wars, movie titles and etc. is a registered trademark of Lucasfilm Ltd.
-
 function changeComputerIcon() {
   const randNum = Math.floor(Math.random() * COMPUTERCHARACTERS.length);
   computerChar = COMPUTERCHARACTERS[randNum];
@@ -383,7 +385,7 @@ class Deck {
   }
 }
 
-// startGame() - Initializes Game and Deals Half of Deck to Player and Computer
+// Game: Initializes Game and Deals Half of Deck to Player and Computer
 function startGame() {
   changePlayerIcon();
   changeComputerIcon();
@@ -491,7 +493,7 @@ function drawComputerCard() {
   } else return;
 }
 
-// Evaluates Results based on who has the most cards - if game is tied; begins 2 minute overtime
+// Game: Evaluates Results based on who has the most cards - if game is tied; begins 2 minute overtime
 function evalGameResults() {
   let msg;
   if (
@@ -589,6 +591,7 @@ function war() {
   evalWar(computerCard3, playerCard3);
 }
 
+// Game - Evaluates Cards in War and Declares Winner of War
 function evalWar(computerCard3, playerCard3) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
@@ -663,7 +666,7 @@ function addWarCardsToComputer() {
   });
 }
 
-// Game and UI: Starts Timer based on Distance (in milliseconds)
+// Game and UI: Starts Timer based on distance variable (measured in milliseconds)
 function runTimer() {
   time = setInterval(() => {
     distance = distance - 1000;
@@ -688,6 +691,7 @@ function runTimer() {
   }, 1000);
 }
 
+// Game: Resets Game
 function resetGame() {
   playerCards = undefined;
   playerNewCards.length = 0;
@@ -706,6 +710,7 @@ function resetGame() {
   resetBtn.style.display = 'none';
 }
 
+// Game: Resets Timer to Four Minutes
 function resetTime() {
   distance = 240000;
   timer.innerText = '4m 0s';
