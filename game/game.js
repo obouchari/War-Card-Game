@@ -116,23 +116,9 @@ function preWarTopCards(computerCard) {
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-    quickFade(topCard);
+    slowFade(topCard);
   }, 1500);
 }
-
-// function moveBottomCard(){
-//   bottomCard.style.marginRight = '80%';
-//   move('#bottomcard')
-//   .set('margin-left', '160%')
-//   .end();
-// }
-
-// function moveTopCard(){
-//   topCard.style.marginLeft = '80%';
-//   move('#topcard')
-//   .set('margin-right', '160%')
-//   .end();
-// }
 
 // UI: Updates Bottom Cards at Start of War
 function preWarBottomCards(playerCard) {
@@ -159,7 +145,7 @@ function preWarBottomCards(playerCard) {
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-    quickFade(bottomCard);
+    slowFade(bottomCard);
   }, 1500);
 }
 
