@@ -452,6 +452,12 @@ function evaluateRoundWinner(playerCard, computerCard) {
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    if (
+      playerCards + playerNewCards <= 0 ||
+      computerCards + computerNewCards <= 0
+    ) {
+      evalGameResults;
+    }
   } else if (computerCardNum > playerCardNum) {
     const msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS ROUND!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
     updateCenterSpan(msg);
@@ -459,6 +465,12 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    if (
+      playerCards + playerNewCards <= 0 ||
+      computerCards + computerNewCards <= 0
+    ) {
+      evalGameResults;
+    }
   } else {
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
@@ -637,6 +649,12 @@ function evalWar(computerCard3, playerCard3) {
     addWarCardsToPlayer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    if (
+      playerCards + playerNewCards <= 0 ||
+      computerCards + computerNewCards <= 0
+    ) {
+      evalGameResults;
+    }
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;
@@ -649,6 +667,12 @@ function evalWar(computerCard3, playerCard3) {
     addWarCardsToComputer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    if (
+      playerCards + playerNewCards <= 0 ||
+      computerCards + computerNewCards <= 0
+    ) {
+      evalGameResults;
+    }
     warCards.length = 0;
     gamebtn.style.display = 'block';
     gameBtn.disabled = false;

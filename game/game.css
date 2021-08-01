@@ -25,6 +25,9 @@ body {
   position: absolute;
   left: -999em;
 }
+#card-preload img {
+  width: 1px;
+}
 
 #toptext {
   color: rgb(240, 133, 133);
