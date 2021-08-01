@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../public/starwars-glyphicons/css/starwars-glyphicons.css';
 import '../public/font/font.css';
 import './game.css';
+import { bottom } from '@popperjs/core';
 
 // Game: Faces/Suits for Cards
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
@@ -173,7 +174,7 @@ function changeTopCard(computerCard) {
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  // moveTopCard();
+  slideLeft(topCard);
 }
 
 // UI: Updates Player Card during Round
@@ -199,6 +200,7 @@ function changeBottomCard(playerCard) {
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
 
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
+  slideRight(bottomCard);
 }
 
 // UI: Updates Top Cards at Start of War
@@ -353,7 +355,41 @@ function quickFade(element) {
   }, 20);
 }
 
-function getCardNumber(card) {}
+function slideRight(card) {
+  card.style.position = 'absolute';
+  card.style.left = '-900px';
+  let interval = setInterval(() => slideRightMvt(card, interval), 12);
+}
+
+function slideRightMvt(card, interval) {
+  let xPos = card.offsetLeft;
+  if (xPos < 10) {
+    card.style.left = `${xPos + 100}px`;
+  } else {
+    card.style.position = 'relative';
+    card.style.top = 'unset';
+    card.style.left = 'unset';
+    clearInterval(interval);
+  }
+}
+
+function slideLeft(card) {
+  card.style.position = 'absolute';
+  card.style.left = '900px';
+  let interval = setInterval(() => slideLeftMvt(card, interval), 12);
+}
+
+function slideLeftMvt(card, interval) {
+  let xPos = card.offsetLeft;
+  if (xPos > 10) {
+    card.style.left = `${xPos - 100}px`;
+  } else {
+    card.style.position = 'relative';
+    card.style.top = 'unset';
+    card.style.left = 'unset';
+    clearInterval(interval);
+  }
+}
 
 // Game: Creates Deck of Cards
 class Deck {

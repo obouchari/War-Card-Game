@@ -24,7 +24,9 @@ body {
   visibility: hidden;
   position: absolute;
   left: -999em;
+  top: -999em;
 }
+
 #card-preload img {
   width: 1px;
 }
@@ -76,7 +78,7 @@ nav {
   max-width: 160px;
 }
 
-.deck-card {
+.cardarea {
   min-height: 231px;
 }
 
@@ -152,7 +154,7 @@ svg {
   .card {
     max-width: 130px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 187px;
   }
   .playericon {
@@ -173,7 +175,7 @@ svg {
   .ptext {
     font-size: 1.1rem;
   }
-  .deck-card {
+  .cardarea {
     min-height: 173px;
   }
 }
@@ -209,7 +211,7 @@ svg {
   .card {
     max-width: 45px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 64px;
   }
   .playericon {
@@ -236,7 +238,7 @@ svg {
   .card {
     max-width: 95px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 137px;
   }
   .playericon {
@@ -250,7 +252,7 @@ svg {
   .playericon {
     font-size: 5rem;
   }
-  .deck-card {
+  .cardarea {
     min-height: 137px;
   }
 }
@@ -262,7 +264,7 @@ svg {
   .card {
     max-width: 80px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 115px;
   }
 }
@@ -274,7 +276,7 @@ svg {
   .card {
     max-width: 75px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 107px;
   }
 }
@@ -286,7 +288,7 @@ svg {
   .playericon {
     font-size: 3rem;
   }
-  .deck-card {
+  .cardarea {
     min-height: 78px;
   }
 }
@@ -301,7 +303,7 @@ svg {
   .card {
     max-width: 52px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 74px;
   }
   .playericon {
@@ -319,7 +321,7 @@ svg {
   .card {
     max-width: 50px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 71px;
   }
   .playericon {
@@ -337,7 +339,7 @@ svg {
   .card {
     max-width: 45px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 64px;
   }
   .playericon {
@@ -355,7 +357,7 @@ svg {
   .card {
     max-width: 40px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 57px;
   }
   .playericon {
@@ -390,7 +392,7 @@ svg {
   .card {
     max-width: 37px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 40px;
   }
   #center {
@@ -405,7 +407,7 @@ svg {
   .card {
     max-width: 45px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 64px;
   }
   .playericon {
@@ -427,7 +429,7 @@ svg {
   .card {
     max-width: 40px;
   }
-  .deck-card {
+  .cardarea {
     min-height: 57px;
   }
   .playericon {
