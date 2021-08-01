@@ -68,7 +68,7 @@ nav {
 }
 
 .deck-card {
-  min-height: 220px;
+  min-height: 231px;
 }
 
 .playericon {
@@ -91,7 +91,8 @@ nav {
   transform: translateY(-5%);
 }
 
-#gamebtn {
+#gamebtn,
+#resetbtn {
   font-family: inherit;
   font-size: 0.9rem;
   margin-top: 2rem;
@@ -143,7 +144,7 @@ svg {
     max-width: 130px;
   }
   .deck-card {
-    min-height: 180px;
+    min-height: 187px;
   }
   .playericon {
     font-size: 2.7rem;
@@ -164,7 +165,7 @@ svg {
     font-size: 1.1rem;
   }
   .deck-card {
-    min-height: 170px;
+    min-height: 173px;
   }
 }
 
@@ -200,7 +201,7 @@ svg {
     max-width: 45px;
   }
   .deck-card {
-    min-height: 50px;
+    min-height: 64px;
   }
   .playericon {
     font-size: 2rem;
@@ -211,8 +212,13 @@ svg {
   .ptext {
     font-size: 1rem;
   }
-  #gamebtn {
+  #gamebtn,
+  #resetbtn {
     width: 120px;
+    height: 35px;
+  }
+  .loadingwheel {
+    width: 35px;
     height: 35px;
   }
 }
@@ -222,7 +228,7 @@ svg {
     max-width: 95px;
   }
   .deck-card {
-    min-height: 125px;
+    min-height: 137px;
   }
   .playericon {
     font-size: 6rem;
@@ -236,7 +242,7 @@ svg {
     font-size: 5rem;
   }
   .deck-card {
-    min-height: 120px;
+    min-height: 137px;
   }
 }
 
@@ -248,7 +254,7 @@ svg {
     max-width: 80px;
   }
   .deck-card {
-    min-height: 110px;
+    min-height: 115px;
   }
 }
 
@@ -260,7 +266,7 @@ svg {
     max-width: 75px;
   }
   .deck-card {
-    min-height: 100px;
+    min-height: 107px;
   }
 }
 
@@ -272,7 +278,7 @@ svg {
     font-size: 3rem;
   }
   .deck-card {
-    min-height: 75px;
+    min-height: 78px;
   }
 }
 
@@ -287,7 +293,7 @@ svg {
     max-width: 52px;
   }
   .deck-card {
-    min-height: 67px;
+    min-height: 74px;
   }
   .playericon {
     font-size: 1.8rem;
@@ -305,7 +311,7 @@ svg {
     max-width: 50px;
   }
   .deck-card {
-    min-height: 65px;
+    min-height: 71px;
   }
   .playericon {
     font-size: 1.6rem;
@@ -323,7 +329,7 @@ svg {
     max-width: 45px;
   }
   .deck-card {
-    min-height: 60px;
+    min-height: 64px;
   }
   .playericon {
     display: none;
@@ -341,7 +347,7 @@ svg {
     max-width: 40px;
   }
   .deck-card {
-    min-height: 50px;
+    min-height: 57px;
   }
   .playericon {
     font-size: 0.8rem;
@@ -359,12 +365,6 @@ svg {
 }
 
 @media (max-height: 500px) {
-  .card {
-    max-width: 40px;
-  }
-  .deck-card {
-    min-height: 45px;
-  }
   .playericon {
     display: none;
   }
@@ -397,7 +397,7 @@ svg {
     max-width: 45px;
   }
   .deck-card {
-    min-height: 55px;
+    min-height: 64px;
   }
   .playericon {
     font-size: 2.5rem;
@@ -419,7 +419,7 @@ svg {
     max-width: 40px;
   }
   .deck-card {
-    min-height: 45px;
+    min-height: 57px;
   }
   .playericon {
     font-size: 2rem;

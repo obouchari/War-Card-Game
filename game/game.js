@@ -502,9 +502,9 @@ function evalGameResults() {
   ) {
     centerSpan.style.color = 'white';
     if (distance <= 0) {
-      msg = `TIMES UP..... <span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
+      msg = `TIMES UP..... <span style="color: #28a745">${playerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     } else {
-      msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
+      msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -520,9 +520,9 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length
   ) {
     if (distance <= 0) {
-      msg = `TIMES UP..... <span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
+      msg = `TIMES UP..... <span style="color: #dc3545">${computerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     } else {
-      msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
+      msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -641,7 +641,7 @@ function evalWar(computerCard3, playerCard3) {
       return;
     }
     updateCenterSpan(
-      `<span style="color:#ffc107">ANOTHER WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerChar} drew ${playerCardText}</span><span style="color: white"> and </span><span style="color: rgb(240, 133, 133)">${computerChar} drew ${computerCardText}...</span><div class="loadingwheel"></div>`
+      `<span style="color:#ffc107">ANOTHER WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerChar} drew ${playerCardText}</span><span style="color: white"> and </span><span style="color: rgb(240, 133, 133)">${computerChar} drew ${computerCardText}...</span><div class="loadingwheel mt-3"></div>`
     );
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
