@@ -1,7 +1,8 @@
 body {
-  background-image: url('../png/stars2.png');
+  background-image: url('../jpg/stars.jpg');
   /* Original Source - Unsplash: https://unsplash.com/photos/OjxsirfohHU */
   background-size: contain;
+  background-position: center;
   background-repeat: repeat;
   background-color: #0d121d;
   display: flex;
@@ -15,7 +16,7 @@ body {
 }
 
 #game {
-  background-color: #0d121d;
+  background-color: rgba(13, 18, 29, 0.8);
   background-size: cover;
   width: 50%;
   margin-top: 1%;
