@@ -59,7 +59,7 @@ nav {
 }
 
 .deck-card {
-  min-height: 70px;
+  min-height: 220px;
 }
 
 .playericon {
@@ -129,6 +129,9 @@ svg {
   .card {
     max-width: 130px;
   }
+  .deck-card {
+    min-height: 180px;
+  }
   .playericon {
     font-size: 2.7rem;
   }
@@ -146,6 +149,9 @@ svg {
   }
   .ptext {
     font-size: 1.1rem;
+  }
+  .deck-card {
+    min-height: 170px;
   }
 }
 
@@ -167,6 +173,9 @@ svg {
 @media (max-width: 600px) {
   .card {
     max-width: 45px;
+  }
+  .deck-card {
+    min-height: 50px;
   }
   .playericon {
     font-size: 2rem;
@@ -190,6 +199,9 @@ svg {
   .playericon {
     font-size: 1.8rem;
   }
+  .deck-card {
+    min-height: 120px;
+  }
 }
 
 @media (max-height: 800px) {
@@ -199,11 +211,17 @@ svg {
   .playericon {
     font-size: 1.6rem;
   }
+  .deck-card {
+    min-height: 75px;
+  }
 }
 
 @media (max-height: 650px) {
   .card {
     max-width: 50px;
+  }
+  .deck-card {
+    min-height: 65px;
   }
   .playericon {
     font-size: 1.3rem;
@@ -216,6 +234,9 @@ svg {
 @media (max-height: 600px) {
   .card {
     max-width: 45px;
+  }
+  .deck-card {
+    min-height: 60px;
   }
   .playericon {
     font-size: 1rem;
@@ -235,6 +256,9 @@ svg {
   .card {
     max-width: 40px;
   }
+  .deck-card {
+    min-height: 50px;
+  }
   .playericon {
     font-size: 0.8rem;
   }
@@ -252,6 +276,9 @@ svg {
 @media (max-height: 500px) {
   .card {
     max-width: 40px;
+  }
+  .deck-card {
+    min-height: 45px;
   }
   .playericon {
     display: none;
@@ -271,6 +298,9 @@ svg {
   .card {
     max-width: 45px;
   }
+  .deck-card {
+    min-height: 55px;
+  }
   .playericon {
     font-size: 1rem;
   }
@@ -285,6 +315,9 @@ svg {
 @media (max-width: 325px) {
   .card {
     max-width: 40px;
+  }
+  .deck-card {
+    min-height: 45px;
   }
   .playericon {
     display: none;
