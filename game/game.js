@@ -35,7 +35,14 @@ const CHARACTERS = [
   'Han',
   'Chewbacca',
   'BB-8',
-  'Obi-Wan',
+  'Obi-Wan Kenobi',
+];
+const COMPUTERCHARACTERS = [
+  'Darth Vader',
+  'Storm Trooper',
+  'Emperor Palpatine',
+  'Kylo Ren',
+  'Jabba the Hutt',
 ];
 
 let playerCards, computerCards;
@@ -45,6 +52,8 @@ const warCards = [];
 let distance = 240000;
 let timeLeft;
 let time;
+let playerChar;
+let computerChar;
 
 const topCard = document.getElementById('topcard');
 const bottomCard = document.getElementById('bottomcard');
@@ -60,13 +69,14 @@ const timer = document.getElementById('timer');
 const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
 const userIcon = document.getElementById('usericon');
+const computerIcon = document.getElementById('computericon');
 let isGameOver = false;
 
 // UI: Changes Player Icon to Random Star Wars Character
 // Icon Source: http://starwarsglyphicons.com/
 function changePlayerIcon() {
   const randNum = Math.floor(Math.random() * 8);
-  const playerChar = CHARACTERS[randNum];
+  playerChar = CHARACTERS[randNum];
   switch (playerChar) {
     case 'Yoda':
       userIcon.innerHTML = '<i class="swg swg-yoda-3"></i>';
@@ -89,8 +99,31 @@ function changePlayerIcon() {
     case 'BB-8':
       userIcon.innerHTML = '<i class="swg swg-bb8-3"></i>';
       break;
-    case 'Obi-Wan':
+    case 'Obi-Wan Kenobi':
       userIcon.innerHTML = '<i class="swg swg-obiwankenobi"></i>';
+      break;
+  }
+}
+
+// UI: Changes Computer Icon to Random Star Wars Character
+function changeComputerIcon() {
+  const randNum = Math.floor(Math.random() * 5);
+  computerChar = COMPUTERCHARACTERS[randNum];
+  switch (computerChar) {
+    case 'Darth Vader':
+      computerIcon.innerHTML = '<i class="swg swg-darthvader "></i>';
+      break;
+    case 'Storm Trooper':
+      computerIcon.innerHTML = '<i class="swg swg-stormtrooper"></i>';
+      break;
+    case 'Emperor Palpatine':
+      computerIcon.innerHTML = '<i class="swg swg-emperor "></i>';
+      break;
+    case 'Kylo Ren':
+      computerIcon.innerHTML = '<i class="swg swg-kylo-2"></i>';
+      break;
+    case 'Jabba the Hutt':
+      computerIcon.innerHTML = '<i class="swg swg-jabba"></i>';
       break;
   }
 }
@@ -259,15 +292,15 @@ function warBottomCards(playerCard3) {
 
 function updateComputerCardsNum() {
   const numcards = computerCards.length + computerNewCards.length;
-  const computerText = `Computer has ${numcards} cards`;
-  topText.innerText = computerText;
+  const computerText = `${computerChar} has ${numcards} cards`;
+  topText.innerHTML = computerText;
 }
 
 // UI: Updates display of Player's Current Number of Cards
 function updatePlayerCardsNum() {
   const numcards = playerCards.length + playerNewCards.length;
-  const playerText = `Player has ${numcards} cards`;
-  bottomText.innerText = playerText;
+  const playerText = `${playerChar} has ${numcards} cards`;
+  bottomText.innerHTML = playerText;
 }
 
 // UI: Adds Slower Fade-In Using Opacity on DOM Element
@@ -333,6 +366,7 @@ class Deck {
 // startGame() - Initializes Game and Deals Half of Deck to Player and Computer
 function startGame() {
   changePlayerIcon();
+  changeComputerIcon();
   const newDeck = new Deck();
   newDeck.shuffle();
 
@@ -342,7 +376,11 @@ function startGame() {
   playerCards = newDeck.deck.slice(0, halfDeck);
   // Half of deck for Computer
   computerCards = newDeck.deck.slice(halfDeck, newDeck.numOfCards);
-
+  updatePlayerCardsNum();
+  updateComputerCardsNum();
+  updateCenterSpan(
+    `Your Character:<span style="color: rgb(133, 133, 240)"> ${playerChar}</span><br>Press Draw to Begin!`
+  );
   runTimer();
 }
 
@@ -386,14 +424,14 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerCardText = computerCard.substr(2);
   }
   if (playerCardNum > computerCardNum) {
-    const msg = `<span style="color: #28a745">PLAYER WINS ROUND!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
+    const msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS ROUND!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
     updateCenterSpan(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else if (computerCardNum > playerCardNum) {
-    const msg = `<span style="color: #dc3545">COMPUTER WINS ROUND!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
+    const msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS ROUND!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
     updateCenterSpan(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
@@ -443,10 +481,10 @@ function evalGameResults() {
     centerSpan.style.color = 'white';
     if (distance <= 0) {
       msg =
-        'TIMES UP..... <span style="color: #28a745">PLAYER WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+        'TIMES UP..... <span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
     } else {
       msg =
-        '<span style="color: #28a745">PLAYER WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+        '<span style="color: #28a745">${playerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -460,10 +498,10 @@ function evalGameResults() {
   ) {
     if (distance <= 0) {
       msg =
-        'TIMES UP..... <span style="color: #dc3545">COMPUTER WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+        'TIMES UP..... <span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
     } else {
       msg =
-        '<span style="color: #dc3545">COMPUTER WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+        '<span style="color: #dc3545">${computerChar.toUpperCase()} WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -554,7 +592,7 @@ function evalWar(computerCard3, playerCard3) {
     if (distance <= 0) {
       return;
     }
-    const msg = `<span style="color: #28a745">PLAYER WINS THE WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
+    const msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS THE WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span>`;
     updateCenterSpan(msg);
     addWarCardsToPlayer();
     updatePlayerCardsNum();
@@ -566,7 +604,7 @@ function evalWar(computerCard3, playerCard3) {
     if (distance <= 0) {
       return;
     }
-    const msg = `<span style="color: #dc3545">COMPUTER WINS THE WAR!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
+    const msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE WAR!</span><br><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white"> beats </span><span style="color: rgb(133, 133, 240)">${playerCardText}</span>`;
     updateCenterSpan(msg);
     addWarCardsToComputer();
     updatePlayerCardsNum();
@@ -579,7 +617,7 @@ function evalWar(computerCard3, playerCard3) {
       return;
     }
     updateCenterSpan(
-      `<span style="color:#ffc107">ANOTHER WAR!</span><br><span style="color: rgb(133, 133, 240)">Player drew ${playerCardText}</span><span style="color: white"> and </span><span style="color: rgb(240, 133, 133)">Computer drew ${computerCardText}...</span><div class="loadingwheel"></div>`
+      `<span style="color:#ffc107">ANOTHER WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerChar} drew ${playerCardText}</span><span style="color: white"> and </span><span style="color: rgb(240, 133, 133)">${computerChar} drew ${computerCardText}...</span><div class="loadingwheel"></div>`
     );
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
