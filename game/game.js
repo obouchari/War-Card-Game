@@ -488,8 +488,11 @@ function evalGameResults() {
     isGameOver = true;
     clearInterval(time);
     timer.innerText = 'GAME OVER';
-    gameBtn.style.display = 'none';
-    resetBtn.style.display = 'inline-block';
+    gameBtn.disabled = true;
+    setTimeout(() => {
+      gameBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }, 1000);
   } else if (
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
@@ -503,8 +506,11 @@ function evalGameResults() {
     isGameOver = true;
     clearInterval(time);
     timer.innerText = 'GAME OVER';
-    gameBtn.style.display = 'none';
-    resetBtn.style.display = 'inline-block';
+    gameBtn.disabled = true;
+    setTimeout(() => {
+      gameBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }, 1000);
   } else {
     msg = `TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>`;
     clearInterval(time);
@@ -670,9 +676,12 @@ function resetGame() {
   resetTime();
   isGameOver = false;
   startGame();
+  changePlayerIcon();
+  changeComputerIcon();
   updatePlayerCardsNum();
   updateComputerCardsNum();
   playRound();
+  gameBtn.disabled = false;
   gameBtn.style.display = 'inline-block';
   resetBtn.style.display = 'none';
 }
