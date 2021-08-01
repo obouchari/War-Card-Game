@@ -1,4 +1,8 @@
 body {
+  background-image: url('../png/stars2.png');
+  /* Original Source - Unsplash: https://unsplash.com/photos/OjxsirfohHU */
+  background-size: contain;
+  background-repeat: repeat;
   background-color: #0d121d;
   display: flex;
   flex-direction: column;
@@ -9,6 +13,12 @@ body {
   width: 100%;
   /* Center the dive vertically */
   padding: 60px 0;
+}
+
+#game {
+  background-color: #0d121d;
+  background-size: cover;
+  width: 50%;
 }
 
 #toptext {
@@ -172,9 +182,20 @@ svg {
   .playericon {
     font-size: 2rem;
   }
+  #game {
+    width: 60%;
+  }
 }
 
+@media (max-width: 800px) {
+  #game {
+    width: 70%;
+  }
+}
 @media (max-width: 600px) {
+  #game {
+    width: 80%;
+  }
   .card {
     max-width: 45px;
   }
@@ -362,6 +383,9 @@ svg {
   #app {
     transform: translateY(-5%);
   }
+  #game {
+    width: 90%;
+  }
 }
 
 @media (max-width: 325px) {
@@ -388,5 +412,8 @@ svg {
   }
   #bottom {
     transform: translateY(-25%);
+  }
+  #game {
+    width: 95%;
   }
 }
