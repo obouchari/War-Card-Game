@@ -11,14 +11,13 @@ body {
 
 #app {
   width: 100%;
-  /* Center the dive vertically */
-  padding: 60px 0;
 }
 
 #game {
   background-color: #0d121d;
   background-size: cover;
   width: 50%;
+  margin-top: 4%;
 }
 
 #toptext {
@@ -195,6 +194,7 @@ svg {
 @media (max-width: 600px) {
   #game {
     width: 80%;
+    margin-top: 0%;
   }
   .card {
     max-width: 45px;
@@ -217,6 +217,17 @@ svg {
   }
 }
 
+@media (max-height: 1200px) {
+  .card {
+    max-width: 95px;
+  }
+  .deck-card {
+    max-height: 125px;
+  }
+  #game {
+    margin-top: 1%;
+  }
+}
 @media (max-height: 1000px) {
   .card {
     max-width: 90px;
@@ -226,6 +237,9 @@ svg {
   }
   .deck-card {
     min-height: 120px;
+  }
+  #game {
+    margin-top: 1%;
   }
 }
 
@@ -251,9 +265,6 @@ svg {
   .playericon {
     font-size: 1.4rem;
   }
-  #app {
-    transform: translateY(-3%);
-  }
   #center {
     transform: translateY(-4%);
   }
@@ -271,9 +282,6 @@ svg {
   }
   .playericon {
     font-size: 1.3rem;
-  }
-  #app {
-    transform: translateY(-5%);
   }
   #center {
     transform: translateY(-5%);
@@ -293,9 +301,6 @@ svg {
   .playericon {
     font-size: 1rem;
   }
-  #app {
-    transform: translateY(-7%);
-  }
   #center {
     transform: translateY(-8%);
   }
@@ -314,14 +319,15 @@ svg {
   .playericon {
     font-size: 0.8rem;
   }
-  #app {
-    transform: translateY(-9%);
-  }
+
   #center {
     transform: translateY(-10%);
   }
   #bottom {
     transform: translateY(-32%);
+  }
+  #game {
+    margin-top: 0;
   }
 }
 
@@ -335,9 +341,7 @@ svg {
   .playericon {
     display: none;
   }
-  #app {
-    transform: translateY(-10%);
-  }
+
   #center {
     transform: translateY(-12%);
   }
@@ -352,9 +356,6 @@ svg {
   }
   .deck-card {
     min-height: 40px;
-  }
-  #app {
-    transform: translateY(-10%);
   }
   #center {
     transform: translateY(-12%);
@@ -380,9 +381,7 @@ svg {
   .ptext {
     font-size: 0.9rem;
   }
-  #app {
-    transform: translateY(-5%);
-  }
+
   #game {
     width: 90%;
   }
@@ -404,9 +403,7 @@ svg {
   .ptext {
     font-size: 0.8rem;
   }
-  #app {
-    transform: translateY(-7%);
-  }
+
   #center {
     transform: translateY(-10%);
   }
