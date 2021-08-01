@@ -174,7 +174,7 @@ function changeTopCard(computerCard) {
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  slideLeft(topCard);
+  quickFade(topCard);
 }
 
 // UI: Updates Player Card during Round
@@ -196,11 +196,10 @@ function changeBottomCard(playerCard) {
         break;
     }
   }
-
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
 
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  slideRight(bottomCard);
+  quickFade(bottomCard);
 }
 
 // UI: Updates Top Cards at Start of War
@@ -355,45 +354,47 @@ function quickFade(element) {
   }, 20);
 }
 
-function slideRight(card) {
-  card.style.position = 'absolute';
-  card.style.left = '-800px';
-  document.body.style.overflow = 'hidden';
-  let interval = setInterval(() => slideRightMvt(card, interval), 12);
-}
+// function slideRight(card) {
+//   card.style.position = 'absolute';
+//   card.style.left = '-900px';
+//   document.body.style.overflow = 'hidden';
+//   let interval = setInterval(() => slideRightMvt(card, interval), 12);
+// }
 
-function slideRightMvt(card, interval) {
-  let xPos = card.offsetLeft;
-  if (xPos < 10) {
-    card.style.left = `${xPos + 50}px`;
-  } else {
-    card.style.position = 'relative';
-    card.style.top = 'unset';
-    card.style.left = 'unset';
-    document.body.style.overflow = 'auto';
-    clearInterval(interval);
-  }
-}
+// function slideRightMvt(card, interval) {
+//   let xPos = card.offsetLeft;
+//   let width = window.innerWidth / 2;
+//   if (xPos <= width) {
+//     card.style.left = `${xPos + 25}px`;
+//   } else {
+//     card.style.position = 'relative';
+//     card.style.top = 'unset';
+//     card.style.left = 'unset';
+//     document.body.style.overflow = 'auto';
+//     clearInterval(interval);
+//   }
+// }
 
-function slideLeft(card) {
-  card.style.position = 'absolute';
-  card.style.left = '800px';
-  document.body.style.overflow = 'hidden';
-  let interval = setInterval(() => slideLeftMvt(card, interval), 12);
-}
+// function slideLeft(card) {
+//   card.style.position = 'absolute';
+//   card.style.left = '900px';
+//   document.body.style.overflow = 'hidden';
+//   let interval = setInterval(() => slideLeftMvt(card, interval), 12);
+// }
 
-function slideLeftMvt(card, interval) {
-  let xPos = card.offsetLeft;
-  if (xPos > 10) {
-    card.style.left = `${xPos - 50}px`;
-  } else {
-    card.style.position = 'relative';
-    card.style.top = 'unset';
-    card.style.left = 'unset';
-    document.body.style.overflowY = 'auto';
-    clearInterval(interval);
-  }
-}
+// function slideLeftMvt(card, interval) {
+//   let xPos = card.offsetLeft;
+//   let width = window.innerWidth / 2;
+//   if (xPos <= width) {
+//     card.style.left = `${xPos + 10}px`;
+//   } else {
+//     card.style.position = 'relative';
+//     card.style.top = 'unset';
+//     card.style.left = 'unset';
+//     document.body.style.overflowY = 'auto';
+//     clearInterval(interval);
+//   }
+// }
 
 // Game: Creates Deck of Cards
 class Deck {

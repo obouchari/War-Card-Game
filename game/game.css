@@ -399,6 +399,12 @@ svg {
   #bottom {
     transform: translateY(-54%);
   }
+  #centertext {
+    font-size: 0.9rem;
+  }
+  .ptext {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -410,12 +416,6 @@ svg {
   }
   .playericon {
     font-size: 2.5rem;
-  }
-  #centertext {
-    font-size: 0.9rem;
-  }
-  .ptext {
-    font-size: 0.9rem;
   }
 
   #game {
