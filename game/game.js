@@ -29,10 +29,10 @@ const values = [
 ];
 const CHARACTERS = [
   'Yoda',
-  'Luke',
-  'Leia',
+  'Luke Skywalker',
+  'Princess Leia',
   'R2D2',
-  'Han',
+  'Han Solo',
   'Chewbacca',
   'BB-8',
   'Obi-Wan Kenobi',
@@ -85,16 +85,16 @@ function changePlayerIcon() {
     case 'Yoda':
       userIcon.innerHTML = '<i class="swg swg-yoda-3"></i>';
       break;
-    case 'Luke':
+    case 'Luke Skywalker':
       userIcon.innerHTML = '<i class="swg swg-lukeskywalker"></i>';
       break;
-    case 'Leia':
+    case 'Princess Leia':
       userIcon.innerHTML = '<i class="swg swg-leia"></i>';
       break;
     case 'R2D2':
       userIcon.innerHTML = '<i class="swg swg-r2d2"></i>';
       break;
-    case 'Han':
+    case 'Han Solo':
       userIcon.innerHTML = '<i class="swg swg-hansolo"></i>';
       break;
     case 'Chewbacca':
