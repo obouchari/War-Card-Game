@@ -480,11 +480,9 @@ function evalGameResults() {
   ) {
     centerSpan.style.color = 'white';
     if (distance <= 0) {
-      msg =
-        'TIMES UP..... <span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+      msg = `TIMES UP..... <span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     } else {
-      msg =
-        '<span style="color: #28a745">${playerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+      msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -497,11 +495,9 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length
   ) {
     if (distance <= 0) {
-      msg =
-        'TIMES UP..... <span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+      msg = `TIMES UP..... <span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     } else {
-      msg =
-        '<span style="color: #dc3545">${computerChar.toUpperCase()} WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>';
+      msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
     updateCenterSpan(msg);
     isGameOver = true;
@@ -510,8 +506,7 @@ function evalGameResults() {
     gameBtn.style.display = 'none';
     resetBtn.style.display = 'inline-block';
   } else {
-    msg =
-      'TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>';
+    msg = `TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>`;
     clearInterval(time);
     updateCenterSpan(msg);
     timer.innerText = '2m 0s';
