@@ -2,6 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import '../public/starwars-glyphicons/css/starwars-glyphicons.css';
 import '../public/font/font.css';
 import './game.css';
 function range(start, stop, step = 1) {
