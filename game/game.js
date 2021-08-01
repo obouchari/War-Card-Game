@@ -332,6 +332,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
   if (playerCardNum > computerCardNum) {
     const msg = `Player Wins Round!<br>${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
+    centerText.style.color = 'rgb(133, 133, 240)';
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
@@ -339,19 +340,22 @@ function evaluateRoundWinner(playerCard, computerCard) {
   } else if (computerCardNum > playerCardNum) {
     const msg = `Computer Wins Round!<br>${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
+    centerText.style.color = 'rgb(240, 133, 133)';
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
   } else {
-    const msg = `WAR!<br>${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
     updatePlayerCardsNum();
     updateComputerCardsNum();
     preWarTopCards(computerCard);
     preWarBottomCards(playerCard);
+    const msg = `WAR!<br>${playerCardText} ties with ${computerCardText}...<div class="loadingwheel"></div>`;
     changeCenterText(msg);
+    centerText.style.color = '#ffc107';
+    // Warning Color
     setTimeout(() => {
       war();
     }, 3000);
@@ -383,7 +387,8 @@ function evalGameResults() {
     computerNewCards.length + computerCards.length
   ) {
     const msg = 'Player has more cards<br>Player wins!';
-    centerText.innerHTML = msg;
+    changeCenterText(msg);
+    centerText.style.color = 'rgb(133, 133, 240)';
     isGameOver = true;
     gameBtn.disabled = true;
     clearInterval();
@@ -392,13 +397,16 @@ function evalGameResults() {
     playerNewCards.length + playerCards.length
   ) {
     const msg = 'Computer has more cards<br>Computer wins!';
-    centerText.innerHTML = msg;
+    changeCenterText(msg);
+    centerText.style.color = 'rgb(240, 133, 133)';
     isGameOver = true;
     gameBtn.disabled = true;
     clearInterval();
   } else {
     const msg = 'Score is Tied - Two Minute Overtime!';
     alert(msg);
+    changeCenterText(msg);
+    centerText.style.color = '#ffc107';
     distance = 120000;
   }
 }
@@ -466,6 +474,7 @@ function evalWar(computerCard3, playerCard3) {
   if (playerCardNum > computerCardNum) {
     const msg = `PLAYER WINS THE WAR!!!<br>${playerCardText} beats ${computerCardText}`;
     changeCenterText(msg);
+    centerText.style.color = 'rgb(133, 133, 240)';
     addWarCardsToPlayer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
@@ -475,6 +484,7 @@ function evalWar(computerCard3, playerCard3) {
   } else if (computerCardNum > playerCardNum) {
     const msg = `COMPUTER WINS THE WAR!!!<br>${computerCardText} beats ${playerCardText}`;
     changeCenterText(msg);
+    centerText.style.color = 'rgb(240, 133, 133)';
     addWarCardsToComputer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
@@ -485,6 +495,7 @@ function evalWar(computerCard3, playerCard3) {
     changeCenterText(
       `ANOTHER WAR?!?<br>Player drew ${playerCardText} and Computer drew ${computerCardText}...<div class="loadingwheel"></div>`
     );
+    centerText.style.color = '#ffc107';
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
     gameBtn.style.display = 'none';
