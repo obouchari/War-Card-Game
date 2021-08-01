@@ -26,6 +26,16 @@ const values = [
   '13 King',
   '14 Ace',
 ];
+const CHARACTERS = [
+  'Yoda',
+  'Luke',
+  'Leia',
+  'R2D2',
+  'Han',
+  'Chewbacca',
+  'BB-8',
+  'Obi-Wan',
+];
 
 let playerCards, computerCards;
 const playerNewCards = [];
@@ -48,7 +58,41 @@ const resetBtn = document.getElementById('resetbtn');
 const timer = document.getElementById('timer');
 const deckmid1 = document.getElementById('deckmid1');
 const deckmid2 = document.getElementById('deckmid2');
+const userIcon = document.getElementById('usericon');
 let isGameOver = false;
+
+// UI: Changes Player Icon to Random Star Wars Character
+// Icon Source: http://starwarsglyphicons.com/
+function changePlayerIcon() {
+  const randNum = Math.floor(Math.random() * 8);
+  const playerChar = CHARACTERS[randNum];
+  switch (playerChar) {
+    case 'Yoda':
+      userIcon.innerHTML = '<i class="swg swg-yoda-3"></i>';
+      break;
+    case 'Luke':
+      userIcon.innerHTML = '<i class="swg swg-lukeskywalker"></i>';
+      break;
+    case 'Leia':
+      userIcon.innerHTML = '<i class="swg swg-leia"></i>';
+      break;
+    case 'R2D2':
+      userIcon.innerHTML = '<i class="swg swg-r2d2"></i>';
+      break;
+    case 'Han':
+      userIcon.innerHTML = '<i class="swg swg-hansolo"></i>';
+      break;
+    case 'Chewbacca':
+      userIcon.innerHTML = '<i class="swg swg-chewbacca"></i>';
+      break;
+    case 'BB-8':
+      userIcon.innerHTML = '<i class="swg swg-bb8-3"></i>';
+      break;
+    case 'Obi-Wan':
+      userIcon.innerHTML = '<i class="swg swg-obiwankenobi"></i>';
+      break;
+  }
+}
 
 // Card Source: https://code.google.com/archive/p/vector-playing-cards/
 // UI: Updates Computer Card during Round
@@ -287,6 +331,7 @@ class Deck {
 
 // startGame() - Initializes Game and Deals Half of Deck to Player and Computer
 function startGame() {
+  changePlayerIcon();
   const newDeck = new Deck();
   newDeck.shuffle();
 
