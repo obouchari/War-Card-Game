@@ -364,7 +364,7 @@ function slideRight(card) {
 function slideRightMvt(card, interval) {
   let xPos = card.offsetLeft;
   if (xPos < 10) {
-    card.style.left = `${xPos + 100}px`;
+    card.style.left = `${xPos + 50}px`;
   } else {
     card.style.position = 'relative';
     card.style.top = 'unset';
@@ -382,7 +382,7 @@ function slideLeft(card) {
 function slideLeftMvt(card, interval) {
   let xPos = card.offsetLeft;
   if (xPos > 10) {
-    card.style.left = `${xPos - 100}px`;
+    card.style.left = `${xPos - 50}px`;
   } else {
     card.style.position = 'relative';
     card.style.top = 'unset';

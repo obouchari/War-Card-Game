@@ -54,6 +54,7 @@ body {
 #center {
   height: 40%;
   transform: translateY(9%);
+  position: relative;
 }
 
 #bottom {
@@ -79,7 +80,7 @@ nav {
 }
 
 .cardarea {
-  min-height: 231px;
+  min-height: 251px;
 }
 
 .playericon {
@@ -155,7 +156,7 @@ svg {
     max-width: 130px;
   }
   .cardarea {
-    min-height: 187px;
+    min-height: 207px;
   }
   .playericon {
     font-size: 2.7rem;
@@ -176,7 +177,7 @@ svg {
     font-size: 1.1rem;
   }
   .cardarea {
-    min-height: 173px;
+    min-height: 193px;
   }
 }
 
@@ -212,7 +213,7 @@ svg {
     max-width: 45px;
   }
   .cardarea {
-    min-height: 64px;
+    min-height: 90px;
   }
   .playericon {
     font-size: 2rem;
@@ -239,7 +240,7 @@ svg {
     max-width: 95px;
   }
   .cardarea {
-    min-height: 137px;
+    min-height: 175px;
   }
   .playericon {
     font-size: 6rem;
@@ -253,7 +254,7 @@ svg {
     font-size: 5rem;
   }
   .cardarea {
-    min-height: 137px;
+    min-height: 170px;
   }
 }
 
@@ -265,7 +266,7 @@ svg {
     max-width: 80px;
   }
   .cardarea {
-    min-height: 115px;
+    min-height: 140px;
   }
 }
 
@@ -277,7 +278,7 @@ svg {
     max-width: 75px;
   }
   .cardarea {
-    min-height: 107px;
+    min-height: 127px;
   }
 }
 
@@ -289,7 +290,7 @@ svg {
     font-size: 3rem;
   }
   .cardarea {
-    min-height: 78px;
+    min-height: 110px;
   }
 }
 
@@ -304,7 +305,7 @@ svg {
     max-width: 52px;
   }
   .cardarea {
-    min-height: 74px;
+    min-height: 100px;
   }
   .playericon {
     font-size: 1.8rem;
@@ -322,7 +323,7 @@ svg {
     max-width: 50px;
   }
   .cardarea {
-    min-height: 71px;
+    min-height: 96px;
   }
   .playericon {
     font-size: 1.6rem;
@@ -340,7 +341,7 @@ svg {
     max-width: 45px;
   }
   .cardarea {
-    min-height: 64px;
+    min-height: 92px;
   }
   .playericon {
     display: none;
@@ -358,7 +359,7 @@ svg {
     max-width: 40px;
   }
   .cardarea {
-    min-height: 57px;
+    min-height: 88px;
   }
   .playericon {
     font-size: 0.8rem;
@@ -393,7 +394,7 @@ svg {
     max-width: 37px;
   }
   .cardarea {
-    min-height: 40px;
+    min-height: 72px;
   }
   #center {
     transform: translateY(-12%);
@@ -408,7 +409,7 @@ svg {
     max-width: 45px;
   }
   .cardarea {
-    min-height: 64px;
+    min-height: 95px;
   }
   .playericon {
     font-size: 2.5rem;
@@ -430,7 +431,7 @@ svg {
     max-width: 40px;
   }
   .cardarea {
-    min-height: 57px;
+    min-height: 88px;
   }
   .playericon {
     font-size: 2rem;
