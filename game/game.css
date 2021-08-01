@@ -72,7 +72,7 @@ nav {
 }
 
 .playericon {
-  font-size: 6rem;
+  font-size: 6.5rem;
 }
 
 .ptext {
@@ -225,7 +225,7 @@ svg {
     min-height: 125px;
   }
   .playericon {
-    font-size: 5rem;
+    font-size: 6rem;
   }
 }
 @media (max-height: 1000px) {
@@ -233,10 +233,34 @@ svg {
     max-width: 90px;
   }
   .playericon {
-    font-size: 2.5rem;
+    font-size: 5rem;
   }
   .deck-card {
     min-height: 120px;
+  }
+}
+
+@media (max-height: 900px) {
+  .playericon {
+    font-size: 3.5rem;
+  }
+  .card {
+    max-width: 80px;
+  }
+  .deck-card {
+    min-height: 110px;
+  }
+}
+
+@media (max-height: 850px) {
+  .playericon {
+    font-size: 3.2rem;
+  }
+  .card {
+    max-width: 75px;
+  }
+  .deck-card {
+    min-height: 100px;
   }
 }
 
@@ -245,10 +269,16 @@ svg {
     max-width: 55px;
   }
   .playericon {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   .deck-card {
     min-height: 75px;
+  }
+}
+
+@media (max-height: 750px) {
+  .playericon {
+    font-size: 2.2rem;
   }
 }
 
@@ -370,7 +400,7 @@ svg {
     min-height: 55px;
   }
   .playericon {
-    font-size: 1rem;
+    font-size: 2.5rem;
   }
   #centertext {
     font-size: 0.9rem;
@@ -392,7 +422,7 @@ svg {
     min-height: 45px;
   }
   .playericon {
-    display: none;
+    font-size: 2rem;
   }
   #centertext {
     font-size: 0.8rem;
@@ -409,5 +439,23 @@ svg {
   }
   #game {
     width: 95%;
+  }
+}
+
+@media (max-width: 300px) {
+  .playericon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 275px) {
+  .playericon {
+    display: none;
+  }
+  #centertext {
+    font-size: 0.7rem;
+  }
+  .ptext {
+    font-size: 0.7rem;
   }
 }
