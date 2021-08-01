@@ -506,6 +506,8 @@ function evalGameResults() {
     } else {
       msg = `<span style="color: #28a745">${playerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     updateCenterSpan(msg);
     isGameOver = true;
     clearInterval(time);
@@ -524,6 +526,8 @@ function evalGameResults() {
     } else {
       msg = `<span style="color: #dc3545">${computerChar.toUpperCase()} WINS THE GAME!</span><br><span style="color: #ffc107">Press Reset to Play Again</span>`;
     }
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     updateCenterSpan(msg);
     isGameOver = true;
     clearInterval(time);
