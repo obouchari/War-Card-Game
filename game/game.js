@@ -466,6 +466,8 @@ function playRound() {
     evalGameResults();
   }
   evaluateRoundWinner(playerCard, computerCard);
+  updatePlayerCardsNum();
+  updateComputerCardsNum();
 }
 
 // Game: Evaluates Player and Computer Card and Sends Result to UI
