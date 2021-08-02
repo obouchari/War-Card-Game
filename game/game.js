@@ -503,6 +503,8 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateCenterSpan(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     glowComputer();
     if (
       playerCards + playerNewCards <= 0 ||
