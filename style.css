@@ -103,3 +103,21 @@ img {
 .socials a:hover .fab {
   color: #cfd6e2;
 }
+
+@media (max-width: 600px) {
+  video {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  video {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 300px) {
+  video {
+    max-width: 250px;
+  }
+}
