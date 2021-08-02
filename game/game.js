@@ -513,6 +513,8 @@ function evaluateRoundWinner(playerCard, computerCard) {
   } else {
     gameBtn.style.display = 'none';
     gameBtn.disabled = true;
+    playerNewCards.push(playerCard);
+    computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
     preWarTopCards(computerCard);
