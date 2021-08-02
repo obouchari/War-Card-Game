@@ -49,6 +49,31 @@ nav {
   position: absolute;
   right: 0;
   top: 0;
+  transform-origin: center;
+  transform: rotateZ(45deg);
+}
+
+.bg-cards img {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  transform-origin: bottom right;
+}
+
+.bg-cards img:nth-child(1) {
+  transform: rotateZ(-85deg);
+}
+
+.bg-cards img:nth-child(2) {
+  transform: rotateZ(-65deg);
+}
+
+.bg-cards img:nth-child(3) {
+  transform: rotateZ(-45deg);
+}
+
+.bg-cards img:nth-child(4) {
+  transform: rotateZ(-25deg);
 }
 
 @media (min-width: 992px) {
@@ -80,7 +105,7 @@ footer {
   padding-top: 50px;
 }
 
-img {
+.card img {
   border-radius: 9999px;
   display: block;
   margin-left: auto;

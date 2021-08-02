@@ -1,249 +1,144 @@
 body {
+  position: relative;
   background-color: #0d121d;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-#app {
-  width: 100%;
-  height: 100vh;
-}
-
-#top {
-  height: 30%;
-}
-
-#toptext {
-  color: rgb(231, 78, 78);
-}
-
-#bottomtext {
-  color: rgb(78, 78, 231);
-}
-
-#computer i {
-  color: rgb(231, 78, 78);
-}
-
-#player1 i {
-  color: rgb(78, 78, 231);
-}
-
-#center {
-  height: 40%;
-}
-
-#bottom {
-  height: 30%;
 }
 
 .ff-star-wars {
-  font-family: 'star-wars', Helvetica, Arial, sans-serif;
+  font-family: "star-wars", Helvetica, Arial, sans-serif;
 }
 
-.navbar-brand {
-  font-size: 2rem;
+.game-board {
+  height: 100vh;
 }
 
-nav {
-  width: 100%;
-  font-size: 1.2rem;
-  position: sticky;
+.row,
+.col-4,
+.players-cards {
+  height: 100%;
+}
+
+.players-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.players-cards.hidden {
+  opacity: 0;
+  transform: scale(5);
+}
+
+.player-info {
+  margin-bottom: 2rem;
+}
+
+.player-info span {
+  display: block;
+  text-align: center;
+  color: rgb(221, 228, 243);
+}
+
+.player-info .cards-left {
+  color: rgba(221, 228, 243, 0.7);
+}
+
+.cards img {
+  display: block;
+  height: 100%;
+}
+
+#computer .cards img,
+#player .cards img {
+  cursor: not-allowed;
+}
+
+#player .cards.focus img {
+  cursor: pointer;
+  border-radius: 0.6rem;
+  animation: glow 0.5s ease-in infinite alternate;
+}
+
+#game-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#game-table img {
+  transition: 0.3s;
+  transform-origin: center;
+}
+
+#game-table img:nth-child(1) {
+  transform: translateX(0) rotate(-25deg);
+  opacity: 1;
+}
+
+#game-table img.placed:nth-child(1) {
+  transform: translateX(-300px) rotate(-225deg);
+  opacity: 0;
+}
+
+#game-table img:nth-child(2) {
+  transform: translateX(0) rotateZ(25deg);
+  opacity: 1;
+}
+
+#game-table img.placed:nth-child(2) {
+  transform: translateX(300px) rotateZ(225deg);
+  opacity: 0;
+}
+
+#game-table img.to-left {
+  transform: translateX(-300px);
+  opacity: 0;
+}
+
+#game-table img.to-right {
+  transform: translateX(300px);
+  opacity: 0;
+}
+
+@media (min-width: 1400px) {
+  .cards {
+    height: 35%;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 0 rgb(255, 193, 7);
+  }
+  to {
+    box-shadow: 0 0 1.5rem rgb(255, 193, 7);
+  }
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
   top: 0;
-  left: 0;
+  width: 100%;
 }
 
-.playericon {
-  font-size: 4rem;
+.timer {
+  background-color: rgb(221, 228, 243);
+  padding: 5px 0;
+  width: 10rem;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  transform: translateY(0);
+  transition: .3s;
+  font-size: 2rem;
+  font-family: 'Wallpoet', cursive;
 }
 
-.ptext {
-  color: white;
-  font-size: 1.2rem;
-}
-
-#centertext {
-  font-size: 1.5rem;
-}
-
-#dealtbtn {
-  width: 110px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  margin-top: 2rem;
-}
-
-#deckmid1 {
-  display: inline-block;
-  position: relative;
-  transform: rotate(-25deg);
-}
-
-#deckmid2 {
-  display: inline-block;
-  position: relative;
-  transform: rotate(25deg);
-}
-
-svg {
-  transform: scale(85%);
-}
-
-@media (max-width: 1600px) {
-  #game {
-    transform: scale(95%) translateY(-3%);
-  }
-  .playericon {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  #game {
-    transform: scale(90%) translateY(-5%);
-  }
-  svg {
-    transform: scale(80%);
-  }
-
-  #bottom {
-    transform: translateY(-5%);
-  }
-
-  #deckmid1 {
-    transform: translateX(5%);
-    transform: rotate(-25deg);
-  }
-  #deckmid2 {
-    transform: translateX(-5%);
-    transform: rotate(25deg);
-  }
-  .playericon {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  #game {
-    transform: scale(70%) translateY(-20%);
-  }
-  svg {
-    transform: scale(70%);
-  }
-  #center {
-    transform: translateY(-8%);
-  }
-
-  #bottom {
-    transform: translateY(-12%);
-  }
-
-  #deckmid1 {
-    transform: translateX(10%);
-  }
-  #deckmid2 {
-    transform: translateX(-10%);
-  }
-  .playericon {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 450px) {
-  #game {
-    transform: scale(55%), translateY(-40%);
-  }
-  svg {
-    transform: scale(60%);
-  }
-
-  #topcard {
-    transform: translateY(-12%);
-  }
-  #bottomcard {
-    transform: translateY(12%);
-  }
-
-  #center {
-    transform: translateY(-25%);
-  }
-
-  #bottom {
-    transform: translateY(-95%);
-  }
-  #deckmid1,
-  #deckmid2 {
-    transform: rotate(0deg);
-  }
-  #deckmid1 {
-    transform: translateX(15%);
-  }
-  #deckmid2 {
-    transform: translateX(-15%);
-  }
-  #centertext {
-    transform: scale(100%) translateY(-45%);
-  }
-
-  .playericon {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 350px) {
-  #game {
-    transform: scale(50%) translateY(-50%);
-  }
-  #topcard {
-    transform: translateY(-10%);
-  }
-  #bottomcard {
-    transform: translateY(10%);
-  }
-
-  #center {
-    transform: translateY(-28%);
-  }
-
-  #bottom {
-    transform: translateY(-105%);
-  }
-  svg {
-    transform: scale(55%);
-  }
-  #deckmid1 {
-    transform: translateX(25%);
-  }
-  #deckmid2 {
-    transform: translateX(-25%);
-  }
-  #centertext {
-    transform: scale(95%) translateY(-50%);
-  }
-  .playericon {
-    display: none;
-  }
-}
-
-@media (max-width: 275px) {
-  #game {
-    transform: scale(45%) translateY(-60%);
-  }
-  svg {
-    transform: scale(50%);
-  }
-  #bottom {
-    transform: translateY(-110%);
-  }
-  #deckmid1 {
-    transform: translateX(30%);
-  }
-  #deckmid2 {
-    transform: translateX(-30%);
-  }
-  #centertext {
-    transform: scale(90%) translateY;
-  }
+.hidden {
+  transform: translateY(-60px);
 }
