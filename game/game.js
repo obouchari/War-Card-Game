@@ -503,8 +503,6 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateCenterSpan(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
-    updatePlayerCardsNum();
-    updateComputerCardsNum();
     glowComputer();
     if (
       playerCards + playerNewCards <= 0 ||
@@ -609,6 +607,8 @@ function evalGameResults() {
 
 // Game: Begins War Sequence if Round is Tied
 function war() {
+  updatePlayerCardsNum();
+  updateComputerCardsNum();
   const computerCard1 = drawComputerCard();
   if (computerCard1) {
     warCards.unshift(computerCard1);
