@@ -6,6 +6,7 @@ import '../public/starwars-glyphicons/css/starwars-glyphicons.css';
 import '../public/font/font.css';
 import './game.css';
 import { bottom } from '@popperjs/core';
+import { set } from 'lodash';
 
 // Game: Faces/Suits for Cards
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
@@ -152,7 +153,7 @@ function changeComputerIcon() {
 }
 
 // Card Source: https://code.google.com/archive/p/vector-playing-cards/
-// UI: Updates Computer Card during Round
+// UI: Updates Computer Card during Round - Slide In Animation
 function changeTopCard(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -172,12 +173,17 @@ function changeTopCard(computerCard) {
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
-
+  topCard.style.left = '-1200px';
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(topCard);
+  $('#topcard')
+    .css('right', function () {
+      console.log($(this).offset().left);
+      return $(this).offset().left;
+    })
+    .animate({ left: '0px' }, 100);
 }
 
-// UI: Updates Player Card during Round
+// UI: Updates Player Card during Round - Slide In Animation
 function changeBottomCard(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -197,12 +203,17 @@ function changeBottomCard(playerCard) {
     }
   }
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
-
+  bottomCard.style.left = '900px';
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(bottomCard);
+  $('#bottomcard')
+    .css('left', function () {
+      console.log($(this).offset().left);
+      return $(this).offset().left;
+    })
+    .animate({ left: '0px' }, 100);
 }
 
-// UI: Updates Top Cards at Start of War
+// UI: Updates Top Cards at Start of War - Slide In Animation
 function preWarTopCards(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -225,12 +236,17 @@ function preWarTopCards(computerCard) {
 
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
+    topCard.style.left = '-1200px';
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-    slowFade(topCard);
+    $('#topcard')
+      .css('right', function () {
+        return $(this).offset().left;
+      })
+      .animate({ left: '0px' }, 500);
   }, 1500);
 }
 
-// UI: Updates Bottom Cards at Start of War
+// UI: Updates Bottom Cards at Start of War - Slide In Animation
 function preWarBottomCards(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -252,8 +268,13 @@ function preWarBottomCards(playerCard) {
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
+    bottomCard.style.left = '900px';
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
-    slowFade(bottomCard);
+    $('#bottomcard')
+      .css('left', function () {
+        return $(this).offset().left;
+      })
+      .animate({ left: '0px' }, 500);
   }, 1500);
 }
 
@@ -284,7 +305,7 @@ function warTopCards(computerCard3) {
   const face = computerCard3.split('of ')[1].toLowerCase().slice(0, -1);
 
   topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(topCard);
+  slowFade(topCard);
 }
 
 // UI: Updates Bottom Cards at End of War Round
@@ -308,7 +329,7 @@ function warBottomCards(playerCard3) {
   }
   const face = playerCard3.split('of ')[1].toLowerCase().slice(0, -1);
   bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
-  quickFade(bottomCard);
+  slowFade(bottomCard);
 }
 
 // UI: Updates display of Computer's Current Number of Cards
@@ -351,50 +372,8 @@ function quickFade(element) {
     element.style.opacity = opacity;
     element.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
     opacity += opacity * 0.1;
-  }, 20);
+  }, 5);
 }
-
-// function slideRight(card) {
-//   card.style.position = 'absolute';
-//   card.style.left = '-900px';
-//   document.body.style.overflow = 'hidden';
-//   let interval = setInterval(() => slideRightMvt(card, interval), 12);
-// }
-
-// function slideRightMvt(card, interval) {
-//   let xPos = card.offsetLeft;
-//   let width = window.innerWidth / 2;
-//   if (xPos <= width) {
-//     card.style.left = `${xPos + 25}px`;
-//   } else {
-//     card.style.position = 'relative';
-//     card.style.top = 'unset';
-//     card.style.left = 'unset';
-//     document.body.style.overflow = 'auto';
-//     clearInterval(interval);
-//   }
-// }
-
-// function slideLeft(card) {
-//   card.style.position = 'absolute';
-//   card.style.left = '900px';
-//   document.body.style.overflow = 'hidden';
-//   let interval = setInterval(() => slideLeftMvt(card, interval), 12);
-// }
-
-// function slideLeftMvt(card, interval) {
-//   let xPos = card.offsetLeft;
-//   let width = window.innerWidth / 2;
-//   if (xPos <= width) {
-//     card.style.left = `${xPos + 10}px`;
-//   } else {
-//     card.style.position = 'relative';
-//     card.style.top = 'unset';
-//     card.style.left = 'unset';
-//     document.body.style.overflowY = 'auto';
-//     clearInterval(interval);
-//   }
-// }
 
 // Game: Creates Deck of Cards
 class Deck {
