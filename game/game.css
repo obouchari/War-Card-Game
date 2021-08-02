@@ -10,6 +10,16 @@ body {
   overflow: hidden;
 }
 
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 #app {
   width: 100%;
 }
@@ -148,6 +158,41 @@ svg {
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
+
+.glowcomputer {
+  animation: glow-computer 1s linear infinite;
+}
+
+@keyframes glow-computer {
+  0% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 7px rgb(240, 133, 133), 0 0 10px rgb(240, 133, 133),
+      0 0 21px rgb(240, 133, 133);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+.glowplayer {
+  animation: glow-player 1s linear infinite;
+}
+
+@keyframes glow-player {
+  0% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 7px rgb(133, 133, 240), 0 0 10px rgb(133, 133, 240),
+      0 0 21px rgb(133, 133, 240);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
 @media (max-width: 1600px) {
   .card {
     max-width: 130px;

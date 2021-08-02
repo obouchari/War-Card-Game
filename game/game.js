@@ -174,7 +174,7 @@ function changeTopCard(computerCard) {
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
   document.body.style.overflow = 'hidden';
-  topCard.style.left = '-1200px';
+  topCard.style.left = '-750px';
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   $('#topcard')
     .css('right', function () {
@@ -203,7 +203,7 @@ function changeBottomCard(playerCard) {
     }
   }
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
-  bottomCard.style.left = '900px';
+  bottomCard.style.left = '-50px';
   document.body.style.overflow = 'hidden';
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   $('#bottomcard')
@@ -235,7 +235,7 @@ function preWarTopCards(computerCard) {
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
-    topCard.style.left = '-1200px';
+    topCard.style.left = '-750px';
     topCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     $('#topcard')
       .css('right', function () {
@@ -267,7 +267,7 @@ function preWarBottomCards(playerCard) {
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
-    bottomCard.style.left = '900px';
+    bottomCard.style.left = '-50px';
     bottomCard.innerHTML = `<img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid"><img src="../png/back.png" alt="" class="card img-fluid">`;
     $('#bottomcard')
       .css('left', function () {
@@ -280,6 +280,26 @@ function preWarBottomCards(playerCard) {
 // UI: Updates Text in Center of Game Board
 function updateCenterSpan(msg) {
   centerSpan.innerHTML = msg;
+}
+
+function glowComputer() {
+  computerIcon.classList.add('glowcomputer');
+  userIcon.classList.remove('glowplayer');
+}
+
+function glowPlayer() {
+  userIcon.classList.add('glowplayer');
+  computerIcon.classList.remove('glowcomputer');
+}
+
+function glowNone() {
+  computerIcon.classList.remove('glowcomputer');
+  userIcon.classList.remove('glowplayer');
+}
+
+function glowAll() {
+  userIcon.classList.add('glowplayer');
+  computerIcon.classList.add('glowcomputer');
 }
 
 // UI: Updates Top Cards at End of War Round
@@ -471,6 +491,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
     playerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    glowPlayer();
     if (
       playerCards + playerNewCards <= 0 ||
       computerCards + computerNewCards <= 0
@@ -484,6 +505,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
     computerNewCards.push(computerCard);
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    glowComputer();
     if (
       playerCards + playerNewCards <= 0 ||
       computerCards + computerNewCards <= 0
@@ -497,6 +519,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateComputerCardsNum();
     preWarTopCards(computerCard);
     preWarBottomCards(playerCard);
+    glowAll();
     const msg = `<span style="color: #ffc107">WAR!</span><br><span style="color: rgb(133, 133, 240)">${playerCardText}</span><span style="color: white"> ties with </span><span style="color: rgb(240, 133, 133)">${computerCardText}</span><span style="color: white">...</span><div class="loadingwheel"></div>`;
     updateCenterSpan(msg);
     // Warning Color
@@ -540,6 +563,7 @@ function evalGameResults() {
     updatePlayerCardsNum();
     updateComputerCardsNum();
     updateCenterSpan(msg);
+    glowPlayer();
     isGameOver = true;
     clearInterval(time);
     timer.innerText = 'GAME OVER';
@@ -547,7 +571,8 @@ function evalGameResults() {
     setTimeout(() => {
       gameBtn.style.display = 'none';
       resetBtn.style.display = 'inline-block';
-    }, 1000);
+      quickFade(resetBtn);
+    }, 600);
   } else if (
     computerNewCards.length + computerCards.length >
     playerNewCards.length + playerCards.length
@@ -560,6 +585,7 @@ function evalGameResults() {
     updatePlayerCardsNum();
     updateComputerCardsNum();
     updateCenterSpan(msg);
+    glowComputer();
     isGameOver = true;
     clearInterval(time);
     timer.innerText = 'GAME OVER';
@@ -567,11 +593,13 @@ function evalGameResults() {
     setTimeout(() => {
       gameBtn.style.display = 'none';
       resetBtn.style.display = 'inline-block';
-    }, 1000);
+      quickFade(resetBtn);
+    }, 600);
   } else {
     msg = `TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>`;
     clearInterval(time);
     updateCenterSpan(msg);
+    glowAll();
     timer.innerText = '2m 0s';
     distance = 120000;
     runTimer();
@@ -668,6 +696,7 @@ function evalWar(computerCard3, playerCard3) {
     addWarCardsToPlayer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    glowPlayer();
     if (
       playerCards + playerNewCards <= 0 ||
       computerCards + computerNewCards <= 0
@@ -686,6 +715,7 @@ function evalWar(computerCard3, playerCard3) {
     addWarCardsToComputer();
     updatePlayerCardsNum();
     updateComputerCardsNum();
+    glowComputer();
     if (
       playerCards + playerNewCards <= 0 ||
       computerCards + computerNewCards <= 0
@@ -704,6 +734,7 @@ function evalWar(computerCard3, playerCard3) {
     );
     preWarTopCards(computerCard3);
     preWarBottomCards(playerCard3);
+    glowNone();
     gameBtn.style.display = 'none';
     setTimeout(() => {
       war();
