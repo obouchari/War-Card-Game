@@ -173,11 +173,11 @@ function changeTopCard(computerCard) {
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
+  document.body.style.overflow = 'hidden';
   topCard.style.left = '-1200px';
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   $('#topcard')
     .css('right', function () {
-      console.log($(this).offset().left);
       return $(this).offset().left;
     })
     .animate({ left: '0px' }, 100);
@@ -204,10 +204,10 @@ function changeBottomCard(playerCard) {
   }
   const face = playerCard.split('of ')[1].toLowerCase().slice(0, -1);
   bottomCard.style.left = '900px';
+  document.body.style.overflow = 'hidden';
   bottomCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   $('#bottomcard')
     .css('left', function () {
-      console.log($(this).offset().left);
       return $(this).offset().left;
     })
     .animate({ left: '0px' }, 100);
@@ -233,7 +233,6 @@ function preWarTopCards(computerCard) {
     }
   }
   const face = computerCard.split('of ')[1].toLowerCase().slice(0, -1);
-
   topCard.innerHTML = `<img src="../png/${face}_${cardNumber}.png" alt="" class="card img-fluid">`;
   setTimeout(() => {
     topCard.style.left = '-1200px';

@@ -1,14 +1,13 @@
 body {
-  background-image: url('../jpg/stars.jpg');
+  background-image: url('../png/stars.png');
   /* Original Source - Unsplash: https://unsplash.com/photos/OjxsirfohHU */
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
   background-repeat: repeat;
   background-color: #0d121d;
   display: flex;
   flex-direction: column;
   align-items: start;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #app {
