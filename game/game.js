@@ -1,17 +1,31 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import '../public/starwars-glyphicons/css/starwars-glyphicons.css';
 import '../public/font/font.css';
 import './game.css';
 import { bottom } from '@popperjs/core';
 import { set } from 'lodash';
 
+// Game Variables
+
+let playerCards, computerCards;
+const playerNewCards = [];
+const computerNewCards = [];
+const warCards = [];
+let distance = 240000;
+let timeLeft;
+let time;
+let playerChar;
+let computerChar;
+let isGameOver = false;
+
 // Game: Faces/Suits for Cards
+
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
 
 // Game: Values for Cards
+
 const values = [
   '2 Two',
   '3 Three',
@@ -29,6 +43,7 @@ const values = [
 ];
 
 // Array of Star Wars Characters
+
 const CHARACTERS = [
   'Yoda',
   'Luke Skywalker',
@@ -43,6 +58,7 @@ const CHARACTERS = [
 ];
 
 // Array of Star Wars Villains
+
 const COMPUTERCHARACTERS = [
   'Darth Vader',
   'Storm Trooper',
@@ -53,19 +69,8 @@ const COMPUTERCHARACTERS = [
   'Boba Fett',
 ];
 
-// Game Variables
-let playerCards, computerCards;
-const playerNewCards = [];
-const computerNewCards = [];
-const warCards = [];
-let distance = 240000;
-let timeLeft;
-let time;
-let playerChar;
-let computerChar;
-let isGameOver = false;
-
 // UI Variables
+
 const topCard = document.getElementById('topcard');
 const bottomCard = document.getElementById('bottomcard');
 const topText = document.getElementById('toptext');
@@ -85,6 +90,7 @@ const computerIcon = document.getElementById('computericon');
 // Game and UI: Changes playerChar and Player Icon to Random Star Wars Character - Based on Font Awesome
 // Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
 // Star Wars, movie titles and etc.is a registered trademark of Lucasfilm Ltd.
+
 function changePlayerIcon() {
   const randNum = Math.floor(Math.random() * CHARACTERS.length);
   playerChar = CHARACTERS[randNum];
@@ -124,6 +130,7 @@ function changePlayerIcon() {
 // Game and UI: Changes computerChar and Computer Icon to Random Star Wars Villain - Based on Font Awesome
 // Icon Source: http://starwarsglyphicons.com/ and https://github.com/maxgreb/StarWars-Glyph-Icons
 // Star Wars, movie titles and etc. is a registered trademark of Lucasfilm Ltd.
+
 function changeComputerIcon() {
   const randNum = Math.floor(Math.random() * COMPUTERCHARACTERS.length);
   computerChar = COMPUTERCHARACTERS[randNum];
@@ -154,6 +161,7 @@ function changeComputerIcon() {
 
 // Card Source: https://code.google.com/archive/p/vector-playing-cards/
 // UI: Updates Computer Card during Round - Slide In Animation
+
 function changeTopCard(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -184,6 +192,7 @@ function changeTopCard(computerCard) {
 }
 
 // UI: Updates Player Card during Round - Slide In Animation
+
 function changeBottomCard(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -214,6 +223,7 @@ function changeBottomCard(playerCard) {
 }
 
 // UI: Updates Top Cards at Start of War - Slide In Animation
+
 function preWarTopCards(computerCard) {
   let cardNumber = parseInt(computerCard);
   if (cardNumber > 10) {
@@ -246,6 +256,7 @@ function preWarTopCards(computerCard) {
 }
 
 // UI: Updates Bottom Cards at Start of War - Slide In Animation
+
 function preWarBottomCards(playerCard) {
   let cardNumber = parseInt(playerCard);
   if (cardNumber > 10) {
@@ -278,9 +289,12 @@ function preWarBottomCards(playerCard) {
 }
 
 // UI: Updates Text in Center of Game Board
+
 function updateCenterSpan(msg) {
   centerSpan.innerHTML = msg;
 }
+
+// UI: Adds Color Glow to Computer, Player, Both, and Neither Icons
 
 function glowComputer() {
   computerIcon.classList.add('glowcomputer');
@@ -303,6 +317,7 @@ function glowAll() {
 }
 
 // UI: Updates Top Cards at End of War Round
+
 function warTopCards(computerCard3) {
   let cardNumber = parseInt(computerCard3);
   if (cardNumber > 10) {
@@ -328,6 +343,7 @@ function warTopCards(computerCard3) {
 }
 
 // UI: Updates Bottom Cards at End of War Round
+
 function warBottomCards(playerCard3) {
   let cardNumber = parseInt(playerCard3);
   if (cardNumber > 10) {
@@ -360,6 +376,7 @@ function updateComputerCardsNum() {
 }
 
 // UI: Updates display of Player's Current Number of Cards
+
 function updatePlayerCardsNum() {
   const numcards = playerCards.length + playerNewCards.length;
   const playerText = `${playerChar} has ${numcards} cards`;
@@ -367,6 +384,7 @@ function updatePlayerCardsNum() {
 }
 
 // UI: Adds Slower Fade-In Using Opacity on DOM Element
+
 function slowFade(element) {
   let opacity = 0.1; // initial opacity
   element.style.display = 'block';
@@ -381,6 +399,7 @@ function slowFade(element) {
 }
 
 // UI: Adds Quicker Fade-In Using Opacity on DOM Element
+
 function quickFade(element) {
   let opacity = 0.1; // initial opacity
   element.style.display = 'block';
@@ -395,6 +414,7 @@ function quickFade(element) {
 }
 
 // Game: Creates Deck of Cards
+
 class Deck {
   constructor() {
     this.deck = [];
@@ -425,6 +445,7 @@ class Deck {
 }
 
 // Game: Initializes Game and Deals Half of Deck to Player and Computer
+
 function startGame() {
   changePlayerIcon();
   changeComputerIcon();
@@ -445,7 +466,8 @@ function startGame() {
   runTimer();
 }
 
-// Game: Starts Round
+// Game: Starts Round, Triggered by gameBtn (or resetBtn during reset)
+
 function playRound() {
   const playerCard = drawPlayerCard();
   const computerCard = drawComputerCard();
@@ -470,7 +492,8 @@ function playRound() {
   updateComputerCardsNum();
 }
 
-// Game: Evaluates Player and Computer Card and Sends Result to UI
+// Game: Evaluates Winner of Round based on Player and Computer Card Value - if values are equal, it triggers war()
+
 function evaluateRoundWinner(playerCard, computerCard) {
   const playerCardNum = parseInt(playerCard);
   const computerCardNum = parseInt(computerCard);
@@ -491,8 +514,6 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateCenterSpan(msg);
     playerNewCards.push(playerCard);
     playerNewCards.push(computerCard);
-    updatePlayerCardsNum();
-    updateComputerCardsNum();
     glowPlayer();
     if (
       playerCards + playerNewCards <= 0 ||
@@ -505,8 +526,6 @@ function evaluateRoundWinner(playerCard, computerCard) {
     updateCenterSpan(msg);
     computerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
-    updatePlayerCardsNum();
-    updateComputerCardsNum();
     glowComputer();
     if (
       playerCards + playerNewCards <= 0 ||
@@ -519,8 +538,6 @@ function evaluateRoundWinner(playerCard, computerCard) {
     gameBtn.disabled = true;
     playerNewCards.push(playerCard);
     computerNewCards.push(computerCard);
-    updatePlayerCardsNum();
-    updateComputerCardsNum();
     preWarTopCards(computerCard);
     preWarBottomCards(playerCard);
     glowAll();
@@ -534,6 +551,7 @@ function evaluateRoundWinner(playerCard, computerCard) {
 }
 
 // Game: Draws Card for Player from Player Card Deck
+
 function drawPlayerCard() {
   if (playerCards.length > 0) {
     return playerCards.shift();
@@ -543,6 +561,7 @@ function drawPlayerCard() {
 }
 
 // Game: Draws Card for Computer from Computer Card Deck
+
 function drawComputerCard() {
   if (computerCards.length > 0) {
     return computerCards.shift();
@@ -552,6 +571,7 @@ function drawComputerCard() {
 }
 
 // Game: Evaluates Results based on who has the most cards - if game is tied; begins 2 minute overtime
+
 function evalGameResults() {
   let msg;
   if (
@@ -603,6 +623,8 @@ function evalGameResults() {
     msg = `TIMES UP..... SCORE IS TIED!<br><span style="color: #28a745">OVERTIME HAS BEGUN!</span>`;
     clearInterval(time);
     updateCenterSpan(msg);
+    updatePlayerCardsNum();
+    updateComputerCardsNum();
     glowAll();
     timer.innerText = '2m 0s';
     distance = 120000;
@@ -612,6 +634,7 @@ function evalGameResults() {
 }
 
 // Game: Begins War Sequence if Round is Tied
+
 function war() {
   updatePlayerCardsNum();
   updateComputerCardsNum();
@@ -672,7 +695,8 @@ function war() {
   evalWar(computerCard3, playerCard3);
 }
 
-// Game - Evaluates Cards in War and Declares Winner of War
+// Game - Evaluates Cards in War and Declares Winner of War - if two cards are same value, it will start an additional war.
+
 function evalWar(computerCard3, playerCard3) {
   const playerCardNum = parseInt(playerCard3);
   const computerCardNum = parseInt(computerCard3);
@@ -749,13 +773,15 @@ function evalWar(computerCard3, playerCard3) {
 }
 
 // Game: Adds cards from War to Player if Player wins War
+
 function addWarCardsToPlayer() {
   warCards.forEach((card) => {
     playerNewCards.push(card);
   });
 }
 
-// Game Adds cards from War to Computer if Computer wins War
+// Game: Adds cards from War to Computer if Computer wins War
+
 function addWarCardsToComputer() {
   warCards.forEach((card) => {
     computerNewCards.push(card);
@@ -763,6 +789,7 @@ function addWarCardsToComputer() {
 }
 
 // Game and UI: Starts Timer based on distance variable (measured in milliseconds)
+
 function runTimer() {
   time = setInterval(() => {
     distance = distance - 1000;
@@ -787,7 +814,8 @@ function runTimer() {
   }, 1000);
 }
 
-// Game: Resets Game
+// Game and UI: Resets Game, Changes Characters, and Resets Timer to 4 Minutes
+
 function resetGame() {
   playerCards = undefined;
   playerNewCards.length = 0;
@@ -807,12 +835,20 @@ function resetGame() {
 }
 
 // Game: Resets Timer to Four Minutes
+
 function resetTime() {
   distance = 240000;
   timer.innerText = '4m 0s';
 }
 
 // Game: Initalizes Game on Page Load
+
 startGame();
+
+// Play Round
+
 gameBtn.addEventListener('click', playRound);
+
+// Restart Game
+
 resetBtn.addEventListener('click', resetGame);

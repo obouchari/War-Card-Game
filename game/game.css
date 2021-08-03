@@ -16,6 +16,12 @@ body {
   user-select: none;
 }
 
+/* 'star-wars' Font is ShyFonts Distant Galaxy - source: https://www.dafont.com/sf-distant-galaxy.font */
+
+.ff-star-wars {
+  font-family: 'star-wars', Helvetica, Arial, sans-serif;
+}
+
 #app {
   width: 100%;
 }
@@ -27,6 +33,7 @@ body {
   margin-top: 1%;
 }
 
+/* Moving Preloaded Cards Out of Display */
 #card-preload {
   visibility: hidden;
   position: absolute;
@@ -63,10 +70,6 @@ body {
 #bottom {
   height: 30%;
   transform: translateY(-8%);
-}
-
-.ff-star-wars {
-  font-family: 'star-wars', Helvetica, Arial, sans-serif;
 }
 
 .navbar-brand {
@@ -135,6 +138,8 @@ svg {
   transform: scale(85%);
 }
 
+/* Spin Animation for Loading Wheel during War */
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -155,6 +160,8 @@ svg {
   animation: spin 0.6s linear infinite;
 }
 
+/* Glow Animation for Computer Character */
+
 .glowcomputer {
   animation: glow-computer 1s linear infinite;
 }
@@ -171,6 +178,8 @@ svg {
     text-shadow: none;
   }
 }
+
+/* Glow Animation for Player Character */
 
 .glowplayer {
   animation: glow-player 1s linear infinite;

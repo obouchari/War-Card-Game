@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Board</title>
+    <meta property="og:title" content="Card Wars">
+    <meta property="og:image" content="../png/promo-thumbnail.png">
+    <meta property="og:description" content="Prepare yourself for Card Wars, and may the cards be with you...">
+    <title>Card Wars</title>
     <link rel="preload" as="image" href="../png/stars.png">
   </head>
 
@@ -18,7 +21,9 @@
       </div>
     </nav>
     <div id="app">
+      <!-- Game Board -->
       <div class="container-fluid pt-1 pb-5" id="game">
+        <!-- Top area for Computer -->
         <div class="row py-1 gameregion" id="top">
           <div class="d-flex flex-column align-items-center align-items-center" id="computer">
             <span class="mt-2 mb-2 playericon" id="computericon"></span>
@@ -33,6 +38,7 @@
             </div>
           </div>
         </div>
+        <!-- Center area for Game Text, Draw Button, and Reset Button -->
         <div class="row d-flex align-items-center py-1 midregion" id="center">
           <div class="text-light d-flex flex-column align-items-center py-5" id="centertext"><span
               id="centerspan">WELCOME TO CARD WARS!<br>Press Draw to Begin! </span><button
@@ -40,6 +46,7 @@
               class="btn btn-outline-success mt-3" id="resetbtn" style="cursor: pointer">Reset</button>
           </div>
         </div>
+        <!-- Bottom area for Player -->
         <div class="row py-1 gameregion" id="bottom">
           <div class="col d-flex justify-content-center">
             <div class="cardarea">
@@ -59,6 +66,7 @@
         </div>
       </div>
     </div>
+    <!-- Preloaded Game Cards -->
     <div id="card-preload"><img src="../png/club_1.png"><img src="../png/club_2.png"><img src="../png/club_3.png"><img
         src="../png/club_4.png"><img src="../png/club_5.png"><img src="../png/club_6.png"><img
         src="../png/club_7.png"><img src="../png/club_8.png"><img src="../png/club_9.png"><img
