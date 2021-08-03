@@ -46,6 +46,8 @@ Our app is live [here](https://card-wars.netlify.app/).
 
 ## Video Preview
 
+![](https://github.com/obouchari/War-Card-Game/blob/main/public/png/promo-thumbnail.png)
+
 A video preview of our app can be played here:
 
 https://card-wars.netlify.app/video/cardwars.mp4
